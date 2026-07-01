@@ -128,8 +128,12 @@ npm run cf-build
 # Preview in Cloudflare Workers runtime (workerd)
 npm run preview
 
-# Deploy to Cloudflare Workers
+# Deploy to Cloudflare Workers (single command: build + deploy)
 npm run deploy
+
+# Or split into two commands (for CI/CD like Workers Builds)
+# Build: npm run cf-build
+# Deploy: npx wrangler deploy
 ```
 
 ## Seed Data
@@ -174,12 +178,18 @@ The site is configured for Cloudflare Workers deployment via `@opennextjs/cloudf
 - Cloudflare account
 - Wrangler CLI authenticated (`npx wrangler login`)
 
-**Deploy:**
+**One-time deploy:**
 ```bash
 npm run deploy
 ```
 
 This runs `opennextjs-cloudflare build` (builds Next.js + bundles for Workers) then `opennextjs-cloudflare deploy` (deploys to Cloudflare).
+
+**Workers Builds (CI/CD) recommended split:**
+- **Build command:** `npm run cf-build`
+- **Deploy command:** `npx wrangler deploy`
+
+This avoids double-building. Cloudflare Workers Builds will run the build command first, then the deploy command in the same workspace.
 
 **Preview locally in Workers runtime:**
 ```bash
@@ -204,9 +214,18 @@ After deploying, configure a custom domain in the Cloudflare dashboard:
 ### Workers Builds (CI/CD)
 
 To use Cloudflare's built-in CI/CD:
-1. Connect your GitHub repository in the Cloudflare dashboard
-2. Set the build command to `npm run deploy`
-3. Configure any environment variables in "Build Variables and secrets"
+1. Go to Workers & Pages → Select `gd-level-tools` → Settings → Builds
+2. Click **Connect** and choose your GitHub account
+3. Select the repository `Starmadebydata/gdlevel-tools`
+4. Set the production branch to `main`
+5. Configure build settings:
+   - **Build command:** `npm run cf-build`
+   - **Deploy command:** `npx wrangler deploy`
+   - **Root directory:** `/`
+6. Configure any environment variables in "Build Variables and secrets"
+7. Save and push a test commit to trigger the first build
+
+> **Note:** Do not use `npm run deploy` as the build command. It already includes both build and deploy, which is meant for manual use. In Workers Builds, you need to split them.
 
 ## License
 
