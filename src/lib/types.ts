@@ -71,6 +71,7 @@ export type Level = {
   whoShouldPlay?: string;
   whoShouldSkip?: string;
   hardestSections?: string;
+  youtubeId?: string; // YouTube 展示视频 ID，用于详情页点击播放
   similarLevelIds: string[];
   nextLevelIds: string[];
   status: "draft" | "published";

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
+import LevelVideoPlayer from "@/components/LevelVideoPlayer";
 import {
   getPublishedLevels,
   getLevelBySlug,
@@ -139,17 +140,13 @@ export default async function LevelDetailPage({
         by <span className="font-medium text-[var(--color-text)]">{level.creatorName}</span>
       </p>
 
-      {/* 关卡缩略图 — 真实游戏画面 */}
-      <div className="gd-card mb-6 overflow-hidden p-0">
-        <div className="relative aspect-video w-full bg-[var(--color-bg-soft)]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`/images/levels/${level.slug}.jpg`}
-            alt={`${level.name} by ${level.creatorName} — gameplay thumbnail`}
-            className="h-full w-full object-cover"
-          />
-        </div>
-      </div>
+      {/* 关卡缩略图 / 视频播放器 — 点击播放 YouTube 展示视频 */}
+      <LevelVideoPlayer
+        slug={level.slug}
+        name={level.name}
+        creatorName={level.creatorName}
+        youtubeId={level.youtubeId}
+      />
 
       {/* 评分卡片 */}
       <div className="gd-card mb-6 p-5">
