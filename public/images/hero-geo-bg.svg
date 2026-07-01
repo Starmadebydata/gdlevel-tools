@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" fill="none">
+  <!-- GD 风格霓虹几何背景 — Hero 区域用 -->
+  <!-- 大型旋转方块 -->
+  <rect x="80" y="60" width="100" height="100" rx="12" stroke="#00e5ff" stroke-width="2" opacity="0.15" transform="rotate(20 130 110)"/>
+  <rect x="95" y="75" width="70" height="70" rx="8" fill="#00e5ff" opacity="0.05" transform="rotate(20 130 110)"/>
+
+  <!-- 右侧菱形组 -->
+  <g transform="translate(1050 80) rotate(45)">
+    <rect width="80" height="80" stroke="#b388ff" stroke-width="2" opacity="0.12"/>
+    <rect x="15" y="15" width="50" height="50" fill="#b388ff" opacity="0.04"/>
+  </g>
+
+  <!-- 尖刺三角形群 — GD 经典障碍 -->
+  <g opacity="0.1">
+    <path d="M300 350 L310 320 L320 350 Z" fill="#00e5ff"/>
+    <path d="M325 350 L335 315 L345 350 Z" fill="#00e5ff"/>
+    <path d="M350 350 L360 325 L370 350 Z" fill="#00e5ff"/>
+    <path d="M375 350 L385 310 L395 350 Z" fill="#00e5ff"/>
+    <path d="M400 350 L410 322 L420 350 Z" fill="#00e5ff"/>
+  </g>
+
+  <!-- 右下角尖刺 -->
+  <g opacity="0.1">
+    <path d="M800 350 L810 318 L820 350 Z" fill="#b388ff"/>
+    <path d="M825 350 L835 312 L845 350 Z" fill="#b388ff"/>
+    <path d="M850 350 L860 320 L870 350 Z" fill="#b388ff"/>
+  </g>
+
+  <!-- 浮动方块 -->
+  <rect x="500" y="50" width="40" height="40" rx="6" stroke="#ffd54f" stroke-width="2" opacity="0.12" transform="rotate(15 520 70)"/>
+  <rect x="700" y="200" width="55" height="55" rx="8" stroke="#00e5ff" stroke-width="2" opacity="0.1" transform="rotate(30 727 227)"/>
+  <rect x="200" y="250" width="35" height="35" rx="5" stroke="#b388ff" stroke-width="2" opacity="0.1" transform="rotate(45 217 267)"/>
+
+  <!-- 连接线 — 几何网络效果 -->
+  <line x1="130" y1="110" x2="520" y2="70" stroke="#00e5ff" stroke-width="1" opacity="0.06"/>
+  <line x1="520" y1="70" x2="727" y2="227" stroke="#00e5ff" stroke-width="1" opacity="0.06"/>
+  <line x1="727" y1="227" x2="1090" y2="120" stroke="#b388ff" stroke-width="1" opacity="0.06"/>
+  <line x1="217" y1="267" x2="520" y2="70" stroke="#ffd54f" stroke-width="1" opacity="0.06"/>
+
+  <!-- 小圆点 — 粒子效果 -->
+  <circle cx="400" cy="100" r="3" fill="#00e5ff" opacity="0.2"/>
+  <circle cx="600" cy="150" r="2" fill="#b388ff" opacity="0.25"/>
+  <circle cx="900" cy="200" r="3" fill="#ffd54f" opacity="0.2"/>
+  <circle cx="150" cy="300" r="2" fill="#00e5ff" opacity="0.2"/>
+  <circle cx="650" cy="300" r="2.5" fill="#b388ff" opacity="0.15"/>
+</svg>

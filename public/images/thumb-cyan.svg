@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- GD 风格关卡卡片缩略图 — 深色霓虹风格 -->
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="100%" stop-color="#161d2e"/>
+    </linearGradient>
+    <linearGradient id="glow1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00e5ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- 背景 -->
+  <rect width="400" height="300" rx="12" fill="url(#bg1)"/>
+  <!-- 顶部光晕 -->
+  <rect width="400" height="150" rx="12" fill="url(#glow1)"/>
+  <!-- 网格 -->
+  <g opacity="0.08" stroke="#00e5ff" stroke-width="1">
+    <line x1="0" y1="50" x2="400" y2="50"/>
+    <line x1="0" y1="100" x2="400" y2="100"/>
+    <line x1="0" y1="150" x2="400" y2="150"/>
+    <line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="0" y1="250" x2="400" y2="250"/>
+    <line x1="100" y1="0" x2="100" y2="300"/>
+    <line x1="200" y1="0" x2="200" y2="300"/>
+    <line x1="300" y1="0" x2="300" y2="300"/>
+  </g>
+  <!-- 中央方块 — GD 玩家方块 -->
+  <g transform="translate(200 150) rotate(15)">
+    <rect x="-30" y="-30" width="60" height="60" rx="8" fill="#00e5ff" opacity="0.15" stroke="#00e5ff" stroke-width="2"/>
+    <rect x="-20" y="-20" width="40" height="40" rx="4" fill="#00e5ff" opacity="0.3"/>
+  </g>
+  <!-- 尖刺 -->
+  <g opacity="0.3" transform="translate(0 250)">
+    <path d="M120 50 L130 20 L140 50 Z" fill="#00e5ff"/>
+    <path d="M150 50 L160 15 L170 50 Z" fill="#00e5ff"/>
+    <path d="M180 50 L190 25 L200 50 Z" fill="#00e5ff"/>
+    <path d="M210 50 L220 18 L230 50 Z" fill="#00e5ff"/>
+    <path d="M240 50 L250 22 L260 50 Z" fill="#00e5ff"/>
+  </g>
+  <!-- 顶部渐变线 -->
+  <rect x="0" y="0" width="400" height="2" rx="1" fill="#00e5ff" opacity="0.5"/>
+</svg>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import LevelCard from "@/components/LevelCard";
 import SectionHeading from "@/components/SectionHeading";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -45,11 +46,31 @@ export default function HomePage() {
         {/* 动态渐变背景 */}
         <div className="absolute inset-0 gd-bg-animated" />
 
+        {/* SVG 几何背景图层 — GD 风格方块/三角/菱形 */}
+        <Image
+          src="/images/hero-geo-bg.svg"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-60 pointer-events-none"
+        />
+
         {/* 浮动几何粒子背景 */}
         <GeoBackground count={18} />
 
         {/* 透视网格地平线 */}
         <div className="gd-grid-perspective" />
+
+        {/* GD 玩家方块 — 右侧浮动装饰 */}
+        <div className="absolute right-[8%] top-[20%] hidden lg:block gd-float pointer-events-none">
+          <Image
+            src="/images/gd-cube.svg"
+            alt=""
+            width={160}
+            height={160}
+            className="opacity-70"
+          />
+        </div>
 
         {/* 大型旋转几何装饰 */}
         <div
@@ -336,31 +357,49 @@ function ToolCard({
   const colorVar =
     color === "purple" ? "var(--color-secondary)" : color === "gold" ? "var(--color-accent)" : "var(--color-primary)";
 
+  // 根据颜色选择对应的 GD 风格缩略图
+  const thumbSrc =
+    color === "purple" ? "/images/thumb-purple.svg" : color === "gold" ? "/images/thumb-gold.svg" : "/images/thumb-cyan.svg";
+
   return (
-    <Link href={href} className="gd-card gd-card-game group block p-6 h-full">
-      {/* GD 几何缩略图区域 */}
-      <div className="mb-5 flex items-center justify-between">
-        <div
-          className="flex h-14 w-14 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-110 group-hover:rotate-6"
-          style={{ borderColor: `${colorVar}44`, background: `${colorVar}11`, boxShadow: `0 0 20px ${colorVar}11` }}
-        >
-          <ToolIcon name={icon} color={colorVar} />
-        </div>
-        {/* 右上角几何装饰 */}
-        <div
-          className="h-6 w-6 rotate-45 border-2 opacity-20 transition-all duration-500 group-hover:rotate-[135deg] group-hover:opacity-50"
-          style={{ borderColor: colorVar }}
+    <Link href={href} className="gd-card gd-card-game group block h-full overflow-hidden">
+      {/* GD 风格几何缩略图 — 顶部视觉区域 */}
+      <div className="relative h-32 overflow-hidden border-b border-[var(--color-border)]">
+        <Image
+          src={thumbSrc}
+          alt=""
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
+        {/* 缩略图上的图标浮层 */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div
+            className="flex h-12 w-12 items-center justify-center rounded-xl border backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-6"
+            style={{ borderColor: `${colorVar}66`, background: `${colorVar}22`, boxShadow: `0 0 25px ${colorVar}33` }}
+          >
+            <ToolIcon name={icon} color={colorVar} />
+          </div>
+        </div>
       </div>
 
-      <h3 className="mb-2 text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
-        {title}
-      </h3>
-      <p className="text-sm text-[var(--color-text-muted)]">{desc}</p>
+      {/* 卡片内容 */}
+      <div className="p-5">
+        <div className="mb-2 flex items-center justify-between">
+          <h3 className="text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
+            {title}
+          </h3>
+          {/* 右上角几何装饰 */}
+          <div
+            className="h-5 w-5 rotate-45 border-2 opacity-20 transition-all duration-500 group-hover:rotate-[135deg] group-hover:opacity-50"
+            style={{ borderColor: colorVar }}
+          />
+        </div>
+        <p className="text-sm text-[var(--color-text-muted)]">{desc}</p>
 
-      <div className="mt-4 flex items-center gap-1 text-sm font-medium" style={{ color: colorVar }}>
-        <span>Open</span>
-        <span className="transition-transform group-hover:translate-x-1.5">→</span>
+        <div className="mt-4 flex items-center gap-1 text-sm font-medium" style={{ color: colorVar }}>
+          <span>Open</span>
+          <span className="transition-transform group-hover:translate-x-1.5">→</span>
+        </div>
       </div>
     </Link>
   );

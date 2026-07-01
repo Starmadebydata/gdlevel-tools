@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- GD 风格关卡卡片缩略图 — 紫色恶魔风格 -->
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="100%" stop-color="#1a1030"/>
+    </linearGradient>
+    <linearGradient id="glow2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b388ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#b388ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" rx="12" fill="url(#bg2)"/>
+  <rect width="400" height="150" rx="12" fill="url(#glow2)"/>
+  <!-- 网格 -->
+  <g opacity="0.08" stroke="#b388ff" stroke-width="1">
+    <line x1="0" y1="75" x2="400" y2="75"/>
+    <line x1="0" y1="150" x2="400" y2="150"/>
+    <line x1="0" y1="225" x2="400" y2="225"/>
+    <line x1="100" y1="0" x2="100" y2="300"/>
+    <line x1="200" y1="0" x2="200" y2="300"/>
+    <line x1="300" y1="0" x2="300" y2="300"/>
+  </g>
+  <!-- 中央菱形 — 恶魔标志 -->
+  <g transform="translate(200 150) rotate(45)">
+    <rect x="-35" y="-35" width="70" height="70" rx="6" fill="#b388ff" opacity="0.12" stroke="#b388ff" stroke-width="2"/>
+    <rect x="-22" y="-22" width="44" height="44" rx="3" fill="#b388ff" opacity="0.25"/>
+  </g>
+  <!-- 尖刺群 -->
+  <g opacity="0.35" transform="translate(0 250)">
+    <path d="M100 50 L112 15 L124 50 Z" fill="#b388ff"/>
+    <path d="M135 50 L147 10 L159 50 Z" fill="#b388ff"/>
+    <path d="M170 50 L182 20 L194 50 Z" fill="#b388ff"/>
+    <path d="M205 50 L217 12 L229 50 Z" fill="#b388ff"/>
+    <path d="M240 50 L252 18 L264 50 Z" fill="#b388ff"/>
+    <path d="M275 50 L287 14 L299 50 Z" fill="#b388ff"/>
+  </g>
+  <rect x="0" y="0" width="400" height="2" rx="1" fill="#b388ff" opacity="0.5"/>
+</svg>

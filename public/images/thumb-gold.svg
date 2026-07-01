@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- GD 风格关卡卡片缩略图 — 金色奖励风格 -->
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="100%" stop-color="#1a1600"/>
+    </linearGradient>
+    <linearGradient id="glow3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd54f" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#ffd54f" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" rx="12" fill="url(#bg3)"/>
+  <rect width="400" height="150" rx="12" fill="url(#glow3)"/>
+  <!-- 网格 -->
+  <g opacity="0.08" stroke="#ffd54f" stroke-width="1">
+    <line x1="0" y1="75" x2="400" y2="75"/>
+    <line x1="0" y1="150" x2="400" y2="150"/>
+    <line x1="0" y1="225" x2="400" y2="225"/>
+    <line x1="100" y1="0" x2="100" y2="300"/>
+    <line x1="200" y1="0" x2="200" y2="300"/>
+    <line x1="300" y1="0" x2="300" y2="300"/>
+  </g>
+  <!-- 中央星形 — 奖励标志 -->
+  <g transform="translate(200 140)">
+    <path d="M0 -35 L10 -10 L35 -10 L15 5 L22 30 L0 15 L-22 30 L-15 5 L-35 -10 L-10 -10 Z"
+          fill="#ffd54f" opacity="0.2" stroke="#ffd54f" stroke-width="2" strokeLinejoin="round"/>
+  </g>
+  <!-- 浮动方块 -->
+  <rect x="80" y="80" width="30" height="30" rx="5" stroke="#ffd54f" stroke-width="2" opacity="0.15" transform="rotate(20 95 95)"/>
+  <rect x="300" y="200" width="40" height="40" rx="6" stroke="#ffd54f" stroke-width="2" opacity="0.12" transform="rotate(35 320 220)"/>
+  <!-- 尖刺 -->
+  <g opacity="0.3" transform="translate(0 250)">
+    <path d="M140 50 L150 22 L160 50 Z" fill="#ffd54f"/>
+    <path d="M175 50 L185 18 L195 50 Z" fill="#ffd54f"/>
+    <path d="M210 50 L220 25 L230 50 Z" fill="#ffd54f"/>
+    <path d="M245 50 L255 20 L265 50 Z" fill="#ffd54f"/>
+  </g>
+  <rect x="0" y="0" width="400" height="2" rx="1" fill="#ffd54f" opacity="0.5"/>
+</svg>
