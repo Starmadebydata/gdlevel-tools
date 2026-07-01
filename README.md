@@ -27,6 +27,7 @@ A fan-made Geometry Dash tools website built with Next.js, TypeScript, and Tailw
 - **Fix Guides** — Screen dark, screen tearing, can't play online levels, V-Sync issues
 - **Mods Guides** — Geode installation, FPS unlock, TPS explained
 - **Level Detail Pages** — Reviews, scores, skill tags, tips, similar levels, next steps, FAQ
+  - Each level page shows a real gameplay thumbnail at the top (from YouTube showcase videos)
 
 ### SEO
 - Per-page metadata (title, description, Open Graph, Twitter Cards)
@@ -72,7 +73,7 @@ src/
 │   ├── layout/
 │   │   ├── Header.tsx        # Navigation header (responsive)
 │   │   └── Footer.tsx        # Footer with fan site disclaimer
-│   ├── LevelCard.tsx         # Level card component
+│   ├── LevelCard.tsx         # Level card component (with real gameplay thumbnail)
 │   ├── LevelFinderClient.tsx # Level Finder (client-side filtering)
 │   ├── FirstDemonPickerClient.tsx  # First Demon Picker (interactive)
 │   ├── DemonProgressionClient.tsx  # Progression Planner (interactive)
@@ -93,7 +94,15 @@ src/
 │       └── guides.ts         # Guide data + query functions
 ```
 
-## Design System
+## Level Thumbnails
+
+Each level has a real gameplay thumbnail stored in `public/images/levels/{slug}.jpg`.
+
+- 19 of 20 thumbnails are pulled from YouTube showcase videos of the actual level (via `img.youtube.com/vi/<id>/maxresdefault.jpg`, falling back to `hqdefault.jpg`).
+- `take-off.jpg` is a generated placeholder (no suitable YouTube showcase video was found for that level).
+- Thumbnails are referenced by convention: `/images/levels/${level.slug}.jpg` — no per-level config needed.
+- To replace or update a thumbnail, simply overwrite the file in `public/images/levels/`. To add a new level's image, drop a `{slug}.jpg` in the same folder.
+
 
 The site uses a dark neon game-style theme defined in `globals.css`:
 

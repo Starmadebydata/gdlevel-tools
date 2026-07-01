@@ -20,78 +20,76 @@ export default function LevelCard({ level }: { level: Level }) {
     ? demonDifficultyColor(level.demonDifficulty)
     : "#9c27b0";
 
+  // 缩略图路径约定：/images/levels/{slug}.jpg
+  const thumbSrc = `/images/levels/${level.slug}.jpg`;
+
   return (
     <Link
       href={`/levels/${level.slug}/`}
-      className="gd-card gd-card-glow group block h-full p-5"
+      className="gd-card gd-card-glow group block h-full overflow-hidden p-0"
       style={{ ["--card-glow" as string]: `${demonColor}33` }}
     >
-      {/* 顶部：难度几何指示器 + 难度徽章 */}
-      <div className="mb-3 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          {/* GD 风格几何难度图标 — 根据难度颜色变化 */}
-          <DifficultyIcon color={demonColor} />
-          <span
-            className="gd-badge"
-            style={{ backgroundColor: `${demonColor}22`, color: demonColor, border: `1px solid ${demonColor}44` }}
-          >
-            {level.demonDifficulty ? demonDifficultyLabel(level.demonDifficulty) : difficultyLabel(level.difficulty)}
-          </span>
-        </div>
-        <span className="text-xs text-[var(--color-text-dim)] font-mono">
+      {/* 顶部：真实关卡缩略图 + 难度徽章叠加 */}
+      <div className="relative aspect-video w-full overflow-hidden bg-[var(--color-bg-soft)]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={thumbSrc}
+          alt={`${level.name} by ${level.creatorName} — gameplay thumbnail`}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        {/* 渐变遮罩，让叠加文字更清晰 */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+        {/* 难度徽章 — 左上角 */}
+        <span
+          className="absolute left-3 top-3 gd-badge backdrop-blur-sm"
+          style={{ backgroundColor: `${demonColor}cc`, color: "#fff", border: `1px solid ${demonColor}` }}
+        >
+          {level.demonDifficulty ? demonDifficultyLabel(level.demonDifficulty) : difficultyLabel(level.difficulty)}
+        </span>
+        {/* Level ID — 右上角 */}
+        <span className="absolute right-3 top-3 rounded-md bg-black/60 px-2 py-0.5 text-xs font-mono text-white/90 backdrop-blur-sm">
           ID: {level.levelId}
         </span>
+        {/* 标题 + 作者 — 底部叠加在图上 */}
+        <div className="absolute inset-x-0 bottom-0 p-4">
+          <h3 className="text-lg font-bold leading-tight text-white drop-shadow-md group-hover:text-[var(--color-primary)] transition-colors">
+            {level.name}
+          </h3>
+          <p className="text-sm text-white/80">
+            by {level.creatorName} · {lengthLabel(level.length)}
+          </p>
+        </div>
       </div>
 
-      {/* 标题 */}
-      <h3 className="mb-1 text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
-        {level.name}
-      </h3>
-      <p className="mb-3 text-sm text-[var(--color-text-muted)]">
-        by {level.creatorName} · {lengthLabel(level.length)}
-      </p>
+      {/* 卡片正文 */}
+      <div className="p-5">
+        {/* 短评 */}
+        <p className="mb-4 text-sm leading-relaxed text-[var(--color-text-muted)] line-clamp-2">
+          {level.review}
+        </p>
 
-      {/* 短评 */}
-      <p className="mb-4 text-sm leading-relaxed text-[var(--color-text-muted)] line-clamp-2">
-        {level.review}
-      </p>
+        {/* 评分 */}
+        <div className="mb-4 grid grid-cols-2 gap-x-4 gap-y-2">
+          <ScoreBar label="Mobile" score={level.mobileScore} />
+          <ScoreBar label="Beginner" score={level.beginnerScore} />
+          <ScoreBar label="Visual" score={level.visualClarityScore} />
+          <ScoreBar label="Frustration" score={6 - level.frustrationScore} invert />
+        </div>
 
-      {/* 评分 */}
-      <div className="mb-4 grid grid-cols-2 gap-x-4 gap-y-2">
-        <ScoreBar label="Mobile" score={level.mobileScore} />
-        <ScoreBar label="Beginner" score={level.beginnerScore} />
-        <ScoreBar label="Visual" score={level.visualClarityScore} />
-        <ScoreBar label="Frustration" score={6 - level.frustrationScore} invert />
-      </div>
-
-      {/* 标签 */}
-      <div className="flex flex-wrap gap-1.5">
-        {level.skillTags.slice(0, 4).map((tag) => (
-          <span
-            key={tag}
-            className="rounded-md bg-[var(--color-bg-soft)] px-2 py-0.5 text-xs text-[var(--color-text-muted)] transition-colors group-hover:text-[var(--color-text)]"
-          >
-            {skillTagLabel(tag)}
-          </span>
-        ))}
+        {/* 标签 */}
+        <div className="flex flex-wrap gap-1.5">
+          {level.skillTags.slice(0, 4).map((tag) => (
+            <span
+              key={tag}
+              className="rounded-md bg-[var(--color-bg-soft)] px-2 py-0.5 text-xs text-[var(--color-text-muted)] transition-colors group-hover:text-[var(--color-text)]"
+            >
+              {skillTagLabel(tag)}
+            </span>
+          ))}
+        </div>
       </div>
     </Link>
-  );
-}
-
-/** GD 风格难度几何图标 — 不同形状代表不同视觉层次 */
-function DifficultyIcon({ color }: { color: string }) {
-  return (
-    <div
-      className="flex h-7 w-7 items-center justify-center rounded-md transition-transform group-hover:rotate-12 group-hover:scale-110"
-      style={{ background: `${color}15`, border: `1px solid ${color}33` }}
-    >
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        {/* GD 风格方块+内部图案 */}
-        <rect x="2" y="2" width="12" height="12" rx="2" stroke={color} strokeWidth="1.5" />
-        <path d="M5 8L7 10L11 6" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </div>
   );
 }
 

@@ -139,6 +139,18 @@ export default async function LevelDetailPage({
         by <span className="font-medium text-[var(--color-text)]">{level.creatorName}</span>
       </p>
 
+      {/* 关卡缩略图 — 真实游戏画面 */}
+      <div className="gd-card mb-6 overflow-hidden p-0">
+        <div className="relative aspect-video w-full bg-[var(--color-bg-soft)]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/images/levels/${level.slug}.jpg`}
+            alt={`${level.name} by ${level.creatorName} — gameplay thumbnail`}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+
       {/* 评分卡片 */}
       <div className="gd-card mb-6 p-5">
         <h2 className="mb-4 text-sm font-bold text-[var(--color-text)]">Scores</h2>

@@ -8,7 +8,24 @@ import { useMemo } from "react";
  * 它们缓慢上浮 + 旋转，营造游戏世界的氛围
  *
  * 这是纯 CSS/SVG 实现，不需要任何图片文件
+ *
+ * 注意：React 19 要求 render 必须是纯函数，不能在 render 中调用 Math.random()。
+ * 这里用一个基于 index 的确定性伪随机（mulberry32 种子哈希），
+ * 既保证每个粒子位置/大小看起来是"随机"的，又保证同一次渲染结果稳定。
  */
+
+/** 基于 seed 的确定性伪随机数生成器（mulberry32）—— 返回 [0,1) 的数 */
+function seededRandom(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 export default function GeoBackground({
   count = 15,
   className = "",
@@ -16,7 +33,8 @@ export default function GeoBackground({
   count?: number;
   className?: string;
 }) {
-  // 用 useMemo 确保粒子位置只在组件挂载时生成一次，不会每次渲染都变
+  // 用 useMemo 确保粒子位置只在 count 变化时重新生成
+  // 用确定性伪随机，避免在 render 中调用 Math.random（React 19 纯函数要求）
   const particles = useMemo(() => {
     const colors = [
       "var(--color-primary)",
@@ -24,16 +42,18 @@ export default function GeoBackground({
       "var(--color-accent)",
     ];
     const shapes = ["cube", "spike", "diamond", "triangle"];
+    // 固定种子，保证视觉布局稳定（也可换成 prop 传入不同种子）
+    const rand = seededRandom(20260701);
 
     return Array.from({ length: count }, (_, i) => {
       const shape = shapes[i % shapes.length];
       const color = colors[i % colors.length];
-      // 随机位置、大小、动画时长、延迟
-      const left = Math.random() * 100;
-      const size = 12 + Math.random() * 28;
-      const duration = 12 + Math.random() * 18;
-      const delay = Math.random() * 15;
-      const opacity = 0.08 + Math.random() * 0.12;
+      // 用确定性伪随机生成位置、大小、动画时长、延迟
+      const left = rand() * 100;
+      const size = 12 + rand() * 28;
+      const duration = 12 + rand() * 18;
+      const delay = rand() * 15;
+      const opacity = 0.08 + rand() * 0.12;
 
       return { shape, color, left, size, duration, delay, opacity, id: i };
     });
