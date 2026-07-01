@@ -62,7 +62,7 @@ export default function ModsListPage() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {guides.map((guide) => (
           <Link key={guide.id} href={`/mods/${guide.slug}/`} className="gd-card group block p-5">
-            <span className="gd-badge mb-3" style={{ backgroundColor: "rgba(0,229,255,0.13)", color: "var(--color-primary)" }}>
+            <span className="gd-badge mb-3" style={{ backgroundColor: "color-mix(in srgb, var(--color-primary) 13%, transparent)", color: "var(--color-primary)" }}>
               Mod
             </span>
             <h3 className="mb-2 text-base font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">

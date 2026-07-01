@@ -126,7 +126,7 @@ export default async function LevelDetailPage({
         >
           {level.demonDifficulty ? demonDifficultyLabel(level.demonDifficulty) : difficultyLabel(level.difficulty)}
         </span>
-        <span className="gd-badge" style={{ backgroundColor: "rgba(136,146,176,0.13)", color: "var(--color-text-muted)" }}>
+        <span className="gd-badge" style={{ backgroundColor: "color-mix(in srgb, var(--color-text-muted) 13%, transparent)", color: "var(--color-text-muted)" }}>
           {lengthLabel(level.length)}
         </span>
         <span className="text-xs text-[var(--color-text-dim)] font-mono">Level ID: {level.levelId}</span>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { navItems, siteConfig } from "@/lib/site-config";
+import ThemeToggle from "@/components/ThemeToggle";
 
 /**
  * 顶部导航栏
@@ -42,11 +43,12 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Submit Button + Mobile Toggle */}
+        {/* Submit Button + Theme Toggle + Mobile Toggle */}
         <div className="flex items-center gap-2">
           <Link href="/submit-level/" className="gd-btn gd-btn-primary hidden sm:inline-flex !py-2 !px-4 text-xs">
             Submit Level
           </Link>
+          <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--color-border)] text-[var(--color-text)] lg:hidden"

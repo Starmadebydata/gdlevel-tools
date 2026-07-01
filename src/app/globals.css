@@ -3,10 +3,11 @@
 /* ============================================
    GD Level Tools — Game-Style Design System
    深色霓虹主题，灵感来自 Geometry Dash 的几何美学
+   支持深色/浅色/跟随系统三种主题模式
    ============================================ */
 
 @theme {
-  /* 背景色：深蓝黑 */
+  /* 背景色：深蓝黑（默认深色主题） */
   --color-bg: #0a0e1a;
   --color-bg-soft: #111726;
   --color-bg-card: #161d2e;
@@ -50,6 +51,85 @@
   /* 字体 */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* 主题相关的阴影/光晕强度 */
+  --gd-shadow-strong: rgba(0, 0, 0, 0.4);
+  --gd-grid-opacity: 0.04;
+  --gd-glow-strength: 1;
+}
+
+/* ============================================
+   浅色主题 — 覆盖深色变量
+   ============================================ */
+[data-theme="light"] {
+  --color-bg: #f5f7fa;
+  --color-bg-soft: #eef1f6;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #f0f4f8;
+
+  /* 主色：深一点的青蓝，在浅色背景上更清晰 */
+  --color-primary: #0099b8;
+  --color-primary-dim: #007a99;
+  --color-primary-glow: rgba(0, 153, 184, 0.3);
+
+  /* 副色：深紫色 */
+  --color-secondary: #7c4dff;
+  --color-secondary-dim: #651fff;
+
+  /* 强调色：深金色 */
+  --color-accent: #e6a800;
+  --color-accent-dim: #cc8800;
+
+  /* 文字 — 深色文字在浅色背景上 */
+  --color-text: #1a2332;
+  --color-text-muted: #5a6c7d;
+  --color-text-dim: #8a9bad;
+
+  /* 边框 */
+  --color-border: #d4dae3;
+  --color-border-glow: rgba(0, 153, 184, 0.15);
+
+  /* 阴影/光晕 — 浅色主题下减弱 */
+  --gd-shadow-strong: rgba(0, 0, 0, 0.12);
+  --gd-grid-opacity: 0.06;
+  --gd-glow-strength: 0.5;
+}
+
+/* ============================================
+   跟随系统 — auto 模式下根据系统偏好切换
+   ============================================ */
+[data-theme="auto"] {
+  /* 默认用深色主题变量，如果系统是浅色则覆盖 */
+}
+
+@media (prefers-color-scheme: light) {
+  [data-theme="auto"] {
+    --color-bg: #f5f7fa;
+    --color-bg-soft: #eef1f6;
+    --color-bg-card: #ffffff;
+    --color-bg-card-hover: #f0f4f8;
+
+    --color-primary: #0099b8;
+    --color-primary-dim: #007a99;
+    --color-primary-glow: rgba(0, 153, 184, 0.3);
+
+    --color-secondary: #7c4dff;
+    --color-secondary-dim: #651fff;
+
+    --color-accent: #e6a800;
+    --color-accent-dim: #cc8800;
+
+    --color-text: #1a2332;
+    --color-text-muted: #5a6c7d;
+    --color-text-dim: #8a9bad;
+
+    --color-border: #d4dae3;
+    --color-border-glow: rgba(0, 153, 184, 0.15);
+
+    --gd-shadow-strong: rgba(0, 0, 0, 0.12);
+    --gd-grid-opacity: 0.06;
+    --gd-glow-strength: 0.5;
+  }
 }
 
 /* ===== 全局基础 ===== */
@@ -73,19 +153,19 @@ body {
 .gd-bg {
   background-color: var(--color-bg);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 229, 255, 0.08), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(124, 77, 255, 0.06), transparent),
-    radial-gradient(ellipse 40% 30% at 20% 50%, rgba(255, 213, 79, 0.04), transparent);
+    radial-gradient(ellipse 80% 50% at 50% -20%, color-mix(in srgb, var(--color-primary) 8%, transparent), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 100%, color-mix(in srgb, var(--color-secondary) 6%, transparent), transparent),
+    radial-gradient(ellipse 40% 30% at 20% 50%, color-mix(in srgb, var(--color-accent) 4%, transparent), transparent);
 }
 
 /* 动态渐变背景 — 缓慢流动的霓虹光晕 */
 .gd-bg-animated {
   background-color: var(--color-bg);
   background-image:
-    radial-gradient(ellipse 60% 40% at 20% 30%, rgba(0, 229, 255, 0.12), transparent 60%),
-    radial-gradient(ellipse 50% 35% at 80% 20%, rgba(179, 136, 255, 0.10), transparent 60%),
-    radial-gradient(ellipse 45% 30% at 60% 80%, rgba(255, 213, 79, 0.06), transparent 60%),
-    radial-gradient(ellipse 40% 25% at 30% 70%, rgba(233, 30, 99, 0.05), transparent 60%);
+    radial-gradient(ellipse 60% 40% at 20% 30%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 80% 20%, color-mix(in srgb, var(--color-secondary) 10%, transparent), transparent 60%),
+    radial-gradient(ellipse 45% 30% at 60% 80%, color-mix(in srgb, var(--color-accent) 6%, transparent), transparent 60%),
+    radial-gradient(ellipse 40% 25% at 30% 70%, color-mix(in srgb, var(--color-insane) 5%, transparent), transparent 60%);
   background-size: 200% 200%;
   animation: gd-gradient-shift 15s ease-in-out infinite;
 }
@@ -99,8 +179,8 @@ body {
 /* 几何网格背景 — 带透视感 */
 .gd-grid {
   background-image:
-    linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--color-primary) var(--gd-grid-opacity) * 100%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-primary) var(--gd-grid-opacity) * 100%, transparent) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -114,8 +194,8 @@ body {
   transform: translateX(-50%) perspective(400px) rotateX(60deg);
   transform-origin: bottom center;
   background-image:
-    linear-gradient(rgba(0, 229, 255, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.15) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--color-primary) 15%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 15%, transparent) 1px, transparent 1px);
   background-size: 50px 50px;
   mask-image: linear-gradient(to top, rgba(0,0,0,1), transparent 80%);
   -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1), transparent 80%);
@@ -127,17 +207,17 @@ body {
   100% { background-position: 0 50px; }
 }
 
-/* 霓虹发光文字 */
+/* 霓虹发光文字 — 浅色主题下自动减弱 */
 .gd-glow-text {
-  text-shadow: 0 0 20px var(--color-primary-glow), 0 0 40px rgba(0, 229, 255, 0.2);
+  text-shadow: 0 0 20px var(--color-primary-glow), 0 0 40px color-mix(in srgb, var(--color-primary) 20%, transparent);
 }
 
 .gd-glow-text-purple {
-  text-shadow: 0 0 20px rgba(179, 136, 255, 0.4), 0 0 40px rgba(179, 136, 255, 0.2);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--color-secondary) 40%, transparent), 0 0 40px color-mix(in srgb, var(--color-secondary) 20%, transparent);
 }
 
 .gd-glow-text-gold {
-  text-shadow: 0 0 20px rgba(255, 213, 79, 0.4), 0 0 40px rgba(255, 213, 79, 0.2);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 40%, transparent), 0 0 40px color-mix(in srgb, var(--color-accent) 20%, transparent);
 }
 
 /* 霓虹边框卡片 — 游戏化设计 */
@@ -155,8 +235,8 @@ body {
   background: linear-gradient(135deg, var(--color-bg-card-hover), var(--color-bg-card));
   transform: translateY(-4px) scale(1.01);
   box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.4),
-    0 0 25px rgba(0, 229, 255, 0.15),
+    0 12px 40px var(--gd-shadow-strong),
+    0 0 25px color-mix(in srgb, var(--color-primary) 15%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
@@ -215,8 +295,8 @@ body {
 
 .gd-card-glow:hover {
   box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.4),
-    0 0 30px var(--card-glow, rgba(0, 229, 255, 0.2));
+    0 12px 40px var(--gd-shadow-strong),
+    0 0 30px var(--card-glow, color-mix(in srgb, var(--color-primary) 20%, transparent));
 }
 
 /* 霓虹按钮 */
@@ -237,23 +317,23 @@ body {
 
 .gd-btn-primary {
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dim));
-  color: #0a0e1a;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+  color: var(--color-bg);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
 }
 
 .gd-btn-primary:hover {
-  box-shadow: 0 0 30px rgba(0, 229, 255, 0.5);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 50%, transparent);
   transform: translateY(-1px);
 }
 
 .gd-btn-secondary {
   background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dim));
   color: #fff;
-  box-shadow: 0 0 20px rgba(179, 136, 255, 0.3);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--color-secondary) 30%, transparent);
 }
 
 .gd-btn-secondary:hover {
-  box-shadow: 0 0 30px rgba(179, 136, 255, 0.5);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--color-secondary) 50%, transparent);
   transform: translateY(-1px);
 }
 
@@ -266,17 +346,17 @@ body {
 .gd-btn-outline:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--color-primary) 15%, transparent);
 }
 
 .gd-btn-accent {
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dim));
-  color: #1a1400;
-  box-shadow: 0 0 20px rgba(255, 213, 79, 0.3);
+  color: var(--color-bg);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 30%, transparent);
 }
 
 .gd-btn-accent:hover {
-  box-shadow: 0 0 30px rgba(255, 213, 79, 0.5);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 50%, transparent);
   transform: translateY(-1px);
 }
 
@@ -502,10 +582,10 @@ body {
 /* 文字打字机效果 */
 @keyframes gd-text-glow-pulse {
   0%, 100% {
-    text-shadow: 0 0 20px var(--color-primary-glow), 0 0 40px rgba(0, 229, 255, 0.2);
+    text-shadow: 0 0 20px var(--color-primary-glow), 0 0 40px color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
   50% {
-    text-shadow: 0 0 30px var(--color-primary-glow), 0 0 60px rgba(0, 229, 255, 0.4), 0 0 80px rgba(0, 229, 255, 0.1);
+    text-shadow: 0 0 30px var(--color-primary-glow), 0 0 60px color-mix(in srgb, var(--color-primary) 40%, transparent), 0 0 80px color-mix(in srgb, var(--color-primary) 10%, transparent);
   }
 }
 
@@ -606,7 +686,7 @@ body {
 
 .gd-input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 10%, transparent);
   outline: none;
 }
 
@@ -617,10 +697,11 @@ body {
 select.gd-input {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300e5ff' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='currentColor' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   padding-right: 2rem;
+  color: var(--color-primary);
 }
 
 /* Section 标题 */

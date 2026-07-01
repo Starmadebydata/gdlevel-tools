@@ -49,7 +49,7 @@ export default function FixListPage() {
                   <path d="M13 2a4 4 0 00-5 5L2 13v3l3-1 6-6a4 4 0 005-5l-2.5 2.5L11 4l2-2z" stroke="var(--color-secondary)" strokeWidth="1.5" strokeLinejoin="round" />
                 </svg>
               </div>
-              <span className="gd-badge" style={{ backgroundColor: "rgba(179,136,255,0.13)", color: "var(--color-secondary)" }}>
+              <span className="gd-badge" style={{ backgroundColor: "color-mix(in srgb, var(--color-secondary) 13%, transparent)", color: "var(--color-secondary)" }}>
                 Fix
               </span>
             </div>
