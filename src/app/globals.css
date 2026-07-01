@@ -78,12 +78,53 @@ body {
     radial-gradient(ellipse 40% 30% at 20% 50%, rgba(255, 213, 79, 0.04), transparent);
 }
 
-/* 几何网格背景 */
+/* 动态渐变背景 — 缓慢流动的霓虹光晕 */
+.gd-bg-animated {
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 20% 30%, rgba(0, 229, 255, 0.12), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 80% 20%, rgba(179, 136, 255, 0.10), transparent 60%),
+    radial-gradient(ellipse 45% 30% at 60% 80%, rgba(255, 213, 79, 0.06), transparent 60%),
+    radial-gradient(ellipse 40% 25% at 30% 70%, rgba(233, 30, 99, 0.05), transparent 60%);
+  background-size: 200% 200%;
+  animation: gd-gradient-shift 15s ease-in-out infinite;
+}
+
+@keyframes gd-gradient-shift {
+  0%, 100% { background-position: 0% 0%; }
+  33% { background-position: 50% 30%; }
+  66% { background-position: 30% 60%; }
+}
+
+/* 几何网格背景 — 带透视感 */
 .gd-grid {
   background-image:
-    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+/* 透视网格 — 用于 Hero 区域底部地平线效果 */
+.gd-grid-perspective {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 200%;
+  height: 40%;
+  transform: translateX(-50%) perspective(400px) rotateX(60deg);
+  transform-origin: bottom center;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: linear-gradient(to top, rgba(0,0,0,1), transparent 80%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1), transparent 80%);
+  animation: gd-grid-move 8s linear infinite;
+}
+
+@keyframes gd-grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 50px; }
 }
 
 /* 霓虹发光文字 */
@@ -99,23 +140,27 @@ body {
   text-shadow: 0 0 20px rgba(255, 213, 79, 0.4), 0 0 40px rgba(255, 213, 79, 0.2);
 }
 
-/* 霓虹边框卡片 */
+/* 霓虹边框卡片 — 游戏化设计 */
 .gd-card {
-  background: var(--color-bg-card);
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-soft));
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
   overflow: hidden;
 }
 
 .gd-card:hover {
   border-color: var(--color-primary-dim);
-  background: var(--color-bg-card-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 229, 255, 0.1);
+  background: linear-gradient(135deg, var(--color-bg-card-hover), var(--color-bg-card));
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(0, 229, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
+/* 顶部渐变线 — hover 时从左到右展开 */
 .gd-card::before {
   content: "";
   position: absolute;
@@ -123,13 +168,55 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  background: linear-gradient(90deg, transparent 10%, var(--color-primary) 50%, transparent 90%);
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transform: scaleX(0.3);
+  transition: all 0.4s ease;
 }
 
 .gd-card:hover::before {
   opacity: 1;
+  transform: scaleX(1);
+}
+
+/* 右下角几何装饰 — hover 时出现 */
+.gd-card::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--color-primary);
+  opacity: 0;
+  transform: rotate(45deg) scale(0.5);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.gd-card:hover::after {
+  opacity: 0.15;
+  transform: rotate(45deg) scale(1);
+}
+
+/* 游戏化卡片 — 斜角切割边角 */
+.gd-card-game {
+  clip-path: polygon(
+    12px 0, 100% 0, 100% calc(100% - 12px),
+    calc(100% - 12px) 100%, 0 100%, 0 12px
+  );
+  border-radius: 0;
+}
+
+/* 带难度色光晕的卡片 */
+.gd-card-glow {
+  position: relative;
+}
+
+.gd-card-glow:hover {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px var(--card-glow, rgba(0, 229, 255, 0.2));
 }
 
 /* 霓虹按钮 */
@@ -273,6 +360,205 @@ body {
   border: 2px solid var(--color-primary);
   opacity: 0.1;
   pointer-events: none;
+}
+
+/* ===== GD 几何元素动画 ===== */
+@keyframes gd-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gd-rotate-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.gd-rotate-slow { animation: gd-rotate 20s linear infinite; }
+.gd-rotate-medium { animation: gd-rotate 12s linear infinite; }
+.gd-rotate-reverse-slow { animation: gd-rotate-reverse 15s linear infinite; }
+
+/* 浮动几何粒子 — 模拟 GD 游戏中的方块/三角 */
+@keyframes gd-particle-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.gd-particle {
+  position: absolute;
+  pointer-events: none;
+  animation: gd-particle-float linear infinite;
+}
+
+/* GD 风格尖刺三角形 */
+.gd-spike {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 14px solid var(--color-primary);
+  opacity: 0.3;
+}
+
+/* GD 风格方块 */
+.gd-cube {
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
+  opacity: 0.2;
+}
+
+/* 闪烁出现动画 */
+@keyframes gd-flicker-in {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 0.8; }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ===== 滚动入场动画 ===== */
+@keyframes gd-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gd-reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gd-reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gd-reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 滚动入场 — 初始隐藏状态 */
+.gd-reveal {
+  opacity: 0;
+}
+
+.gd-reveal.gd-reveal-visible {
+  animation: gd-reveal-up 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.gd-reveal-left {
+  opacity: 0;
+}
+
+.gd-reveal-left.gd-reveal-visible {
+  animation: gd-reveal-left 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.gd-reveal-right {
+  opacity: 0;
+}
+
+.gd-reveal-right.gd-reveal-visible {
+  animation: gd-reveal-right 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.gd-reveal-scale {
+  opacity: 0;
+}
+
+.gd-reveal-scale.gd-reveal-visible {
+  animation: gd-reveal-scale 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* 文字打字机效果 */
+@keyframes gd-text-glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 20px var(--color-primary-glow), 0 0 40px rgba(0, 229, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 30px var(--color-primary-glow), 0 0 60px rgba(0, 229, 255, 0.4), 0 0 80px rgba(0, 229, 255, 0.1);
+  }
+}
+
+.gd-glow-text-animated {
+  animation: gd-text-glow-pulse 3s ease-in-out infinite;
+}
+
+/* 渐变流动文字 */
+@keyframes gd-gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gd-gradient-text-animated {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-primary));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gd-gradient-flow 6s ease infinite;
+}
+
+/* 数字滚动动画 */
+@keyframes gd-count-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gd-count-up {
+  animation: gd-count-up 0.8s ease forwards;
+}
+
+/* 扫描线效果 — 用于卡片顶部 */
+@keyframes gd-scan-vertical {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.gd-scan-vertical {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  animation: gd-scan-vertical 2s ease-in-out infinite;
 }
 
 /* 滚动条 */

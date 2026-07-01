@@ -19,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="gd-bg min-h-full flex flex-col">
+      <body className="gd-bg-animated min-h-full flex flex-col">
         {/* 全局几何网格背景 */}
-        <div className="fixed inset-0 gd-grid pointer-events-none opacity-50" />
+        <div className="fixed inset-0 gd-grid pointer-events-none opacity-40" />
 
         {/* WebSite Schema */}
         <script
