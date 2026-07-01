@@ -1,0 +1,83 @@
+import type { Metadata } from "next";
+import Breadcrumb from "@/components/Breadcrumb";
+import { generateSeo, breadcrumbSchema } from "@/lib/seo";
+import { siteConfig, fanSiteDisclaimer } from "@/lib/site-config";
+
+export const metadata: Metadata = generateSeo({
+  title: "About — GD Level Tools",
+  description:
+    "GD Level Tools is an independent fan made Geometry Dash tools site. Learn about our mission, how we work, and our relationship with the Geometry Dash community.",
+  path: "/about/",
+});
+
+export default function AboutPage() {
+  const breadcrumbs = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about/" },
+  ];
+
+  return (
+    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema(
+            breadcrumbs.map((b) => ({ name: b.name, url: `${siteConfig.domain}${b.href}` }))
+          )),
+        }}
+      />
+
+      <Breadcrumb items={breadcrumbs} />
+
+      <div className="mb-2 h-1 w-12 rounded-full bg-[var(--color-primary)]" />
+      <h1 className="mb-6 text-3xl font-black text-[var(--color-text)] gd-glow-text">About GD Level Tools</h1>
+
+      <div className="space-y-6">
+        <section>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">Our Mission</h2>
+          <p className="leading-relaxed text-[var(--color-text-muted)]">
+            GD Level Tools is an independent fan made resource built to help Geometry Dash players find levels,
+            choose demons, unlock rewards, fix common issues, and track their progression. We are not affiliated
+            with RobTop Games.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">What We Offer</h2>
+          <ul className="space-y-2 text-[var(--color-text-muted)]">
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> Level Finder with filters for difficulty, skill, platform, and more</li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> First Demon Picker with personalized recommendations</li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> Demon Progression Planner to map your route from Easy to Extreme</li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> Complete Vault Codes list, updated regularly</li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> Guides for rewards, mods, fixes, and skills</li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> Level submission system for the community</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">Our Standards</h2>
+          <ul className="space-y-2 text-[var(--color-text-muted)]">
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> We do not provide cheats, hacks, or game downloads</li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> All vault codes are legitimate in-game secret codes, not exploits</li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> We clearly label third-party tools and their risks</li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> We do not impersonate RobTop Games or claim official status</li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> All content is created by fans, for fans</li>
+          </ul>
+        </section>
+
+        <section className="gd-card p-5">
+          <h2 className="mb-2 text-base font-bold text-[var(--color-text)]">Disclaimer</h2>
+          <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{fanSiteDisclaimer}</p>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">Contact</h2>
+          <p className="leading-relaxed text-[var(--color-text-muted)]">
+            Have a question, suggestion, or found an error? Visit our{" "}
+            <a href="/contact/" className="gd-link">contact page</a>.
+          </p>
+        </section>
+      </div>
+    </div>
+  );
+}
