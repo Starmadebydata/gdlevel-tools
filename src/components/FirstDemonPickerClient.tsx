@@ -192,57 +192,76 @@ export default function FirstDemonPickerClient() {
             {results.map((rec, i) => {
               const color = demonDifficultyColor(rec.level.demonDifficulty!);
               return (
-                <div key={rec.level.id} className="gd-card p-6">
-                  {/* 排名 + 标题 */}
-                  <div className="mb-4 flex items-start justify-between">
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="flex h-9 w-9 items-center justify-center rounded-lg border font-black text-sm"
-                        style={{ borderColor: `${color}44`, background: `${color}11`, color }}
-                      >
-                        #{i + 1}
-                      </div>
-                      <div>
-                        <Link
-                          href={`/levels/${rec.level.slug}/`}
-                          className="text-lg font-bold text-[var(--color-text)] hover:text-[var(--color-primary)] transition-colors"
-                        >
-                          {rec.level.name}
-                        </Link>
-                        <p className="text-sm text-[var(--color-text-muted)]">
-                          by {rec.level.creatorName} · {lengthLabel(rec.level.length)} · ID: {rec.level.levelId}
-                        </p>
-                      </div>
+                <div key={rec.level.id} className="gd-card gd-card-glow overflow-hidden p-0" style={{ ["--card-glow" as string]: `${color}33` }}>
+                  {/* 缩略图 + 排名 + 标题叠加 */}
+                  <div className="relative aspect-video w-full overflow-hidden bg-[var(--color-bg-soft)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/images/levels/${rec.level.slug}.jpg`}
+                      alt={`${rec.level.name} by ${rec.level.creatorName} — gameplay thumbnail`}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                    {/* 渐变遮罩 */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                    {/* 排名徽章 — 左上角 */}
+                    <div
+                      className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-lg border-2 font-black text-sm backdrop-blur-sm"
+                      style={{ borderColor: color, background: `${color}33`, color: "#fff" }}
+                    >
+                      #{i + 1}
                     </div>
-                    <span className="gd-badge" style={{ backgroundColor: `${color}22`, color, border: `1px solid ${color}44` }}>
+
+                    {/* 难度徽章 — 右上角 */}
+                    <span
+                      className="absolute right-4 top-4 gd-badge backdrop-blur-sm"
+                      style={{ backgroundColor: `${color}cc`, color: "#fff", border: `1px solid ${color}` }}
+                    >
                       {demonDifficultyLabel(rec.level.demonDifficulty!)}
                     </span>
-                  </div>
 
-                  {/* 推荐理由 */}
-                  <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                    <InfoBox label="Why it fits" content={rec.whyItFits} color="var(--color-easy)" />
-                    <InfoBox label="Watch out for" content={rec.whatToWatchFor} color="var(--color-hard)" />
-                    <InfoBox label="Practice tip" content={rec.practiceTip} color="var(--color-primary)" />
-                  </div>
-
-                  {/* 技能标签 */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {rec.level.skillTags.map((tag) => (
-                      <span key={tag} className="rounded-md bg-[var(--color-bg-soft)] px-2 py-0.5 text-xs text-[var(--color-text-muted)]">
-                        {skillTagLabel(tag)}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* 下一步 */}
-                  {i === 0 && (
-                    <div className="mt-4 border-t border-[var(--color-border)] pt-4">
-                      <p className="text-sm text-[var(--color-text-muted)]">
-                        <span className="font-medium text-[var(--color-accent)]">After clearing this:</span> {rec.nextDemon}
+                    {/* 标题 + 作者 — 底部叠加 */}
+                    <div className="absolute inset-x-0 bottom-0 p-5">
+                      <Link
+                        href={`/levels/${rec.level.slug}/`}
+                        className="text-xl font-bold text-white drop-shadow-md hover:text-[var(--color-primary)] transition-colors"
+                      >
+                        {rec.level.name}
+                      </Link>
+                      <p className="text-sm text-white/80">
+                        by {rec.level.creatorName} · {lengthLabel(rec.level.length)} · ID: {rec.level.levelId}
                       </p>
                     </div>
-                  )}
+                  </div>
+
+                  {/* 卡片正文 */}
+                  <div className="p-6">
+                    {/* 推荐理由 */}
+                    <div className="mb-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                      <InfoBox label="Why it fits" content={rec.whyItFits} color="var(--color-easy)" />
+                      <InfoBox label="Watch out for" content={rec.whatToWatchFor} color="var(--color-hard)" />
+                      <InfoBox label="Practice tip" content={rec.practiceTip} color="var(--color-primary)" />
+                    </div>
+
+                    {/* 技能标签 */}
+                    <div className="flex flex-wrap gap-1.5">
+                      {rec.level.skillTags.map((tag) => (
+                        <span key={tag} className="rounded-md bg-[var(--color-bg-soft)] px-2 py-0.5 text-xs text-[var(--color-text-muted)]">
+                          {skillTagLabel(tag)}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* 下一步 */}
+                    {i === 0 && (
+                      <div className="mt-4 border-t border-[var(--color-border)] pt-4">
+                        <p className="text-sm text-[var(--color-text-muted)]">
+                          <span className="font-medium text-[var(--color-accent)]">After clearing this:</span> {rec.nextDemon}
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               );
             })}
