@@ -2,7 +2,7 @@ import type { VaultCode } from "@/lib/types";
 
 /**
  * Vault Codes 数据
- * 来源：GameRant、Dexerto、Steam 社区指南（2026年6月更新）
+ * 来源：GameRant、Dexerto、Pocket Tactics、Causal Zap、Steam 社区指南、GD Wiki（2026年6月更新）
  * 注意：这些是游戏内合法 secret codes，不是作弊码
  */
 
@@ -18,6 +18,8 @@ export const vaultCodes: VaultCode[] = [
   { code: "Sparky", reward: "Secret Coin", vault: "vault" },
   { code: "Robotop", reward: "Robot icon", vault: "vault" },
   { code: "8-16-30-32-46-84", reward: "Illuminati Wave", vault: "vault" },
+  { code: "FINALBOSS", reward: "A True Member swing", vault: "vault" },
+  { code: "(Your Username)", reward: "Eye icon", vault: "vault" },
 
   // ===== Vault of Secrets（需 50 Diamonds）=====
   { code: "Robotop", reward: "Robot icon", vault: "vault-of-secrets" },
@@ -29,16 +31,24 @@ export const vaultCodes: VaultCode[] = [
   { code: "Gimmiethecolor", reward: "Dark Red color", vault: "vault-of-secrets" },
   { code: "It's a Puzzle", reward: "Icon", vault: "vault-of-secrets" },
   { code: "Glubfub", reward: "Secret Coin", vault: "vault-of-secrets" },
+  { code: "geometrydash.com", reward: "500 Mana Orbs + 20 Diamonds + 1 Grey Key", vault: "vault-of-secrets" },
+  { code: "D4SHG30ME7RY", reward: "Nostalgia icon", vault: "vault-of-secrets" },
+  { code: "THECHICKENISREADY", reward: "Cooked ship", vault: "vault-of-secrets" },
+  { code: "COD3BREAKER", reward: "Cube icon (solve the number puzzle)", vault: "vault-of-secrets" },
+  { code: "(Your Star Count)", reward: "Icon based on your total stars", vault: "vault-of-secrets" },
 
   // ===== Chamber of Time（需 Master Emblem）=====
   { code: "Volcano", reward: "Wave icon", vault: "chamber-of-time" },
   { code: "River", reward: "Dark Green color", vault: "chamber-of-time" },
-  { code: "Silence", reward: "Silence icon", vault: "chamber-of-time" },
-  { code: "Darkness", reward: "Darkness icon", vault: "chamber-of-time" },
-  { code: "Hunger", reward: "Hunger icon", vault: "chamber-of-time" },
-  { code: "Back on track", reward: "Icon", vault: "chamber-of-time" },
+  { code: "Silence", reward: "Alternative Default icon", vault: "chamber-of-time" },
+  { code: "Darkness", reward: "Face icon", vault: "chamber-of-time" },
+  { code: "Hunger", reward: "Hungry icon", vault: "chamber-of-time" },
+  { code: "Back on track", reward: "Spider icon", vault: "chamber-of-time" },
+  { code: "GIVEMEHELPER", reward: "Gatekeepers Cipher robot", vault: "chamber-of-time" },
+  { code: "BACKONTRACK", reward: "Gatekeepers Enigma spider", vault: "chamber-of-time" },
 
   // ===== The Wraith Vault（2.2 新增，The Tower 内）=====
+  // 资源类
   { code: "thickofit", reward: "1 Mana Orb", vault: "wraith" },
   { code: "skibidi", reward: "1 Mana Orb", vault: "wraith" },
   { code: "fireinthehole", reward: "1 Fire Shard", vault: "wraith" },
@@ -48,26 +58,41 @@ export const vaultCodes: VaultCode[] = [
   { code: "checksteam", reward: "1 Demon Key", vault: "wraith" },
   { code: "touchgrass", reward: "1 Earth Shard", vault: "wraith" },
   { code: "wateronthehill", reward: "1 Ice Shard", vault: "wraith" },
-  { code: "backondash", reward: "Cube 409", vault: "wraith" },
   { code: "key", reward: "1 Demon Key", vault: "wraith" },
-  { code: "geometry", reward: "Ball 90", vault: "wraith" },
-  { code: "citadel", reward: "Cube 231", vault: "wraith" },
-  { code: "retrospective", reward: "Ship 121", vault: "wraith" },
   { code: "iaminpain", reward: "10 Diamonds + 100 Mana Orbs", vault: "wraith" },
-  { code: "ruins", reward: "Ball 91", vault: "wraith" },
   { code: "spacegauntlet", reward: "20 Diamonds + 1 Demon Key + 2 Metal Shards", vault: "wraith" },
-  { code: "cheatcodes", reward: "UFO 138", vault: "wraith" },
-  { code: "backstreetboy", reward: "Robot 37", vault: "wraith" },
-  { code: "noelelectra", reward: "Swing 17", vault: "wraith" },
   { code: "gd2025", reward: "1 Yellow Key + 25 Diamonds + 25 Mana Orbs", vault: "wraith" },
-  { code: "duckstep", reward: "Ship 146", vault: "wraith" },
-  { code: "skylinept2", reward: "Cube 309", vault: "wraith" },
-  { code: "boogie", reward: "Wave 92", vault: "wraith" },
-  { code: "buttonmasher", reward: "UFO 63", vault: "wraith" },
-  { code: "gdawards", reward: "Cube 485", vault: "wraith" },
-  { code: "ncsalbum", reward: "Jetpack 8", vault: "wraith" },
   { code: "gullible", reward: "1 Mana Orb", vault: "wraith" },
+  { code: "v0rtrox", reward: "1 Mana Orb", vault: "wraith" },
+  { code: "67", reward: "67 Mana Orbs", vault: "wraith" },
+  { code: "kingsamgd", reward: "1 Mana Orb", vault: "wraith" },
+  // Cube 解锁
+  { code: "backondash", reward: "Cube 409", vault: "wraith" },
+  { code: "citadel", reward: "Cube 231", vault: "wraith" },
+  { code: "skylinept2", reward: "Cube 309", vault: "wraith" },
+  { code: "brainpowah47", reward: "Cube 321", vault: "wraith" },
+  { code: "randomgauntlet", reward: "Cube 351", vault: "wraith" },
+  { code: "dualitygauntlet", reward: "Cube icon", vault: "wraith" },
+  { code: "gdawards", reward: "Cube 485", vault: "wraith" },
+  // Ball 解锁
+  { code: "geometry", reward: "Ball 90", vault: "wraith" },
+  { code: "ruins", reward: "Ball 91", vault: "wraith" },
+  // Ship 解锁
+  { code: "retrospective", reward: "Ship 121", vault: "wraith" },
+  { code: "duckstep", reward: "Ship 146", vault: "wraith" },
+  // UFO 解锁
+  { code: "cheatcodes", reward: "UFO 138", vault: "wraith" },
+  { code: "buttonmasher", reward: "UFO 63", vault: "wraith" },
   { code: "putyahandsup", reward: "UFO 71", vault: "wraith" },
+  { code: "ravenousbeasts", reward: "UFO 57", vault: "wraith" },
+  // Wave 解锁
+  { code: "boogie", reward: "Wave 92", vault: "wraith" },
+  // Robot 解锁
+  { code: "backstreetboy", reward: "Robot 37", vault: "wraith" },
+  // Swing 解锁
+  { code: "noelelectra", reward: "Swing 17", vault: "wraith" },
+  // Jetpack 解锁
+  { code: "ncsalbum", reward: "Jetpack 8", vault: "wraith" },
 ];
 
 /** Vault 信息 */
