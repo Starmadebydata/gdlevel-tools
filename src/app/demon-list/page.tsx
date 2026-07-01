@@ -104,31 +104,56 @@ export default function DemonListPage() {
               </div>
 
               {/* 关卡列表 */}
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {tierLevels.map((level) => (
                   <Link
                     key={level.id}
                     href={`/levels/${level.slug}/`}
-                    className="gd-card group block p-4"
+                    className="gd-card gd-card-glow group block overflow-hidden p-0"
+                    style={{ ["--card-glow" as string]: `${color}33` }}
                   >
-                    <div className="mb-2 flex items-center justify-between">
-                      <span className="gd-badge" style={{ backgroundColor: `${color}22`, color, border: `1px solid ${color}44` }}>
+                    {/* 缩略图 + 叠加信息 */}
+                    <div className="relative aspect-video w-full overflow-hidden bg-[var(--color-bg-soft)]">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={`/images/levels/${level.slug}.jpg`}
+                        alt={`${level.name} by ${level.creatorName} — gameplay thumbnail`}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      {/* 渐变遮罩 */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                      {/* 难度徽章 — 左上角 */}
+                      <span
+                        className="absolute left-3 top-3 gd-badge backdrop-blur-sm"
+                        style={{ backgroundColor: `${color}cc`, color: "#fff", border: `1px solid ${color}` }}
+                      >
                         {tier.label}
                       </span>
-                      <span className="text-xs text-[var(--color-text-dim)] font-mono">ID: {level.levelId}</span>
+                      {/* Level ID — 右上角 */}
+                      <span className="absolute right-3 top-3 rounded-md bg-black/60 px-2 py-0.5 text-xs font-mono text-white/90 backdrop-blur-sm">
+                        ID: {level.levelId}
+                      </span>
+                      {/* 标题 + 作者 — 底部叠加 */}
+                      <div className="absolute inset-x-0 bottom-0 p-4">
+                        <h3 className="text-base font-bold leading-tight text-white drop-shadow-md group-hover:text-[var(--color-primary)] transition-colors">
+                          {level.name}
+                        </h3>
+                        <p className="text-xs text-white/80">
+                          by {level.creatorName} · {lengthLabel(level.length)}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="mb-1 text-base font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
-                      {level.name}
-                    </h3>
-                    <p className="mb-2 text-xs text-[var(--color-text-muted)]">
-                      by {level.creatorName} · {lengthLabel(level.length)}
-                    </p>
-                    <div className="flex flex-wrap gap-1">
-                      {level.skillTags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="rounded bg-[var(--color-bg-soft)] px-1.5 py-0.5 text-xs text-[var(--color-text-muted)]">
-                          {skillTagLabel(tag)}
-                        </span>
-                      ))}
+
+                    {/* 卡片正文 — 技能标签 */}
+                    <div className="p-4">
+                      <div className="flex flex-wrap gap-1">
+                        {level.skillTags.slice(0, 4).map((tag) => (
+                          <span key={tag} className="rounded bg-[var(--color-bg-soft)] px-1.5 py-0.5 text-xs text-[var(--color-text-muted)] transition-colors group-hover:text-[var(--color-text)]">
+                            {skillTagLabel(tag)}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </Link>
                 ))}
