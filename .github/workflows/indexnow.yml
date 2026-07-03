@@ -1,0 +1,42 @@
+name: Submit Sitemap to IndexNow
+
+on:
+  push:
+    branches:
+      - main
+
+  # 允许手动触发，方便测试或重新提交
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    name: Submit URLs to Bing/Yandex via IndexNow
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Cloudflare Workers Builds 通常需要 60-120 秒完成部署
+      # 这里等待 90 秒，让新部署生效后再提交 URL
+      - name: Wait for Cloudflare deployment
+        run: sleep 90
+
+      # 如果提交失败，自动重试 3 次
+      - name: Submit URLs to IndexNow
+        uses: nick-fields/retry@v3
+        with:
+          timeout_seconds: 60
+          max_attempts: 3
+          retry_wait_seconds: 30
+          command: npm run indexnow
+          on_retry_command: sleep 30
