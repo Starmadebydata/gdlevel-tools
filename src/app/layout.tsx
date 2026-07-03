@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { generateSeo, websiteSchema } from "@/lib/seo";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+
+// Google Analytics 测量 ID
+// 在 Google Analytics 控制台获取，格式形如 G-XXXXXXXXXX
+const GA_MEASUREMENT_ID = "G-BWGVR8JE0K";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -46,6 +51,20 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
         />
+
+        {/* Google Analytics (gtag.js) — 异步加载，不影响页面渲染 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
 
         <Header />
         <main className="relative flex-1">{children}</main>
