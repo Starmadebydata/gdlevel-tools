@@ -79,6 +79,8 @@ export function organizationSchema() {
     url: siteConfig.domain,
     description: siteConfig.description,
     slogan: siteConfig.tagline,
+    logo: `${siteConfig.domain}/images/gd-cube.svg`,
+    image: `${siteConfig.domain}/images/gd-cube.svg`,
   };
 }
 

@@ -41,22 +41,22 @@ export default function RootLayout({
       <head>
         {/* 防闪烁：在 CSS 加载前就设置好主题 */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
-      <body className="gd-bg-animated min-h-full flex flex-col">
-        {/* 全局几何网格背景 */}
-        <div className="fixed inset-0 gd-grid pointer-events-none opacity-40" />
 
-        {/* WebSite Schema */}
+        {/* WebSite Schema — 放在 head 中便于 Google 识别 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
         />
 
-        {/* Organization Schema */}
+        {/* Organization Schema — 放在 head 中便于 Google 识别 */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
         />
+      </head>
+      <body className="gd-bg-animated min-h-full flex flex-col">
+        {/* 全局几何网格背景 */}
+        <div className="fixed inset-0 gd-grid pointer-events-none opacity-40" />
 
         {/* Google Analytics (gtag.js) — 异步加载，不影响页面渲染 */}
         <Script
