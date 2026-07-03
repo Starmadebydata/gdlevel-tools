@@ -749,6 +749,327 @@ export const guides: Guide[] = [
     relatedGuideSlugs: ["screen-tearing", "fps-unlock-guide"],
     updatedAt: "2026-06-30",
   },
+
+  // ===== Skills / General =====
+  {
+    id: "guide-unlock-all-icons",
+    title: "How to Unlock All Icons in Geometry Dash: Complete Guide",
+    slug: "unlock-all-icons",
+    category: "general",
+    targetKeyword: "how to unlock all icons in geometry dash",
+    summary:
+      "Geometry Dash has 9 icon form types and hundreds of unlockable designs. Here is every unlock method, ranked by effort, with milestone thresholds for stars, demons, coins, and vault codes.",
+    body: [
+      {
+        heading: "Quick Answer",
+        content:
+          "Icons in Geometry Dash unlock through 7 main channels: completing official levels, hitting star milestones, beating demon levels, collecting secret coins and user coins, entering vault codes, finishing map packs and gauntlets, and earning creator points. There is no single shortcut. The fastest path is to grind demons early, collect all secret coins from main levels, and check vault codes regularly. Most players who unlock everything report 6 to 8 months of consistent play.",
+      },
+      {
+        heading: "How the Icon System Works",
+        content:
+          "Geometry Dash has 9 icon form types, each with its own independent set of unlockable designs: Cube, Ship, Ball, UFO, Wave, Robot, Spider, Swing, and Jetpack. You also get a primary color, secondary color, optional glow, and a trail. Colors unlock separately from icons and are shared across all forms. Many players do not realize that unlocking a ship design at 500 stars does not also unlock a cube design. Each form has its own milestone gates.",
+      },
+      {
+        heading: "Star Milestone Unlocks",
+        content:
+          "Stars are the primary progression currency for icons. You earn them by completing any rated level in normal mode. Here are the key milestone thresholds where new icon designs open up:",
+        steps: [
+          { title: "100 Stars", detail: "Basic cube variations start unlocking. This is your first month of regular play." },
+          { title: "500 Stars", detail: "Ship designs begin opening up. Most players hit this around month 2 to 3." },
+          { title: "1,000 Stars", detail: "Ball form designs become available. You are now firmly intermediate." },
+          { title: "2,500 Stars", detail: "UFO designs drop. This is where casual players start slowing down." },
+          { title: "5,000 Stars", detail: "Wave forms unlock. Requires dedicated daily play for several months." },
+          { title: "10,000 Stars", detail: "Robot designs show up. This is serious dedication territory." },
+          { title: "15,000+ Stars", detail: "The rare spider and swing copter forms finally appear. Less than 1 percent of players reach this." },
+        ],
+      },
+      {
+        heading: "Demon Completion Unlocks",
+        content:
+          "Beating demon-rated levels unlocks icons you cannot get any other way. These are the flex icons that other players instantly recognize. The community knows exactly what these milestones mean:",
+        steps: [
+          { title: "1 Demon", detail: "Your first exclusive demon icon. A milestone moment for every player." },
+          { title: "5 Demons", detail: "Another cube design unlocks." },
+          { title: "10 Demons", detail: "Ship unlock. You are now a consistent demon player." },
+          { title: "25 Demons", detail: "Ball form unlock." },
+          { title: "50 Demons", detail: "UFO design. Halfway to the rare unlocks." },
+          { title: "100 Demons", detail: "Rare wave form that turns heads in multiplayer." },
+          { title: "200+ Demons", detail: "Legendary status icons. Players with these are instantly recognizable in the community." },
+        ],
+      },
+      {
+        heading: "Secret Coins and User Coins",
+        content:
+          "Each official level has 3 hidden secret coins. Collecting all of them across all main levels unlocks several icons and colors that are not available through any other method. Some of these coins are deviously hidden. The one in Clubstep behind the fake wall is a classic example that still catches experienced players. User coins are a separate system. They are found in community-created levels that RobTop has rated and verified. User coins feed a separate counter and unlock icons you literally cannot get any other way. The robot design at the 500 user coin threshold is one of the most underrated unlocks in the game.",
+      },
+      {
+        heading: "Vault Codes",
+        content:
+          "Geometry Dash has four vaults, each with unique codes that unlock icons, colors, and other rewards. The Vault is in the settings menu. The Vault of Secrets requires 50 diamonds. The Chamber of Time requires the Master Emblem. The Wraith Vault is the newest. Many vault code rewards are exclusive icons you cannot get through any other method. Check our complete vault codes page for every working code across all four vaults.",
+      },
+      {
+        heading: "Map Packs and Gauntlets",
+        content:
+          "Map packs are bundles of 3 community levels grouped by theme or difficulty. Beat all 3 levels in a pack to get bonus stars and usually a specific icon or color tied to that pack. Gauntlets are the same idea but typically harder and themed. Fire, Ice, Shadow, Chaos, and Monster gauntlets each give an exclusive icon matching that theme. The Shadow Gauntlet icon is widely considered one of the best designs in the game.",
+      },
+      {
+        heading: "Creator Points",
+        content:
+          "Creator points are earned by publishing levels that get rated or featured. Some of the rarest icons in GD belong to prolific creators. You can spot them instantly on a player profile. If you want these icons, you need to actually build and publish levels. There is no way around it. The creator point thresholds for icon unlocks start low but scale up quickly.",
+      },
+      {
+        heading: "Glow Effects and Trails",
+        content:
+          "Glow outlines your icon and trails follow your movement. They unlock through high star counts, demon completions, vault discoveries, and special achievements. A glowing icon with a matching trail immediately looks more polished than a default cube. These are finishing touches, not core unlocks, but they matter for players who care about visual identity.",
+      },
+      {
+        heading: "The Fastest Path to Unlocking Everything",
+        content:
+          "Based on community experience and our own analysis, here is the most efficient order to pursue unlocks:",
+        steps: [
+          { title: "Grind demons early", detail: "The exclusive demon icons are worth more visual prestige per hour than any other grind. You will also improve faster than you think." },
+          { title: "Collect all secret coins from main levels", detail: "Required for many unlocks and they teach you how level design actually works. Do this before moving to user levels." },
+          { title: "Check vault codes regularly", detail: "The community finds new codes periodically. Bookmark our vault codes page and check after every game update." },
+          { title: "Clear map packs and gauntlets", detail: "Guaranteed rewards with no RNG. Each completed pack gives a specific icon or color." },
+          { title: "Hunt user coins in rated levels", detail: "The icon unlocks here are unique and most players skip them. 500 user coins gives a robot design nobody else has." },
+          { title: "Do daily and weekly levels consistently", detail: "These feed stars and diamonds into your achievement progress. Knock out the daily level every day." },
+        ],
+      },
+      {
+        heading: "Unobtainable Icons",
+        content:
+          "Some icons are no longer obtainable because they were tied to previous game versions or limited-time events. These are marked as Unobtainable in most community lists. If you see an icon you want that is listed as Unobtainable, there is no way to get it now. Focus on the hundreds of icons that are still available.",
+      },
+    ],
+    faq: [
+      {
+        question: "How many icons are in Geometry Dash?",
+        answer: "There are hundreds of icons across 9 form types (Cube, Ship, Ball, UFO, Wave, Robot, Spider, Swing, Jetpack). The exact count grows with each update. Version 2.2 alone added over 100 new icon designs.",
+      },
+      {
+        question: "What is the fastest way to unlock icons in Geometry Dash?",
+        answer: "The fastest path is to grind demon levels early for exclusive icons, collect all secret coins from main levels, and use vault codes. Star milestones unlock the bulk of icons, so consistent daily play matters more than any single trick.",
+      },
+      {
+        question: "Do you need stars to unlock icons?",
+        answer: "Yes. Stars are the primary unlock currency. Key milestones are 100, 500, 1000, 2500, 5000, 10000, and 15000 stars. Each milestone opens new icon designs for different form types.",
+      },
+      {
+        question: "Can you buy icons in Geometry Dash?",
+        answer: "Some icons can be purchased from the in-game shops using mana orbs and diamonds. However, most icons are unlocked through achievements, not purchases. There are no real-money microtransactions in Geometry Dash.",
+      },
+      {
+        question: "Are some icons no longer obtainable?",
+        answer: "Yes. Some icons were only available in previous game versions or during limited-time events. These are marked as Unobtainable in community lists and cannot be unlocked now.",
+      },
+    ],
+    relatedGuideSlugs: ["diamonds", "get-stars-fast", "practice-mode-guide", "master-emblem", "user-coins"],
+    updatedAt: "2026-07-03",
+  },
+
+  {
+    id: "guide-get-stars-fast",
+    title: "How to Get Stars in Geometry Dash Fast: Star Grinding Guide",
+    slug: "get-stars-fast",
+    category: "general",
+    targetKeyword: "how to get stars in geometry dash fast",
+    summary:
+      "Stars unlock icons, colors, and leaderboard rank. Here is how to grind stars efficiently: which difficulty to target, how to find sightreadable levels, and why most players waste time on the wrong levels.",
+    body: [
+      {
+        heading: "Quick Answer",
+        content:
+          "Stars are earned by completing rated levels in normal mode. Harder levels give more stars: Auto gives 1, Easy gives 2, Normal gives 3, Hard gives 4 to 5, Harder gives 6 to 7, Insane gives 8 to 9, and Demon gives 10. The fastest way to gain stars is to find the highest difficulty you can sightread (beat first try) at least half the time, and grind that difficulty using the recent and awarded tabs instead of the most liked tab. Map packs give bonus stars when you complete all 3 levels. Daily and weekly levels can be beaten twice for double stars.",
+      },
+      {
+        heading: "How Stars Work",
+        content:
+          "Stars were introduced in Update 1.3 and are earned by completing any rated level in normal mode. Unrated user levels give 0 stars. A total of 2,838 stars can be earned from official content alone: 199 from main levels, plus stars from Geometry Dash SubZero, World, Meltdown, and Lite. Beyond official content, the star supply is effectively unlimited because new user levels are rated every day. The theoretical maximum is 16,777,215 stars, but in practice the highest real star counts are around 350,000.",
+      },
+      {
+        heading: "Star Rewards by Difficulty",
+        content:
+          "Here is exactly how many stars each difficulty tier gives. Main levels give slightly more than user levels at the same difficulty:",
+        steps: [
+          { title: "Auto (1 star)", detail: "Plays itself. No input needed. Free star but only 1. Good for absolute beginners." },
+          { title: "Easy (2 stars)", detail: "User levels give 2 stars. Main levels give 1 to 2. Genuinely easy, you will beat these quickly." },
+          { title: "Normal (3 stars)", detail: "User levels give 3 stars. Main levels give 2 to 4. Basic challenge, nothing threatening." },
+          { title: "Hard (4 to 5 stars)", detail: "User levels give 4 to 5. Main levels give 3 to 6. Requires decent timing. First taste of real difficulty." },
+          { title: "Harder (6 to 7 stars)", detail: "User levels give 6 to 7. Main levels give 7 to 10. Where intermediates start sweating." },
+          { title: "Insane (8 to 9 stars)", detail: "User levels give 8 to 9. Main levels give 10 to 12. Legitimately difficult. Requires real skill." },
+          { title: "Demon (10 stars)", detail: "User levels give 10 stars regardless of sub-difficulty. Main levels give 14 to 15. The big leagues." },
+        ],
+      },
+      {
+        heading: "Which Difficulty to Grind",
+        content:
+          "The most common mistake is grinding the highest difficulty you can barely beat. This is slow because you die constantly and each attempt takes minutes. Instead, find the highest difficulty where you can sightread (beat first try) at least half the time. For most intermediate players, this is 4 to 6 star levels. You earn fewer stars per level, but you complete them in 1 to 2 minutes instead of 30 minutes. The star-per-hour rate is dramatically higher. As your skill improves, gradually move up. The gap between 4 and 5 stars is real. 5 star levels are often rated 5 instead of 4 because of something that prevents first tries. The same gap exists between 6 and 7 stars, and between 8 and 9 stars in a smaller way.",
+      },
+      {
+        heading: "How to Find Good Levels for Star Grinding",
+        content:
+          "Most players sort by most liked. This is a mistake. The most liked levels are usually from older updates when the game was more active. They are often less sightreadable than modern levels. Here is what to do instead:",
+        steps: [
+          { title: "Use the Recent tab", detail: "Filter by difficulty and star count, then go to the Recent tab. Recently rated levels have better sightreadability because level design standards have improved." },
+          { title: "Use the Awarded tab", detail: "Even better than Recent. The Awarded tab shows recently rated levels ordered by quality. This is the best source of sightreadable levels." },
+          { title: "Check former daily levels", detail: "If you have the BetterInfo mod (via Geode), you can search through former daily levels. Daily levels are usually higher quality and more sightreadable." },
+          { title: "Check comments before playing", detail: "Spend 5 seconds reading comments. If multiple people mention a blind transition at 69 percent or a triple spike at 98 percent, skip that level. Comments save you from frustrating deaths." },
+        ],
+      },
+      {
+        heading: "Map Pack Bonus Stars",
+        content:
+          "Map packs are bundles of 3 community levels grouped by theme or difficulty. When you complete all 3 levels in a pack, you get bonus stars on top of the stars from each individual level. The easier map packs are highly efficient for star grinding because the levels are usually sightreadable and the bonus stars add up quickly. Work through the easier packs first, then move to harder ones as your skill grows.",
+      },
+      {
+        heading: "Double Stars from Daily and Weekly Levels",
+        content:
+          "This is a trick most players do not know. When you complete the daily level, you get stars. But the level on the servers is a separate copy from the one you completed. You can beat the same daily level again from the search tab and get stars a second time. This also works for weekly demons. Since you already know the level from your first completion, the second run is much easier. This effectively doubles your star income from daily and weekly content.",
+      },
+      {
+        heading: "Levels to Avoid While Star Grinding",
+        content:
+          "Not all rated levels are worth your time. Two types to skip:",
+        steps: [
+          { title: "Epic rated levels", detail: "These have fire around the difficulty face. They prioritize visuals over gameplay visibility. They look amazing but are often not sightreadable. Save them for when you want a challenge, not for star grinding." },
+          { title: "XL length levels", detail: "Extra-long levels may be sightreadable, but if you die near the end, you lose 5 to 10 minutes getting back. The star-per-hour rate is worse than medium-length levels." },
+        ],
+      },
+      {
+        heading: "Setting Goals and Avoiding Burnout",
+        content:
+          "Star grinding is a marathon, not a sprint. Set reasonable daily goals. For example, 75 stars per day is achievable in about 1 hour of focused play and adds up to 27,000 stars per year. Looking at a 10,000 star gap is overwhelming. Looking at 75 stars today is not. The brightest stars burn out the fastest. If you feel frustration building, stop for the day. Your brain consolidates muscle memory during rest, so breaks actually make you better. Many players report their biggest breakthroughs the day after a tough session.",
+      },
+      {
+        heading: "Save Your Data",
+        content:
+          "Data loss is a real risk in Geometry Dash. Save your account data to the cloud regularly, and keep local backups of your save files. If your data fails to save, try un-downloading all your downloaded levels and deleting scrapped levels or start position copies. Losing 30,000 stars to data corruption is devastating and entirely preventable.",
+      },
+    ],
+    faq: [
+      {
+        question: "How do you get stars in Geometry Dash?",
+        answer: "Complete any rated level in normal mode. The harder the level, the more stars you get. Auto gives 1, Easy gives 2, Normal gives 3, Hard gives 4 to 5, Harder gives 6 to 7, Insane gives 8 to 9, and Demon gives 10.",
+      },
+      {
+        question: "What is the fastest way to get stars in Geometry Dash?",
+        answer: "Find the highest difficulty you can sightread (beat first try) at least half the time, and grind that difficulty using the Awarded tab. Complete map packs for bonus stars. Beat daily and weekly levels twice for double stars. Avoid epic and XL levels.",
+      },
+      {
+        question: "Do you get stars from practice mode?",
+        answer: "No. You only get stars from completing levels in normal mode. Practice mode is for learning, not for earning stars.",
+      },
+      {
+        question: "How many stars are in Geometry Dash?",
+        answer: "Official content gives 2,838 stars total. Beyond that, user levels provide an effectively unlimited supply since new levels are rated daily. The theoretical maximum is 16,777,215, but the highest real counts are around 350,000.",
+      },
+      {
+        question: "Can you get stars from user levels?",
+        answer: "Yes, but only from rated user levels. Unrated user levels give 0 stars. A rated user level gives stars based on its difficulty, same as official levels.",
+      },
+    ],
+    relatedGuideSlugs: ["unlock-all-icons", "diamonds", "practice-mode-guide", "demon-keys", "user-coins"],
+    updatedAt: "2026-07-03",
+  },
+
+  {
+    id: "guide-practice-mode",
+    title: "Geometry Dash Practice Mode: How to Actually Improve",
+    slug: "practice-mode-guide",
+    category: "skills",
+    targetKeyword: "geometry dash practice mode tips",
+    summary:
+      "Most players use Practice Mode as a panic room. Here is how to use it as a training system: checkpoint placement, music sync, the 5-step practice loop, and why you should return to normal mode earlier than you think.",
+    body: [
+      {
+        heading: "Quick Answer",
+        content:
+          "Practice Mode is not there to help you crawl to 100 percent. It is there to make a hard level feel smaller. The best way to use it is to unlock Practice Music Sync first, place checkpoints by gameplay segment instead of random panic taps, repeat each section until it feels boring, link two sections together, and return to Normal Mode earlier than most players think. If you can pass every section in practice but die at 87 percent in normal mode, that is not a skill problem. That is a Practice Mode problem.",
+      },
+      {
+        heading: "What Practice Mode Is Actually For",
+        content:
+          "The biggest mistake newer players make is using Practice Mode as if the goal is to place enough checkpoints to reach the ending. But one lucky pass through a hard section teaches you almost nothing. What actually matters is whether you can repeat that section cleanly enough that it starts to feel boring. The moment a hard level stops feeling like one giant wall and starts feeling like 5 or 6 manageable sections, your progress becomes real instead of emotional. Practice Mode is for identifying real chokepoints, repeating short sections until they become stable, connecting two difficult sections together, and learning the back half of a level before your nerves make it feel impossible.",
+      },
+      {
+        heading: "Get Practice Music Sync First",
+        content:
+          "If there is one upgrade that instantly makes Practice Mode feel less miserable, it is Practice Music Sync. Without synced music, a level can feel mechanically familiar but rhythmically wrong. You know the clicks, but the song no longer supports your timing the way it does in Normal Mode. This creates fake confidence. With Practice Music Sync enabled, your practice runs feel much closer to the real thing. This matters most in levels where transitions, fake-outs, and muscle memory are strongly tied to audio pacing. If Practice Music Sync is grayed out, you need the Music Unlocker before normal level music can play in Practice Mode.",
+      },
+      {
+        heading: "How to Place Checkpoints Correctly",
+        content:
+          "Bad checkpoint placement is the silent killer of Practice Mode. A lot of players drop checkpoints almost randomly, especially after every death. That feels productive because it creates constant forward motion, but it usually destroys consistency. You end up learning isolated actions without learning how they connect. A better rule is to place checkpoints by gameplay segment, not by frustration. If a section takes about 3 to 8 seconds and represents one clear mechanic or transition, that is usually a good checkpoint zone. For an especially brutal chokepoint, you can temporarily shorten it. But once you start passing it, stretch the checkpoint farther back so you relearn the lead-in as well. The rule: if your checkpoint is so close that you can brute-force one click without learning the approach, it is probably too close.",
+      },
+      {
+        heading: "The 5-Step Practice Loop",
+        content:
+          "There is a clean 5-step loop that works for almost any hard Geometry Dash level, whether it is an official Demon, a custom insane level, or a harder platformer section:",
+        steps: [
+          { title: "Step 1: Find the real chokepoints", detail: "Do not just mark the parts you hate. Mark the parts that actually stop runs. Sometimes the ugliest section is not the true wall. The real wall is the transition right before it." },
+          { title: "Step 2: Split the level into segments", detail: "Think in chunks: opening stability, first hard transition, mid-level control section, back-half pressure section, ending. Once the level is divided like that, Practice Mode stops feeling chaotic." },
+          { title: "Step 3: Repeat until the section feels boring", detail: "If a section still feels dramatic every time you enter it, you do not own it yet. A learned section feels almost dull. Dull means stable. That is the standard." },
+          { title: "Step 4: Link two sections together", detail: "Being able to pass section A and section B separately does not mean you can pass A into B. Linking sections is where fake progress gets exposed. Train the bridge, not just the islands." },
+          { title: "Step 5: Return to Normal Mode earlier than you think", detail: "Practice Mode is for learning. Normal Mode is for execution under pressure. Once the hardest parts stop being mysterious, go back to real attempts. Too many players overstay in Practice Mode." },
+        ],
+      },
+      {
+        heading: "Why You Keep Dying in Normal Mode After Practicing",
+        content:
+          "This is the most common frustration. You can pass every section in practice, but you die at 87 percent in normal mode. The reason is that practicing sections in isolation does not prepare you for the real thing. Your nerves at 80 percent are completely different depending on whether you started at 0 percent or at 75 percent. The transition between sections feels different in a full run. Stamina and focus over the full level length must be trained. The fix: once you can pass every section individually, spend 70 percent of your practice time doing full attempts from 0 percent. This is the most important tip most players ignore.",
+      },
+      {
+        heading: "Learn the Music",
+        content:
+          "Geometry Dash is a rhythm game at its core. Every obstacle is synced to the music. If you learn the song, you learn the level. Listen to the level's song outside the game (most are on Newgrounds or YouTube). Identify the beats where you need to click or jump. Tap along with the music before playing the level. Many top players say they hear the level more than they see it. This is why Practice Music Sync matters so much. Without it, you are training your fingers but not your rhythm.",
+      },
+      {
+        heading: "Slow Down Your Click Speed",
+        content:
+          "Many deaths happen because players click too fast, not too slow. Panic-clicking through a difficult section leads to sloppy timing and inconsistent results. Focus on clicking deliberately, not frantically. Each click should be intentional and timed to the music. In wave and ship sections, smoother inputs produce smoother movement. Record yourself playing and watch your hand. Are you tensing up and spamming? That is what is killing you, not the level.",
+      },
+      {
+        heading: "Take Breaks Seriously",
+        content:
+          "Your brain consolidates muscle memory during rest, not during practice. Playing the same section for 3 hours straight produces diminishing returns after about 30 to 45 minutes. The optimal structure is 30 to 45 minutes of focused practice, a 10 to 15 minute break, then another session. Stop for the day when you notice increasing frustration or decreasing performance. Sleep is the ultimate practice tool. Many players report breakthroughs the day after a tough session. This is not coincidence. Your brain was still learning while you slept.",
+      },
+      {
+        heading: "Identify Your Weak Game Mode",
+        content:
+          "Every player has a weakest game mode. For most, it is either the wave or the ship at high speeds. Identify yours and dedicate practice time specifically to that mode. Search for levels that focus on your weak mode. Play Nine Circles-style levels for wave practice. Play auto-scroll levels for ship control. The more comfortable you are with your weakest mode, the more levels become accessible to you. Do not skip difficulty tiers. Complete 10 or more Easy Demons before attempting Medium Demons. Each tier teaches patterns and skills that the next tier assumes you already have.",
+      },
+      {
+        heading: "Track Your Progress",
+        content:
+          "Keep a simple log of your practice. Date, level, best run percentage, what section killed you most, and how long you practiced. This does two things: it shows you tangible improvement over time, which is motivating, and it helps you identify patterns in what is holding you back. Example: Mar 22, best 67 percent, died 4 times at 54 percent wave, 40 minutes. Mar 23, best 72 percent, passed 54 percent 3 times, new choke at 68 percent, 35 minutes. Mar 24, best 89 percent, 68 percent consistent now, nerves at 80 percent plus, 45 minutes. That log tells a story of real improvement that your brain will not register without writing it down.",
+      },
+    ],
+    faq: [
+      {
+        question: "How do I use Practice Mode effectively in Geometry Dash?",
+        answer: "Place checkpoints by gameplay segment (3 to 8 seconds each), not randomly. Repeat each section until it feels boring, then link two sections together. Return to Normal Mode earlier than you think. Enable Practice Music Sync so your timing matches the real song.",
+      },
+      {
+        question: "Why do I die in Normal Mode after practicing everything in Practice Mode?",
+        answer: "Practicing sections in isolation does not train nerves, stamina, or section transitions. Once you can pass every section individually, spend 70 percent of your practice time doing full attempts from 0 percent. This trains the real pressure of a complete run.",
+      },
+      {
+        question: "How do I unlock Practice Music Sync in Geometry Dash?",
+        answer: "Practice Music Sync requires the Music Unlocker. Once unlocked, enable it in settings so the level's actual song plays during practice instead of the default practice music. This makes practice runs feel much closer to real attempts.",
+      },
+      {
+        question: "Should I use Practice Mode or just play Normal Mode?",
+        answer: "Use both. Practice Mode is for learning sections and building consistency. Normal Mode is for execution under pressure. A good ratio is 30 percent practice for new sections, 70 percent normal mode for full runs once you understand the level.",
+      },
+      {
+        question: "How long should I practice a level before taking a break?",
+        answer: "30 to 45 minutes of focused practice, then a 10 to 15 minute break. Playing for 3 hours straight produces diminishing returns. Your brain consolidates muscle memory during rest, so breaks and sleep are when improvement actually happens.",
+      },
+    ],
+    relatedGuideSlugs: ["unlock-all-icons", "get-stars-fast", "tps-explained", "fps-unlock-guide", "diamonds"],
+    updatedAt: "2026-07-03",
+  },
 ];
 
 /** 获取已发布指南 */
