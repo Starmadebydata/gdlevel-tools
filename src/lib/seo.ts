@@ -57,11 +57,28 @@ export function websiteSchema() {
     name: siteConfig.name,
     url: siteConfig.domain,
     description: siteConfig.description,
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.domain,
+    },
     potentialAction: {
       "@type": "SearchAction",
       target: `${siteConfig.domain}/level-finder/?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
+  };
+}
+
+/** JSON-LD Organization schema */
+export function organizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.domain,
+    description: siteConfig.description,
+    slogan: siteConfig.tagline,
   };
 }
 
