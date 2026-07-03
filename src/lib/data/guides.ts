@@ -1070,6 +1070,457 @@ export const guides: Guide[] = [
     relatedGuideSlugs: ["unlock-all-icons", "get-stars-fast", "tps-explained", "fps-unlock-guide", "diamonds"],
     updatedAt: "2026-07-03",
   },
+
+  // ===== General: High-traffic SEO content =====
+  {
+    id: "guide-gd-2-2-update",
+    title: "Geometry Dash 2.2 Update: Everything You Need to Know",
+    slug: "gd-2-2-update",
+    category: "general",
+    targetKeyword: "geometry dash 2.2 update",
+    summary:
+      "Update 2.2 is the biggest update in Geometry Dash history. After nearly 7 years of development, it added the Swing form, Platformer Mode, Moons, over 700 new icons, 100 new achievements, camera triggers, shader effects, and 5 new main levels.",
+    body: [
+      {
+        heading: "Quick Answer",
+        content:
+          "Geometry Dash 2.2 was released on December 19, 2023 for Steam and December 20, 2023 for iOS and Android. It is the twelfth major update and the most significant in the game's history. The update added the Swing game mode, Platformer Mode with 4 new levels, Moons as a new collectible, over 700 new icons, over 100 new achievements, camera control triggers, shader effects, a new SFX Library, a Music Library with over 1500 NCS songs, two new shops, the Paths system, Lists, and 5 new main levels including Dash, The Tower, The Sewers, The Cellar, and The Secret Hollow. The update has since been refined through 12 minor updates, with the latest being 2.2081.",
+      },
+      {
+        heading: "Release Timeline",
+        content:
+          "Geometry Dash 2.2 was announced in 2016 and took nearly 7 years to develop. During that time, the community followed every teaser, every preview, and every cryptic tweet from RobTop. The update was finally released on December 19, 2023 on Steam, and December 20, 2023 on Android and iOS. Since the initial release, 12 minor updates have been pushed: 2.201, 2.202, 2.203, 2.204, 2.206, 2.207, 2.2071, 2.2072, 2.2073, 2.2074, 2.208, and 2.2081. Each minor update fixed bugs, added quality-of-life features, and refined the new systems.",
+      },
+      {
+        heading: "New Game Mode: Swing",
+        content:
+          "The Swing is the first new game mode since the Robot was added in Update 2.0. The Swing copter moves similarly to the original swing copter from the early Geometry Dash era but with refined physics. It taps to switch gravity direction, similar to the ball but with different momentum and timing characteristics. The Swing appears in the new main level Dash and is used in many 2.2-era community levels. Mastering the Swing is essential for completing the hardest 2.2 content.",
+      },
+      {
+        heading: "Platformer Mode and New Levels",
+        content:
+          "Platformer Mode is the most groundbreaking addition in 2.2. It allows unrestricted left and right movement instead of the automatic rightward scroll of classic mode. Four new official levels use Platformer Mode: The Tower, The Sewers, The Cellar, and The Secret Hollow. These levels reward Moons instead of Stars. Platformer levels feel like a completely different game within Geometry Dash, and the community has embraced them with custom platformer levels that push the boundaries of what the editor can do.",
+        steps: [
+          { title: "The Tower", detail: "The first platformer level. Introduces the basic mechanics of left-right movement and jumping in platformer context." },
+          { title: "The Sewers", detail: "Second platformer level. Adds more complex platforming and introduces water mechanics." },
+          { title: "The Cellar", detail: "Third platformer level. Increases difficulty with tighter platforming sections." },
+          { title: "The Secret Hollow", detail: "The hardest of the four. Requires precise movement and rewards the most moons." },
+        ],
+      },
+      {
+        heading: "New Collectible: Moons",
+        content:
+          "Moons are the platformer mode equivalent of Stars. You earn them by completing rated platformer levels in normal mode. A total of 25 moons can be earned from official Tower levels, with each level rewarding 5 to 7 moons. User platformer levels also reward moons based on difficulty, same as stars: Auto gives 1, Easy gives 2, up to Demon giving 10. Moons contribute towards unlocking icons and achievements, and progressing through Paths. They are visible on your profile alongside stars.",
+      },
+      {
+        heading: "Over 700 New Icons",
+        content:
+          "Update 2.2 added the largest batch of icons in Geometry Dash history. The exact counts from the official wiki: 484 cubes, 100+ ships, 76 balls, 100+ UFOs, 51 waves, 27 robots, 7 trails, and 100+ colors. Many of these icons reference popular games, movies, and internet culture. Community researchers found over 100 references in the new icons alone, including references to Hollow Knight, Binding of Isaac, Sonic Colors, Terraria, Doom, and many more. Unlocking all new icons requires hitting star milestones, completing demons, collecting moons, entering vault codes, and finishing gauntlets.",
+      },
+      {
+        heading: "New Triggers and Editor Features",
+        content:
+          "The 2.2 editor update gave creators powerful new tools. Camera control triggers allow dynamic camera movement, zoom, and rotation during gameplay. Post-processing shader effects enable visual styles never before possible in GD. New movement triggers, particle effects, and a SFX Library let creators add sound effects to levels. The Music Library provides over 1500 NCS songs that can be used without copyright issues. The group limit was raised to 9999 groups, giving creators far more organizational capacity. These tools collectively enabled a new generation of visually stunning and mechanically complex levels.",
+      },
+      {
+        heading: "Two New Shops",
+        content:
+          "Update 2.2 added two new shops alongside the existing ones. The Mechanic shop and the Diamond Shop, which takes diamond shards as currency. Diamond shards are earned alongside diamonds, giving players a secondary currency to spend. The shops sell icons, colors, and other customization items that cannot be obtained through achievements alone.",
+      },
+      {
+        heading: "The Paths System",
+        content:
+          "Paths are a new progression system introduced in 2.2. They provide structured goals and rewards for consistent play. Progressing through Paths unlocks icons, colors, and other rewards. The system encourages daily engagement and gives players clear short-term goals alongside the long-term star and demon milestones.",
+      },
+      {
+        heading: "Lists",
+        content:
+          "Lists are curated collections of user levels organized by theme or difficulty. They replaced the old map pack system as the primary way the community discovers quality levels. Lists are incredibly helpful for finding sightreadable levels for star grinding or for discovering levels that focus on specific skills. The community has embraced Lists as a way to organize the massive catalog of user-created content.",
+      },
+      {
+        heading: "Versus Mode (Delayed to 2.21)",
+        content:
+          "Versus Mode was announced for 2.2 but has been delayed. It will allow players to race to complete a level, though they cannot see each other. RobTop has stated it is likely to come in Update 2.21. This is one of several features initially planned for 2.2 that were pushed to the next update due to bugs and development time.",
+      },
+      {
+        heading: "FPS and Physics Changes",
+        content:
+          "Update 2.2 added an FPS option for Steam (up to 9999 FPS) and fixed mechanics so they are consistent regardless of FPS. Previously, different FPS values could change the game's physics, creating an unfair advantage or disadvantage. The 2.2 update standardized physics across all frame rates. The TPS (ticks per second) system was also refined, with a cap at 240 TPS. For details, see our TPS explained guide.",
+      },
+      {
+        heading: "What Is Coming in 2.21?",
+        content:
+          "Update 2.21 is the next planned update. It will include many delayed features initially intended for 2.2. Confirmed features include: Explorers, a new Demon-rated main level using a song by Hinkik. The Map, which will contain user-created Platformer levels, Demon Towers, unlockable Icon Kit rewards, and secrets. Versus Mode with improved functionality. New creator menu features that are visible but inaccessible in 2.2.",
+      },
+    ],
+    faq: [
+      {
+        question: "When did Geometry Dash 2.2 come out?",
+        answer: "Geometry Dash 2.2 was released on December 19, 2023 for Steam, and December 20, 2023 for Android and iOS. It took nearly 7 years to develop, making it the longest development cycle in the game's history.",
+      },
+      {
+        question: "What is new in Geometry Dash 2.2?",
+        answer: "2.2 added the Swing game mode, Platformer Mode with 4 new levels, Moons as a new collectible, over 700 new icons, over 100 new achievements, camera triggers, shader effects, SFX Library, Music Library, two new shops, the Paths system, Lists, and 5 new main levels.",
+      },
+      {
+        question: "What are Moons in Geometry Dash?",
+        answer: "Moons are a new collectible introduced in 2.2. They are the platformer mode equivalent of Stars. You earn them by completing rated platformer levels. A total of 25 moons can be earned from official Tower levels.",
+      },
+      {
+        question: "What is Platformer Mode in Geometry Dash?",
+        answer: "Platformer Mode allows unrestricted left and right movement instead of the automatic rightward scroll of classic mode. Four official levels use this mode: The Tower, The Sewers, The Cellar, and The Secret Hollow.",
+      },
+      {
+        question: "Is Geometry Dash 2.21 coming out?",
+        answer: "Yes. Update 2.21 is the next planned update. It will include delayed features from 2.2 such as the Explorers main level, The Map system, and Versus Mode. No release date has been announced.",
+      },
+    ],
+    relatedGuideSlugs: ["unlock-all-icons", "get-moons", "tps-explained", "fps-unlock-guide", "practice-mode-guide"],
+    updatedAt: "2026-07-03",
+  },
+
+  {
+    id: "guide-best-easy-demons",
+    title: "Best Easy Demons for Beginners: Top 10 First Demon Picks",
+    slug: "best-easy-demons",
+    category: "demon",
+    targetKeyword: "best easy demons geometry dash beginners",
+    summary:
+      "Your first demon matters more than you think. Here are the 10 best easy demons in Geometry Dash, ranked by difficulty, with what makes each one hard and how to beat it.",
+    body: [
+      {
+        heading: "Quick Answer",
+        content:
+          "The best first demon in Geometry Dash is The Nightmare by Jax. It is arguably the easiest demon in the game at about 30 seconds long. After that, The Lightning Road, Platinum Adventure, and Speed Racer are the natural next steps. The full top 10 in order: The Nightmare, The Lightning Road, Platinum Adventure, Demon Mixed, Speed Racer, Insomnia, Crescendo, Death Moon, Problematic, and Blue Hell. If you prefer a structured progression, use our First Demon Picker tool for a personalized recommendation based on your skills.",
+      },
+      {
+        heading: "Are You Actually Ready for Your First Demon?",
+        content:
+          "Before attempting any demon, be honest with yourself. You should be able to: complete Insane-rated levels (8 to 9 stars) without wanting to throw your phone, beat Electrodynamix and Hexagon Force from the official levels, control all basic game modes reasonably well, use practice mode effectively, and handle dual sections where two icons move simultaneously. If Insane-rated levels still give you major trouble, spend more time there first. Jumping to demons too early leads to frustration and bad habits that are hard to unlearn.",
+      },
+      {
+        heading: "The Top 10 Easy Demons in Order",
+        content:
+          "Here are the 10 best entry-level demons, ranked from easiest to slightly harder. Each one teaches specific skills that prepare you for the next tier.",
+        steps: [
+          { title: "1. The Nightmare (Jax)", detail: "The classic first demon. About 30 seconds long with simple cube jumping and a basic ship corridor. The ship section around 60 percent is the hardest part. If you can beat Electrodynamix, you can beat this. The community universally agrees this is the easiest demon in the game." },
+          { title: "2. The Lightning Road (Timeless)", detail: "Another short classic with consistent difficulty throughout. No crazy spikes, no unfair tricks. Many players beat this right after The Nightmare. The level syncs well with its music, so learn the beat and let it guide your taps." },
+          { title: "3. Platinum Adventure (Serponge)", detail: "Slightly harder than the top two but worth it because the decoration is gorgeous. Serponge is a respected community creator. The level rewards rhythm and flow. Do not overthink individual obstacles, find the natural pace and ride it." },
+          { title: "4. Demon Mixed (Oggy)", detail: "Throws multiple game modes at you without being overwhelming. Great practice for mode transitions, which becomes crucial at higher difficulties. Figure out which mode gives you the most trouble and drill those sections." },
+          { title: "5. Speed Racer (ZenthicAlpha)", detail: "Fast, fun, and energetic. Teaches quick reactions and proves that demons can be exciting rather than just punishing. The constant pace keeps you engaged. Tip: relax your grip. Tension makes fast sections way harder than they need to be." },
+          { title: "6. Insomnia (Glittershroom)", detail: "Atmospheric with consistent difficulty and no frustrating spikes. The music sync is so good that audio cues practically tell you when to tap. Great for players who perform better with strong rhythm cues." },
+          { title: "7. Crescendo (MasK463)", detail: "Designed around its soundtrack. The gameplay follows the beat intuitively, teaching rhythm-based playing that becomes critical at higher levels. Listen to the song a few times before playing." },
+          { title: "8. Death Moon (Caustic)", detail: "A rite of passage that has been challenging the community for years. Longer than the others on this list, which means you need consistency, not just bursts of skill. Slightly harder but the satisfaction of beating it is proportionally bigger." },
+          { title: "9. Problematic (Dhafin)", detail: "Short and focused. Packs its challenge into a brief runtime, making it perfect for quick sessions or warmups. You reach the end frequently during practice, which keeps motivation high." },
+          { title: "10. Blue Hell (Lazye)", detail: "Clean visual design with highly readable gameplay. No unfair tricks, no hidden obstacles, no misleading decoration. What you see is what you get. If you have been frustrated by levels that feel cheap, Blue Hell plays fair from start to finish." },
+        ],
+      },
+      {
+        heading: "How to Actually Beat Your First Demon",
+        content:
+          "Practice mode is not optional. Never attempt full runs before learning the level. The correct approach: play through once in practice mode, noting every death location. Place checkpoints at the start of difficult sections, not in the middle. Practice each hard section until you can pass it 5 times consecutively. Gradually remove checkpoints and practice longer segments. Only attempt full runs when you can consistently reach 70 percent or higher in practice. For a complete practice methodology, see our Practice Mode guide.",
+      },
+      {
+        heading: "Your Mental State Matters",
+        content:
+          "Demon levels test who you are as much as how fast your fingers move. Accept failure as normal. Everyone dies hundreds of times on their first demon. One player documented 347 deaths on The Nightmare before beating it. Take breaks when frustration builds, because playing angry makes you actively worse. Celebrate progress, not just completion. Going from dying at 30 percent to dying at 80 percent is real improvement even though it does not feel like it. Sleep on it. Many players report beating their first demon the day after a frustrating session, because the brain consolidates muscle memory during sleep.",
+      },
+      {
+        heading: "What Comes After Your First Demon?",
+        content:
+          "Once you beat your first demon, do not jump straight to Hard Demons. The recommended progression is: complete 3 to 5 Easy Demons before attempting Medium Demons. Complete 10 or more Easy Demons before moving to Medium consistently. After 10 Medium Demons, try Hard Demons like Nine Circles or Jawbreaker. After 5 Hard Demons, move to Insane Demons like Supersonic or Windy Landscape. After 5 Insane Demons, you can consider Extreme Demons. Each tier teaches patterns and skills that the next tier assumes you already have. Use our Demon Progression tool to plan your route.",
+      },
+      {
+        heading: "Levels to Avoid as a Beginner",
+        content:
+          "Not all easy demons are good first demons. Avoid new 2.2-era easy demons that rely on confusing camera triggers and visual effects. These levels often look easy on paper but are much harder to sightread because the visual language is unfamiliar. Stick to the legacy tiers listed above. They teach you the fundamental physics of the cube and ship without overwhelming you with visual effects. Once you are comfortable with classic demon gameplay, then explore newer 2.2-style demons.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is the easiest demon in Geometry Dash?",
+        answer: "The Nightmare by Jax is widely considered the easiest demon in Geometry Dash. It is about 30 seconds long with simple cube jumping and a basic ship corridor. Most players who can beat Insane-rated levels can beat The Nightmare with some practice.",
+      },
+      {
+        question: "How many demons should I beat before moving to Medium Demon?",
+        answer: "Complete at least 3 to 5 Easy Demons before attempting your first Medium Demon. Complete 10 or more Easy Demons before consistently playing Medium Demons. Each tier teaches patterns and skills that the next tier assumes you already have.",
+      },
+      {
+        question: "What should I play after The Nightmare?",
+        answer: "The Lightning Road is the natural next step after The Nightmare. It is similarly short and consistent in difficulty. After that, try Platinum Adventure and Speed Racer to build your skills before moving to longer demons like Death Moon.",
+      },
+      {
+        question: "Can I beat a demon on mobile?",
+        answer: "Yes. All the demons on this list are mobile-friendly. However, mobile play is harder due to smaller screen size and touch input latency. If you play on mobile, choose shorter demons like The Nightmare or The Lightning Road first.",
+      },
+      {
+        question: "How long does it take to beat your first demon?",
+        answer: "Most players spend 2 to 8 hours on their first demon, spread across multiple sessions. The Nightmare can be beaten in 1 to 3 hours for players who are properly prepared. Do not rush it. Consistent short sessions are more effective than marathon grinding.",
+      },
+    ],
+    relatedGuideSlugs: ["practice-mode-guide", "gd-2-2-update", "get-stars-fast", "unlock-all-icons", "demon-keys"],
+    updatedAt: "2026-07-03",
+  },
+
+  {
+    id: "guide-get-moons",
+    title: "How to Get Moons in Geometry Dash: The 2.2 Collectible Guide",
+    slug: "get-moons",
+    category: "rewards",
+    targetKeyword: "how to get moons in geometry dash",
+    summary:
+      "Moons are the new collectible from Update 2.2, earned by completing platformer levels. Here is every way to get them, what they unlock, and why they matter for your profile.",
+    body: [
+      {
+        heading: "Quick Answer",
+        content:
+          "Moons were introduced in Update 2.2 and are the platformer mode equivalent of Stars. You earn them by completing rated platformer levels in normal mode. A total of 25 moons can be earned from official Tower levels (The Tower, The Sewers, The Cellar, The Secret Hollow), with each level rewarding 5 to 7 moons. Beyond official content, user platformer levels reward moons based on difficulty, same as stars: Auto gives 1, Easy gives 2, Normal gives 3, up to Demon giving 10. Moons contribute towards unlocking icons and achievements, and progressing through Paths.",
+      },
+      {
+        heading: "What Are Moons?",
+        content:
+          "Moons are a collectible introduced in Update 2.2. They are present in Geometry Dash, Geometry Dash Lite, and Geometry Dash World. Unlike Stars which are earned from classic mode levels, Moons are earned exclusively from Platformer Mode levels. They appear on your profile alongside Stars, Diamonds, and other collectibles. Moons contribute towards unlocking icons and achievements, and progressing through the Paths system introduced in 2.2.",
+      },
+      {
+        heading: "Moon Rewards by Difficulty",
+        content:
+          "Platformer levels reward moons based on their difficulty rating, following the same structure as stars:",
+        steps: [
+          { title: "Auto (1 moon)", detail: "Plays itself. Free moon but only 1." },
+          { title: "Easy (2 moons)", detail: "User levels give 2 moons. Main levels give 2." },
+          { title: "Normal (3 moons)", detail: "User levels give 3 moons. Main levels give 5." },
+          { title: "Hard (4 to 5 moons)", detail: "User levels give 4 to 5. Main levels give 6." },
+          { title: "Harder (6 to 7 moons)", detail: "User levels give 6 to 7. Main levels give 7." },
+          { title: "Insane (8 to 9 moons)", detail: "User levels give 8 to 9. No main platformer levels at this tier yet." },
+          { title: "Demon (10 moons)", detail: "10 moons regardless of demon sub-difficulty. No main platformer demon levels yet." },
+        ],
+      },
+      {
+        heading: "Official Moons: The Tower Levels",
+        content:
+          "The 25 official moons come from the four Tower platformer levels. Each level rewards 5 to 7 moons. These levels also contain 12 secret coins total (3 per level), so you should aim to collect all coins and moons in one pass if possible. The levels are: The Tower (the introduction to platformer mechanics), The Sewers (adds water mechanics), The Cellar (tighter platforming), and The Secret Hollow (the hardest, rewards the most moons). Complete all four to get all 25 official moons.",
+      },
+      {
+        heading: "User Platformer Levels",
+        content:
+          "Beyond the official content, the community has created thousands of platformer levels. RobTop rates the best ones, and rated platformer levels reward moons just like official levels. To find good platformer levels, use the Lists feature introduced in 2.2. Many Lists are curated specifically for platformer content. Look for lists tagged as platformer or exploration. The quality of user platformer levels varies wildly, so check comments and like-to-download ratios before committing time.",
+      },
+      {
+        heading: "What Moons Unlock",
+        content:
+          "Moons contribute to several unlock systems. First, they count towards achievements that unlock icons and colors. The moon achievement thresholds start low and scale up, similar to star milestones. Second, they contribute to Paths progression, which gives structured rewards for consistent play. Third, they are visible on your profile, serving as a status symbol for players who engage with platformer content. Some icons can only be unlocked through moon achievements, making them exclusive to players who explore platformer mode.",
+      },
+      {
+        heading: "Moons vs Stars: What Is the Difference?",
+        content:
+          "Moons and Stars are completely separate counters. Stars come from classic mode levels. Moons come from platformer mode levels. You cannot earn stars from platformer levels or moons from classic levels. Both contribute to your profile and unlock icons, but through different achievement trees. If you want to maximize your unlock progress, you need to play both modes. Many players focus exclusively on classic mode and miss out on the unique icon unlocks that only moons can provide.",
+      },
+      {
+        heading: "Tips for Platformer Mode",
+        content:
+          "Platformer Mode plays very differently from classic mode. You control your movement direction, which means you can go back and retry sections. This makes platformer levels more forgiving in some ways but also requires different skills. Key tips: learn the level layout since you can explore, do not rush since there is no auto-scroll pressure, collect all coins in one run if possible since you can backtrack, and watch completion videos to find optimal paths through exploration sections.",
+      },
+    ],
+    faq: [
+      {
+        question: "How do you get moons in Geometry Dash?",
+        answer: "Complete rated platformer levels in normal mode. Official Tower levels give 25 moons total. User platformer levels give moons based on difficulty, from 1 for Auto to 10 for Demon.",
+      },
+      {
+        question: "What are moons for in Geometry Dash?",
+        answer: "Moons contribute towards unlocking icons, achievements, and progressing through Paths. Some icons can only be unlocked through moon achievements. They are also visible on your profile as a status indicator.",
+      },
+      {
+        question: "Can you get moons from regular levels?",
+        answer: "No. Moons only come from Platformer Mode levels. Stars come from classic mode levels. The two systems are completely separate.",
+      },
+      {
+        question: "How many moons are in Geometry Dash?",
+        answer: "Official content gives 25 moons from the four Tower platformer levels. Beyond that, user platformer levels provide an unlimited supply since new platformer levels are rated regularly.",
+      },
+      {
+        question: "Do you need moons to unlock all icons?",
+        answer: "Some icons require moon achievements to unlock. If you only play classic mode, you will miss these unlocks. To get every icon in the game, you need to play both classic and platformer modes.",
+      },
+    ],
+    relatedGuideSlugs: ["gd-2-2-update", "unlock-all-icons", "diamonds", "get-stars-fast", "user-coins"],
+    updatedAt: "2026-07-03",
+  },
+
+  {
+    id: "guide-hardest-levels",
+    title: "Hardest Geometry Dash Levels: Extreme Demon List 2026",
+    slug: "hardest-levels-2026",
+    category: "demon",
+    targetKeyword: "hardest geometry dash levels 2026",
+    summary:
+      "The hardest levels in Geometry Dash as of 2026, ranked by the official Demonlist. From Acheron to Bloodbath, here is what makes each Extreme Demon brutal and who verified them.",
+    body: [
+      {
+        heading: "Quick Answer",
+        content:
+          "The hardest Geometry Dash levels are tracked by the official Demonlist at pointercrate.com, which ranks the 75 hardest demons based on verified completions, player feedback, and list moderator judgment. As of June 2026, the top levels include Acheron, Silent Clubstep, and the newest additions to the Extreme Demon tier. These levels require thousands of attempts, months of practice, and near-perfect execution. Less than 1 percent of Geometry Dash players will ever beat a single Extreme Demon.",
+      },
+      {
+        heading: "How the Demonlist Works",
+        content:
+          "The official Demonlist is maintained by the community at pointercrate.com. It ranks the 75 hardest demons in Geometry Dash. To be ranked, a level must be verified, meaning at least one player has completed it with video proof. The list is updated regularly as new levels are verified and as community consensus shifts on difficulty. Levels can move up or down the list based on new completions and player feedback. The list also tracks which players have completed the most demons and which creators have made the most listed levels.",
+      },
+      {
+        heading: "What Makes an Extreme Demon",
+        content:
+          "Extreme Demons are the highest difficulty tier in Geometry Dash. They are not just hard. They represent the absolute limit of what is possible within the game's engine. Common characteristics of Extreme Demons include: extremely tight timing windows where a single frame error means death, complex wave and ship sections at maximum speed, heavy memory requirements where you must memorize hundreds of obstacles, visual complexity that obscures the gameplay path, and length that demands consistency over 2 to 5 minutes of perfect play. Most Extreme Demons take top players 20,000 to 100,000 attempts to beat.",
+      },
+      {
+        heading: "Top Extreme Demons in 2026",
+        content:
+          "The Demonlist shifts frequently, but here are some of the levels that have defined the top of the list in 2026. These are the levels that the best players in the world are currently grinding:",
+        steps: [
+          { title: "Acheron", detail: "One of the hardest verified levels. Features extreme wave gameplay and brutal timing sections. Represents the current ceiling of what is possible in GD." },
+          { title: "Silent Clubstep", detail: "A legendary level that spent years at the top of the list. Known for its brutal combination of memory and timing. A historic milestone in GD difficulty." },
+          { title: "Bloodbath", detail: "One of the most famous Extreme Demons. Verified by Riot. Was the hardest level in the game for years and remains a benchmark for top players." },
+          { title: "Prismatic Haze", detail: "A newer addition to the top of the list. Features visually stunning but gameplay-brutal sections that push the boundaries of 2.2-era design." },
+          { title: "KINGSLAYER", detail: "Another recent top-tier level. Combines extreme timing with complex visual effects made possible by 2.2 triggers." },
+          { title: "Glide", detail: "Known for its relentless pace and demanding wave sections. A level that separates the best from the rest." },
+          { title: "Acu", detail: "One of the most common first Extreme Demon choices for top players. Teaches fast flow, rhythm stability, and muscle memory under pressure." },
+        ],
+      },
+      {
+        heading: "The Path to Extreme Demon",
+        content:
+          "No player starts with Extreme Demons. The path takes years for most players and follows a clear progression. Complete 10 or more Easy Demons first. Then 10 or more Medium Demons. Then 5 or more Hard Demons like Nine Circles or Jawbreaker. Then 5 or more Insane Demons like Supersonic or Windy Landscape. Only then should you consider Extreme Demons. Most players who reach Extreme Demon level have been playing for 2 to 5 years and have completed 100 to 500 demons of varying difficulties. Use our Demon Progression tool to plan your route from where you are now to where you want to be.",
+      },
+      {
+        heading: "What It Takes to Beat an Extreme Demon",
+        content:
+          "Beating an Extreme Demon is not just about skill. It requires: months of dedicated practice on a single level, a practice schedule with regular breaks to avoid burnout, a healthy physical setup with a high refresh rate monitor and stable FPS, mental resilience to handle thousands of deaths without tilting, and community support through forums, Discord, and YouTube completions to study. Most top players document their journey, and the community celebrates each new Extreme Demon completion as a significant event.",
+      },
+      {
+        heading: "Notable Verifications in GD History",
+        content:
+          "Some verifications have become legendary moments in the Geometry Dash community. Riot's verification of Bloodbath was a watershed moment. The verification of Acheron pushed the boundaries of what was considered possible. Each time a new level is verified at the top of the list, it redefines the ceiling of GD difficulty. These verifications are celebrated with community events, YouTube videos, and sometimes even news coverage outside the GD community.",
+      },
+    ],
+    faq: [
+      {
+        question: "What is the hardest level in Geometry Dash?",
+        answer: "The hardest level changes as new levels are verified. As of 2026, levels like Acheron, Silent Clubstep, and Prismatic Haze are at or near the top of the official Demonlist at pointercrate.com. The list is updated regularly based on new completions and community consensus.",
+      },
+      {
+        question: "How many Extreme Demons are there?",
+        answer: "The official Demonlist tracks the 75 hardest demons. The All Rated Extreme Demons List (AREDL) at aredl.net tracks all rated Extreme Demons, which number in the hundreds. New Extreme Demons are verified regularly as the community pushes the boundaries of difficulty.",
+      },
+      {
+        question: "How long does it take to beat an Extreme Demon?",
+        answer: "Most Extreme Demons take top players 20,000 to 100,000 attempts over several months. Some of the hardest levels have taken over a year of dedicated practice to beat. It is not uncommon for players to spend 6 to 12 months on a single level.",
+      },
+      {
+        question: "Who verifies the hardest Geometry Dash levels?",
+        answer: "Levels are verified by the players who create them or by top players who take on the challenge. Verification requires video proof of completion. The official Demonlist at pointercrate.com tracks all verified completions.",
+      },
+      {
+        question: "Can a normal player beat an Extreme Demon?",
+        answer: "It is possible but requires years of dedicated practice. Most players who beat Extreme Demons have been playing Geometry Dash for 2 to 5 years and have completed hundreds of demons at lower difficulties first. Less than 1 percent of GD players will ever beat an Extreme Demon.",
+      },
+    ],
+    relatedGuideSlugs: ["best-easy-demons", "practice-mode-guide", "gd-2-2-update", "tps-explained", "fps-unlock-guide"],
+    updatedAt: "2026-07-03",
+  },
+
+  {
+    id: "guide-create-level",
+    title: "How to Create a Level in Geometry Dash 2.2: Editor Guide",
+    slug: "create-level-guide",
+    category: "general",
+    targetKeyword: "how to create a level in geometry dash",
+    summary:
+      "The 2.2 editor is the most powerful version yet. Here is how to build your first level, from basic block placement to triggers, groups, and getting your level rated.",
+    body: [
+      {
+        heading: "Quick Answer",
+        content:
+          "To create a level in Geometry Dash 2.2, open the Level Editor from the main menu, create a new level, build your gameplay using blocks and portals, use triggers for dynamic effects, test your level with the play button, publish it to the servers, and then promote it to get downloads and ratings. Getting rated by RobTop requires quality gameplay, good decoration, and community engagement. The 2.2 editor added camera triggers, shader effects, a SFX Library, a Music Library with over 1500 NCS songs, and raised the group limit to 9999.",
+      },
+      {
+        heading: "Opening the Editor",
+        content:
+          "From the main menu, tap the create button. This opens the level selection screen where you can create new levels or edit existing ones. Tap the new level button to create a blank level. You will be asked to name your level and set basic parameters. Once created, tap the edit button to enter the editor. The editor screen shows your level from a side view with a toolbar at the bottom and a build menu accessible by tapping the build button.",
+      },
+      {
+        heading: "Basic Building",
+        content:
+          "The foundation of every level is blocks. Select the build menu to access blocks, portals, orbs, pads, and other gameplay objects. Place blocks by tapping the grid. Delete blocks by selecting the delete tool and tapping them. The basic gameplay loop is: place obstacles, test with the play button, adjust, repeat. Start simple. Your first level should have basic cube jumping with a few spikes and platforms. Do not try to use every feature at once.",
+        steps: [
+          { title: "Place blocks", detail: "Select the block tab in the build menu. Tap the grid to place blocks. Use different block types for variety: solid blocks, spikes, portals, orbs." },
+          { title: "Add portals", detail: "Portals change the game mode (cube, ship, ball, UFO, wave, robot, spider, swing), speed, gravity, and size. Place them to create variety in your level." },
+          { title: "Add orbs and pads", detail: "Yellow orbs jump, pink orbs change gravity, blue orbs flip gravity temporarily. Pads provide similar effects on contact. Use them to create gameplay variety." },
+          { title: "Test constantly", detail: "Tap the play button after every few placements. Play through your level to make sure it is possible. If you cannot beat your own level, nobody else can either." },
+        ],
+      },
+      {
+        heading: "Understanding Triggers",
+        content:
+          "Triggers are the most powerful tools in the editor. They manipulate objects during gameplay. The 2.2 update added many new triggers. Here are the most important ones:",
+        steps: [
+          { title: "Move Trigger", detail: "Moves objects or groups during gameplay. Use it for moving platforms, approaching obstacles, and dynamic environments." },
+          { title: "Alpha Trigger", detail: "Fades objects in and out. Great for surprises, transitions, and appearing or disappearing platforms." },
+          { title: "Toggle Trigger", detail: "Enables or disables groups. Create appearing and disappearing platforms, conditional obstacles, and branching paths." },
+          { title: "Color Trigger", detail: "Changes background and object colors during gameplay. Essential for visual variety and atmosphere." },
+          { title: "Camera Triggers (2.2)", detail: "New in 2.2. Control camera zoom, position, and rotation. Create cinematic moments and dramatic shifts in perspective." },
+          { title: "Shader Effects (2.2)", detail: "New in 2.2. Post-processing effects like blur, chromatic aberration, and color grading. Use sparingly for maximum impact." },
+        ],
+      },
+      {
+        heading: "Groups and Organization",
+        content:
+          "Groups are how you organize objects so triggers can control them. Assign a group ID to one or more objects, then use triggers to manipulate that group. The 2.2 update raised the group limit to 9999, giving you far more organizational capacity than ever before. Use groups logically: group all moving platforms together, group decorative elements separately from gameplay objects, and use consistent naming conventions for your group IDs. Good organization makes complex levels manageable. Bad organization makes even simple levels impossible to edit later.",
+      },
+      {
+        heading: "Music and SFX",
+        content:
+          "The 2.2 update added a Music Library with over 1500 NCS songs that can be used without copyright issues. Select your level's song from the music tab. The song determines the rhythm and pacing of your level. Good level design syncs obstacles to the beat. The SFX Library, also new in 2.2, lets you add sound effects to specific events. Use SFX sparingly. Too many sound effects create audio clutter that detracts from the music.",
+      },
+      {
+        heading: "Testing and Polish",
+        content:
+          "Test your level obsessively. Play it in normal mode and practice mode. Have friends playtest it. Watch how they react to different sections. If a section feels unfair, it probably is. Common polish steps: ensure every death feels fair (the player should understand why they died), sync obstacles to the music beat, add visual decoration that does not obscure gameplay, verify that the level is possible without practice mode, and check that the difficulty is consistent (no sudden spikes that feel unfair).",
+      },
+      {
+        heading: "Publishing Your Level",
+        content:
+          "Once your level is polished, publish it to the servers. Set a difficulty rating that matches your level. Write a clear description. Add tags that help players find your level. Publishing is just the beginning. To get downloads and ratings, you need to promote your level. Share it in GD communities, Discord servers, and forums. Ask friends to play and rate it. The more downloads and likes your level gets, the more likely it is to be noticed by RobTop and rated.",
+      },
+      {
+        heading: "Getting Your Level Rated",
+        content:
+          "Getting rated by RobTop is the goal for most creators. Rated levels give stars, appear in the rated tab, and are eligible for daily and weekly selection. To get rated, your level needs: quality gameplay that is fun and fair, good decoration that enhances without obscuring, community engagement (downloads, likes, positive comments), and visibility (shared in communities, played by known players). There is no guaranteed path to getting rated, but consistently publishing quality levels builds your reputation as a creator. Earning creator points unlocks exclusive icons that non-creators cannot get.",
+      },
+    ],
+    faq: [
+      {
+        question: "How do I create a level in Geometry Dash?",
+        answer: "Open the Level Editor from the main menu, create a new level, build gameplay using blocks and portals, use triggers for dynamic effects, test constantly with the play button, and publish to the servers. Start simple and add complexity as you learn the tools.",
+      },
+      {
+        question: "What are triggers in Geometry Dash?",
+        answer: "Triggers are editor tools that manipulate objects during gameplay. Common triggers include Move (moves objects), Alpha (fades objects), Toggle (shows or hides groups), Color (changes colors), and Camera (controls camera position and zoom, new in 2.2).",
+      },
+      {
+        question: "How do I get my level rated in Geometry Dash?",
+        answer: "Getting rated requires quality gameplay, good decoration, community engagement, and visibility. Publish your level, promote it in GD communities, and consistently produce quality content. RobTop rates levels that meet the community's quality standards.",
+      },
+      {
+        question: "How many groups can you use in Geometry Dash 2.2?",
+        answer: "Update 2.2 raised the group limit to 9999 groups. This gives creators far more organizational capacity than previous versions, enabling more complex levels with more dynamic elements.",
+      },
+      {
+        question: "Can I use copyrighted music in my Geometry Dash level?",
+        answer: "The 2.2 update added a Music Library with over 1500 NCS (NoCopyrightSounds) tracks that can be used freely. For other music, you need to use songs that are available on Newgrounds and approved for use in Geometry Dash.",
+      },
+    ],
+    relatedGuideSlugs: ["gd-2-2-update", "unlock-all-icons", "get-stars-fast", "practice-mode-guide", "tps-explained"],
+    updatedAt: "2026-07-03",
+  },
 ];
 
 /** 获取已发布指南 */
