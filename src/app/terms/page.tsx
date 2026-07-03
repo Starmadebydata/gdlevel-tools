@@ -110,7 +110,7 @@ export default function TermsPage() {
           <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">9. Contact</h2>
           <p className="leading-relaxed">
             Questions about these Terms? Contact us at{" "}
-            <span className="font-mono text-[var(--color-primary)]">contact@gdleveltools.com</span>.
+            <span className="font-mono text-[var(--color-primary)]">contact@geometrydashlevel.com</span>.
           </p>
         </section>
       </div>

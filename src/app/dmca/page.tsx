@@ -48,7 +48,7 @@ export default function DmcaPage() {
             If you believe that content on our site infringes your copyright, please send a DMCA notice to:
           </p>
           <div className="gd-card p-4">
-            <p className="font-mono text-sm text-[var(--color-primary)]">contact@gdleveltools.com</p>
+            <p className="font-mono text-sm text-[var(--color-primary)]">contact@geometrydashlevel.com</p>
           </div>
           <p className="mt-3 leading-relaxed">Your notice must include:</p>
           <ul className="mt-2 space-y-2">

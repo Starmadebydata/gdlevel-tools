@@ -217,7 +217,7 @@ This builds and runs the app in `workerd` (Cloudflare's runtime) locally on port
 
 After deploying, configure a custom domain in the Cloudflare dashboard:
 1. Go to Workers & Pages → your Worker → Settings → Triggers
-2. Add a custom domain (e.g., `gdleveltools.com`)
+2. Add a custom domain (e.g., `geometrydashlevel.com`)
 3. Update `siteConfig.domain` in `src/lib/site-config.ts` to match
 
 ### Workers Builds (CI/CD)

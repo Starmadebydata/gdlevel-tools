@@ -6,7 +6,7 @@
 export const siteConfig = {
   name: "GD Level Tools",
   shortName: "GD Level Tools",
-  domain: "https://gdleveltools.com",
+  domain: "https://geometrydashlevel.com",
   description:
     "Find Geometry Dash levels, choose your next demon, check vault codes, fix common issues, and follow skill based progression routes.",
   tagline: "Geometry Dash Level Finder and Demon Progression Tools",

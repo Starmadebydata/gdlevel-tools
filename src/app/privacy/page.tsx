@@ -107,7 +107,7 @@ export default function PrivacyPage() {
           <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">8. Contact Us</h2>
           <p className="leading-relaxed">
             If you have questions about this Privacy Policy, please contact us at{" "}
-            <span className="font-mono text-[var(--color-primary)]">contact@gdleveltools.com</span>.
+            <span className="font-mono text-[var(--color-primary)]">contact@geometrydashlevel.com</span>.
           </p>
         </section>
       </div>

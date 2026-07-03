@@ -10,5 +10,10 @@
   },
   "observability": {
     "enabled": true
-  }
+  },
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "geometrydashlevel.com", "custom_domain": true },
+    { "pattern": "www.geometrydashlevel.com", "custom_domain": true }
+  ]
 }

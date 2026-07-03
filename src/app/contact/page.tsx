@@ -70,7 +70,7 @@ export default function ContactPage() {
         <section className="gd-card p-6">
           <h2 className="mb-4 text-base font-bold text-[var(--color-text)]">Send a Message</h2>
           <p className="mb-4 text-sm text-[var(--color-text-muted)]">
-            Email us at: <span className="font-mono text-[var(--color-primary)]">contact@gdleveltools.com</span>
+            Email us at: <span className="font-mono text-[var(--color-primary)]">contact@geometrydashlevel.com</span>
           </p>
           <p className="text-xs text-[var(--color-text-dim)]">
             We typically respond within 48 hours. This is a fan site — please do not send inquiries about
