@@ -5,6 +5,7 @@ import "./globals.css";
 import { generateSeo, websiteSchema, organizationSchema } from "@/lib/seo";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CookieConsent from "@/components/CookieConsent";
 
 // Google Analytics 测量 ID
 // 在 Google Analytics 控制台获取，格式形如 G-XXXXXXXXXX
@@ -36,11 +37,32 @@ export default function RootLayout({
     })();
   `;
 
+  // GA4 Consent Mode v2 默认状态：全部 denied
+  // 必须在 gtag.js 加载前执行，这样 Google Analytics 一加载就知道用户还没同意
+  // 用户在 CookieConsent 组件里点 Accept/Decline 后会 update 这个状态
+  // 即使 gtag 还没加载，这个命令也会缓存在 dataLayer 里，加载后自动执行
+  const consentDefaultScript = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+  `;
+
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`} data-theme="dark">
       <head>
         {/* 防闪烁：在 CSS 加载前就设置好主题 */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+
+        {/* GA4 Consent Mode v2 默认状态：在 gtag.js 加载前设为 denied */}
+        <script dangerouslySetInnerHTML={{ __html: consentDefaultScript }} />
 
         {/* WebSite Schema — 放在 head 中便于 Google 识别 */}
         <script
@@ -65,8 +87,6 @@ export default function RootLayout({
         />
         <Script id="gtag-init" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
@@ -75,6 +95,7 @@ export default function RootLayout({
         <Header />
         <main className="relative flex-1">{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
