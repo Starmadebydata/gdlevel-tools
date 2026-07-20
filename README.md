@@ -33,6 +33,7 @@ A fan-made Geometry Dash tools website built with Next.js, TypeScript, and Tailw
 - Per-page metadata (title, description, Open Graph, Twitter Cards)
 - JSON-LD structured data: WebSite, BreadcrumbList, FAQPage, Article, ItemList
 - Dynamic `sitemap.xml` and `robots.txt`
+- `llms.txt` for AI/LLM search engines (ChatGPT, Perplexity, Gemini, Claude) — generated from data via `npm run llms-txt`
 - Semantic HTML, accessible ARIA labels
 
 ### Legal & Compliance

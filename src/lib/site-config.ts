@@ -49,7 +49,7 @@ export const footerLinks = {
     { label: "Diamonds", href: "/guides/diamonds/" },
     { label: "Gold Keys", href: "/guides/gold-keys/" },
     { label: "Geode", href: "/mods/geode/" },
-    { label: "FPS Unlock", href: "/tools/fps-unlock-guide/" },
+    { label: "FPS Unlock", href: "/mods/fps-unlock-guide/" },
     { label: "Fixes", href: "/fix/" },
   ],
   Legal: [
