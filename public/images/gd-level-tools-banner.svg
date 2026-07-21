@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#070B14"/>
+      <stop offset="0.55" stop-color="#0A1020"/>
+      <stop offset="1" stop-color="#11102A"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="730" y1="110" x2="1060" y2="490" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C6FBFF"/>
+      <stop offset="0.28" stop-color="#00E5FF"/>
+      <stop offset="0.72" stop-color="#008AA8"/>
+      <stop offset="1" stop-color="#005069"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="790" y1="110" x2="1100" y2="510" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E1D6FF"/>
+      <stop offset="0.35" stop-color="#B388FF"/>
+      <stop offset="1" stop-color="#4A258C"/>
+    </linearGradient>
+    <linearGradient id="type" x1="108" y1="250" x2="650" y2="370" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ECFDFF"/>
+      <stop offset="0.52" stop-color="#5EF1FF"/>
+      <stop offset="1" stop-color="#BDA8FF"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="630" x2="1200" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00E5FF" stop-opacity="0.18"/>
+      <stop offset="0.55" stop-color="#7C4DFF" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowC" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="11" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowS" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" stroke="#8AA6D8" stroke-opacity="0.085" stroke-width="1"/>
+    </pattern>
+    <clipPath id="frame"><rect width="1200" height="630" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="630" fill="url(#bg)"/>
+    <rect width="1200" height="630" fill="url(#grid)"/>
+    <path d="M0 503C164 456 310 473 438 522C612 588 742 577 898 510C1013 461 1111 452 1200 470V630H0V503Z" fill="url(#floor)"/>
+    <path d="M0 515L1200 467" stroke="#00E5FF" stroke-opacity="0.13"/>
+    <path d="M0 564L1200 512" stroke="#B388FF" stroke-opacity="0.1"/>
+    <path d="M0 613L1200 557" stroke="#00E5FF" stroke-opacity="0.07"/>
+    <path d="M64 0V630M144 0V630M224 0V630M304 0V630M384 0V630M464 0V630M544 0V630M624 0V630" stroke="#00E5FF" stroke-opacity="0.025"/>
+
+    <g opacity="0.72">
+      <path d="M760 80L1083 80L1142 140L819 140Z" fill="#B388FF" fill-opacity="0.08" stroke="#B388FF" stroke-opacity="0.45"/>
+      <path d="M865 87L1060 87L1098 124L903 124Z" fill="#B388FF" fill-opacity="0.14"/>
+      <path d="M780 525L1100 525L1151 574L831 574Z" fill="#00E5FF" fill-opacity="0.05" stroke="#00E5FF" stroke-opacity="0.3"/>
+    </g>
+    <g fill="#00E5FF" filter="url(#glowS)">
+      <circle cx="742" cy="182" r="3"/><circle cx="1095" cy="222" r="2"/><circle cx="1144" cy="407" r="3"/>
+      <circle cx="691" cy="466" r="2"/><circle cx="1008" cy="542" r="2"/>
+    </g>
+    <g stroke="#00E5FF" stroke-opacity="0.28" stroke-width="1.5">
+      <path d="M685 179L738 179M712 153V205"/>
+      <path d="M1116 425L1169 425M1142 399V451"/>
+      <path d="M1021 177L1064 177M1042 155V199" stroke="#B388FF"/>
+    </g>
+
+    <g transform="translate(874 166) rotate(16 118 118)">
+      <rect x="-30" y="-30" width="296" height="296" rx="30" fill="#00E5FF" fill-opacity="0.07" stroke="#00E5FF" stroke-opacity="0.25" stroke-width="2"/>
+      <rect x="0" y="0" width="236" height="236" rx="24" fill="#081528" stroke="url(#cyan)" stroke-width="5" filter="url(#glowC)"/>
+      <rect x="17" y="17" width="202" height="202" rx="17" fill="url(#cyan)" fill-opacity="0.18" stroke="#BDF9FF" stroke-opacity="0.45" stroke-width="2"/>
+      <path d="M26 69L69 26H167L210 69V167L167 210H69L26 167V69Z" stroke="#00E5FF" stroke-opacity="0.65" stroke-width="2"/>
+      <rect x="59" y="59" width="118" height="118" rx="16" fill="#06111E" stroke="#D5FCFF" stroke-opacity="0.58" stroke-width="3"/>
+      <path d="M77 98H100V121H77V98ZM136 98H159V121H136V98Z" fill="#00E5FF" filter="url(#glowS)"/>
+      <path d="M86 144C103 157 133 157 150 144" stroke="#B388FF" stroke-width="6" stroke-linecap="round"/>
+      <path d="M26 69L59 59M210 69L177 59M26 167L59 177M210 167L177 177" stroke="#FFD54F" stroke-width="4"/>
+      <circle cx="118" cy="118" r="91" stroke="#B388FF" stroke-opacity="0.3" stroke-dasharray="4 10"/>
+    </g>
+    <path d="M792 510L822 442L852 510Z" fill="#00E5FF" fill-opacity="0.58"/>
+    <path d="M829 510L865 428L901 510Z" fill="#B388FF" fill-opacity="0.62"/>
+    <path d="M873 510L897 456L921 510Z" fill="#FFD54F" fill-opacity="0.8"/>
+
+    <g transform="translate(78 77)">
+      <rect width="302" height="39" rx="19.5" fill="#00E5FF" fill-opacity="0.09" stroke="#00E5FF" stroke-opacity="0.42"/>
+      <circle cx="21" cy="19.5" r="5" fill="#00E5FF" filter="url(#glowS)"/>
+      <text x="38" y="24.5" fill="#8EF7FF" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.8">FAN-MADE PLAYER RESOURCE</text>
+    </g>
+    <text x="78" y="246" fill="url(#type)" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="900" letter-spacing="-3">GD LEVEL TOOLS</text>
+    <rect x="80" y="269" width="510" height="2" fill="url(#type)" fill-opacity="0.7"/>
+    <text x="80" y="325" fill="#E8EAF6" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="700" letter-spacing="-0.5">Find your next level. Beat your next demon.</text>
+    <text x="80" y="370" fill="#9AA6C1" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="400">Level finder · Demon progression · Vault codes · Player guides</text>
+    <g transform="translate(80 446)">
+      <rect width="355" height="62" rx="12" fill="#00E5FF"/>
+      <rect x="2" y="2" width="351" height="58" rx="10" fill="#0B1625"/>
+      <circle cx="32" cy="31" r="10" fill="#00E5FF" filter="url(#glowS)"/>
+      <text x="54" y="38" fill="#D7FCFF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0.1">geometrydashlevel.com</text>
+    </g>
+    <g fill="#B388FF" fill-opacity="0.9">
+      <rect x="587" y="314" width="8" height="8" transform="rotate(45 591 318)"/>
+      <rect x="639" y="347" width="6" height="6" transform="rotate(45 642 350)"/>
+      <rect x="553" y="425" width="5" height="5" transform="rotate(45 555.5 427.5)"/>
+    </g>
+    <text x="80" y="579" fill="#6C7892" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="1.2">INDEPENDENT FAN SITE · NOT AFFILIATED WITH ROBTOP GAMES</text>
+    <text x="1093" y="579" fill="#6C7892" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600" text-anchor="end" letter-spacing="1.2">LEVEL INDEX / 01</text>
+  </g>
+</svg>
