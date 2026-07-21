@@ -23,8 +23,21 @@ export default function LevelVideoPlayer({
   youtubeId?: string;
 }) {
   const [playing, setPlaying] = useState(false);
-  const thumbSrc = `/images/levels/${slug}.jpg`;
+  const [thumbSrc, setThumbSrc] = useState(`/images/levels/${slug}.jpg`);
   const alt = `${name} by ${creatorName} — gameplay thumbnail`;
+
+  // 缩略图加载失败时的兜底：
+  // 1. 先尝试 YouTube 缩略图（如果有 youtubeId）
+  // 2. 再退到纯色占位（data URI）
+  const handleThumbError = () => {
+    if (youtubeId && !thumbSrc.startsWith("https://")) {
+      setThumbSrc(`https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`);
+    } else if (!thumbSrc.startsWith("data:")) {
+      setThumbSrc(
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%230a0e1a'/%3E%3Ctext x='8' y='5' font-family='sans-serif' font-size='1' fill='%2300e5ff' text-anchor='middle'%3EGD%3C/text%3E%3C/svg%3E"
+      );
+    }
+  };
 
   // 点击播放：切换到 YouTube iframe
   const handlePlay = () => {
@@ -63,6 +76,7 @@ export default function LevelVideoPlayer({
         <img
           src={thumbSrc}
           alt={alt}
+          onError={handleThumbError}
           className={`h-full w-full object-cover ${youtubeId ? "transition-transform duration-500 group-hover:scale-105" : ""}`}
         />
 

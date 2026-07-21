@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import type { Level } from "@/lib/types";
 import {
@@ -21,7 +23,11 @@ export default function LevelCard({ level }: { level: Level }) {
     : "#9c27b0";
 
   // 缩略图路径约定：/images/levels/{slug}.jpg
+  // 缺失时 onError 兜底：先 YouTube 缩略图，再 SVG 占位
   const thumbSrc = `/images/levels/${level.slug}.jpg`;
+  const ytFallback = level.youtubeId
+    ? `https://img.youtube.com/vi/${level.youtubeId}/hqdefault.jpg`
+    : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect width='16' height='9' fill='%230a0e1a'/%3E%3Ctext x='8' y='5' font-family='sans-serif' font-size='1' fill='%2300e5ff' text-anchor='middle'%3EGD%3C/text%3E%3C/svg%3E";
 
   return (
     <Link
@@ -36,6 +42,11 @@ export default function LevelCard({ level }: { level: Level }) {
           src={thumbSrc}
           alt={`${level.name} by ${level.creatorName} — gameplay thumbnail`}
           loading="lazy"
+          onError={(e) => {
+            const img = e.currentTarget;
+            if (img.src === ytFallback) return;
+            img.src = ytFallback;
+          }}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {/* 渐变遮罩，让叠加文字更清晰 */}
