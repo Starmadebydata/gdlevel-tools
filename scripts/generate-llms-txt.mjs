@@ -31,9 +31,16 @@ async function loadData() {
     `npx tsx -e "
 import { getPublishedLevels } from '${resolve(root, "src/lib/data/levels.ts")}';
 import { getGuides } from '${resolve(root, "src/lib/data/guides.ts")}';
+import { vaultCodes, vaultInfo } from '${resolve(root, "src/lib/data/vault-codes.ts")}';
 const levels = getPublishedLevels();
 const guides = getGuides();
-const out = { levels: levels.map(l => ({ slug: l.slug, name: l.name, difficulty: l.difficulty, demonDifficulty: l.demonDifficulty, creatorName: l.creatorName, review: l.review })), guides: guides.map(g => ({ slug: g.slug, title: g.title, category: g.category, summary: g.summary })) };
+const vaults = Object.entries(vaultInfo).map(([id, info]) => ({ id, name: info.name, unlockRequirement: info.unlockRequirement, location: info.location }));
+const out = {
+  levels: levels.map(l => ({ slug: l.slug, name: l.name, difficulty: l.difficulty, demonDifficulty: l.demonDifficulty, creatorName: l.creatorName, review: l.review })),
+  guides: guides.map(g => ({ slug: g.slug, title: g.title, category: g.category, summary: g.summary })),
+  vaults,
+  vaultCodes: vaultCodes.map(c => ({ code: c.code, reward: c.reward, vault: c.vault })),
+};
 process.stdout.write(JSON.stringify(out));
 "`,
     { cwd: root, encoding: "utf-8" }
@@ -65,7 +72,7 @@ const guideCategoryLabel = (c) => {
 };
 
 async function main() {
-  const { levels, guides } = await loadData();
+  const { levels, guides, vaults, vaultCodes } = await loadData();
 
   const lines = [];
 
@@ -103,6 +110,27 @@ async function main() {
     `- [Submit a Level](${DOMAIN}/submit-level/): Community level submission form.`
   );
   lines.push("");
+
+  // === Vault Codes ===
+  lines.push("## Vault Codes");
+  lines.push("");
+  lines.push(
+    `A full list of the ${vaultCodes.length} active in-game secret codes from [the Vault Codes page](${DOMAIN}/vault-codes/). Codes are entered inside the game to unlock icons, colors, orbs, keys, and other rewards. These are not cheats — they are official RobTop secrets hidden in the game.`
+  );
+  lines.push("");
+  for (const vault of vaults) {
+    const inVault = vaultCodes.filter((c) => c.vault === vault.id);
+    if (inVault.length === 0) continue;
+    lines.push(`### ${vault.name}`);
+    if (vault.unlockRequirement) {
+      lines.push(`> Unlock requirement: ${vault.unlockRequirement}`);
+    }
+    lines.push("");
+    for (const c of inVault) {
+      lines.push(`- **${c.code}** — ${c.reward}`);
+    }
+    lines.push("");
+  }
 
   // === Levels (按难度分组) ===
   lines.push("## Level Detail Pages");

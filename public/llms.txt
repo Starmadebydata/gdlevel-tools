@@ -13,6 +13,96 @@ All content is original, written by fans for fans. Geometry Dash and all related
 - [Vault Codes](https://geometrydashlevel.com/vault-codes/): Searchable list of in-game secret codes for The Vault, Vault of Secrets, Chamber of Time, and Wraith Vault.
 - [Submit a Level](https://geometrydashlevel.com/submit-level/): Community level submission form.
 
+## Vault Codes
+
+A full list of the 70 active in-game secret codes from [the Vault Codes page](https://geometrydashlevel.com/vault-codes/). Codes are entered inside the game to unlock icons, colors, orbs, keys, and other rewards. These are not cheats — they are official RobTop secrets hidden in the game.
+
+### The Vault
+> Unlock requirement: Collect 10 Silver User Coins
+
+- **Lenny** — Lenny icon
+- **Blockbite** — UFO icon
+- **Spooky** — Shy Guy icon
+- **Neverending** — UFO icon
+- **Mule** — Ship icon
+- **Ahead** — Wave icon
+- **Gandalfpotter** — Trail
+- **Sparky** — Secret Coin
+- **Robotop** — Robot icon
+- **8-16-30-32-46-84** — Illuminati Wave
+- **FINALBOSS** — A True Member swing
+- **(Your Username)** — Eye icon
+
+### The Vault of Secrets
+> Unlock requirement: Collect 50 Diamonds
+
+- **Robotop** — Robot icon
+- **Octocube** — Octopus-shaped icon
+- **Brain Power** — Brain-shaped icon
+- **Seven** — Finn (Adventure Time) icon
+- **thechickenisonfire** — Swamp Green color
+- **The Challenge** — Vault Keeper's secret level
+- **Gimmiethecolor** — Dark Red color
+- **It's a Puzzle** — Icon
+- **Glubfub** — Secret Coin
+- **geometrydash.com** — 500 Mana Orbs + 20 Diamonds + 1 Grey Key
+- **D4SHG30ME7RY** — Nostalgia icon
+- **THECHICKENISREADY** — Cooked ship
+- **COD3BREAKER** — Cube icon (solve the number puzzle)
+- **(Your Star Count)** — Icon based on your total stars
+
+### The Chamber of Time
+> Unlock requirement: Complete 'The Challenge' from Vault of Secrets, then buy the Master Emblem (700 Diamonds + 1000 Mana Orbs), then open the hidden door in the Coming Soon section
+
+- **Volcano** — Wave icon
+- **River** — Dark Green color
+- **Silence** — Alternative Default icon
+- **Darkness** — Face icon
+- **Hunger** — Hungry icon
+- **Back on track** — Spider icon
+- **GIVEMEHELPER** — Gatekeepers Cipher robot
+- **BACKONTRACK** — Gatekeepers Enigma spider
+
+### The Wraith Vault
+> Unlock requirement: Access The Tower level, find the face icon in the bottom-right corner
+
+- **thickofit** — 1 Mana Orb
+- **skibidi** — 1 Mana Orb
+- **fireinthehole** — 1 Fire Shard
+- **robtopisnice** — 10 Mana Orbs
+- **bussin** — 69 Mana Orbs
+- **wellmet** — 5 Diamonds
+- **checksteam** — 1 Demon Key
+- **touchgrass** — 1 Earth Shard
+- **wateronthehill** — 1 Ice Shard
+- **key** — 1 Demon Key
+- **iaminpain** — 10 Diamonds + 100 Mana Orbs
+- **spacegauntlet** — 20 Diamonds + 1 Demon Key + 2 Metal Shards
+- **gd2025** — 1 Yellow Key + 25 Diamonds + 25 Mana Orbs
+- **gullible** — 1 Mana Orb
+- **v0rtrox** — 1 Mana Orb
+- **67** — 67 Mana Orbs
+- **kingsamgd** — 1 Mana Orb
+- **backondash** — Cube 409
+- **citadel** — Cube 231
+- **skylinept2** — Cube 309
+- **brainpowah47** — Cube 321
+- **randomgauntlet** — Cube 351
+- **dualitygauntlet** — Cube icon
+- **gdawards** — Cube 485
+- **geometry** — Ball 90
+- **ruins** — Ball 91
+- **retrospective** — Ship 121
+- **duckstep** — Ship 146
+- **cheatcodes** — UFO 138
+- **buttonmasher** — UFO 63
+- **putyahandsup** — UFO 71
+- **ravenousbeasts** — UFO 57
+- **boogie** — Wave 92
+- **backstreetboy** — Robot 37
+- **noelelectra** — Swing 17
+- **ncsalbum** — Jetpack 8
+
 ## Level Detail Pages
 
 Each level page includes a review, skill tags, gameplay tips, similar levels, next-step recommendations, and FAQ.
