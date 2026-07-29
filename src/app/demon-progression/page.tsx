@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
-import DemonProgressionClient from "@/components/DemonProgressionClient";
-import { parseProgressionSearchParams } from "@/lib/recommendations";
+import DemonProgressionForm from "@/components/DemonProgressionForm";
+import DemonProgressionResults from "@/components/DemonProgressionResults";
+import {
+  parseProgressionSearchParams,
+  planProgression,
+} from "@/lib/recommendations";
+import type { ProgressionInput } from "@/lib/types";
 import { generateSeo, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
@@ -13,6 +18,10 @@ export const metadata: Metadata = generateSeo({
     "Plan your Geometry Dash demon progression. Enter how many demons you beat, your hardest tier, platform, and skill focus. Get bridge levels for the Easy → Hard jump, a no-skip checklist, and a clear next-step route.",
   path: "/demon-progression/",
 });
+
+/** 部署后 HTML 必须立刻拿到新版本，避免旧 HTML 引用已删除的 /_next 哈希 */
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const faqs = [
   {
@@ -37,13 +46,32 @@ const faqs = [
   },
 ];
 
+const DEFAULT_INPUT: ProgressionInput = {
+  completedDemons: 0,
+  highestTier: "none",
+  platform: "pc",
+  skillFocus: "any",
+};
+
 type PageProps = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
+function getParam(
+  params: Record<string, string | string[] | undefined>,
+  key: string
+): string | null {
+  const raw = params[key];
+  if (Array.isArray(raw)) return raw[0] ?? null;
+  return raw ?? null;
+}
+
 export default async function DemonProgressionPage({ searchParams }: PageProps) {
   const params = await searchParams;
-  const initialInput = parseProgressionSearchParams(params);
+  const parsed = parseProgressionSearchParams(params);
+  const wantsPlan = getParam(params, "plan") === "1";
+  const input = parsed ?? DEFAULT_INPUT;
+  const plan = wantsPlan ? planProgression(input) : null;
 
   const breadcrumbs = [
     { name: "Home", href: "/" },
@@ -77,9 +105,14 @@ export default async function DemonProgressionPage({ searchParams }: PageProps) 
         accent="gold"
       />
 
-      <DemonProgressionClient initialInput={initialInput} />
+      <DemonProgressionForm input={input} hasPlan={!!plan} />
 
-      {/* SEO / 说明区块 */}
+      {plan && (
+        <div className="mt-2">
+          <DemonProgressionResults plan={plan} />
+        </div>
+      )}
+
       <section className="mt-12 space-y-6">
         <div className="gd-card p-6">
           <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">
