@@ -162,6 +162,60 @@ export type Recommendation = {
   nextDemon: string;
 };
 
+/** Demon Progression — 当前最高通关 tier */
+export type ProgressionHighestTier =
+  | "none"
+  | "easy"
+  | "medium"
+  | "hard"
+  | "insane"
+  | "extreme";
+
+/** Demon Progression — 技能路线偏好 */
+export type ProgressionSkillFocus =
+  | "any"
+  | "wave"
+  | "ship"
+  | "timing"
+  | "cube"
+  | "memory";
+
+/** Demon Progression Planner 输入 */
+export type ProgressionInput = {
+  completedDemons: number;
+  highestTier: ProgressionHighestTier;
+  platform: "pc" | "mobile" | "both";
+  skillFocus: ProgressionSkillFocus;
+};
+
+/** Progression 单条关卡推荐 */
+export type ProgressionLevelRec = {
+  level: Level;
+  whyNext: string;
+  skillFocusLabel: string;
+  riskNote?: string;
+  role: "next" | "bridge" | "skill-path";
+};
+
+/** Progression 完整规划结果 */
+export type ProgressionPlan = {
+  stage: number;
+  name: string;
+  description: string;
+  targetTierLabel: string;
+  recommendations: ProgressionLevelRec[];
+  bridgeRecommendations: ProgressionLevelRec[];
+  skillPath: {
+    skill: string;
+    title: string;
+    description: string;
+    levels: ProgressionLevelRec[];
+  } | null;
+  checklist: { done: boolean; text: string }[];
+  skipWarning: string | null;
+  nextMilestone: string;
+};
+
 /** 面包屑 */
 export type Breadcrumb = {
   name: string;
