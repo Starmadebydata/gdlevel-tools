@@ -3,6 +3,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import DemonProgressionClient from "@/components/DemonProgressionClient";
+import { parseProgressionSearchParams } from "@/lib/recommendations";
 import { generateSeo, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
@@ -36,7 +37,14 @@ const faqs = [
   },
 ];
 
-export default function DemonProgressionPage() {
+type PageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function DemonProgressionPage({ searchParams }: PageProps) {
+  const params = await searchParams;
+  const initialInput = parseProgressionSearchParams(params);
+
   const breadcrumbs = [
     { name: "Home", href: "/" },
     { name: "Demon Progression", href: "/demon-progression/" },
@@ -69,7 +77,7 @@ export default function DemonProgressionPage() {
         accent="gold"
       />
 
-      <DemonProgressionClient />
+      <DemonProgressionClient initialInput={initialInput} />
 
       {/* SEO / 说明区块 */}
       <section className="mt-12 space-y-6">

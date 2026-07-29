@@ -158,6 +158,69 @@ function buildRecommendation(level: Level, input: PickerInput): Recommendation {
  * 结合通关数量 + 最高 tier + 平台 + 技能偏好，输出完整路线计划
  */
 
+/** 从 URL / searchParams 解析 Progression 输入（SSR + 客户端共用） */
+export function parseProgressionSearchParams(
+  params: URLSearchParams | Record<string, string | string[] | undefined>
+): ProgressionInput | null {
+  const get = (key: string): string | null => {
+    if (params instanceof URLSearchParams) {
+      return params.get(key);
+    }
+    const raw = params[key];
+    if (Array.isArray(raw)) return raw[0] ?? null;
+    return raw ?? null;
+  };
+
+  const demonsRaw = get("demons");
+  const tierRaw = get("tier");
+  if (demonsRaw === null && tierRaw === null) return null;
+
+  const completedDemons = Math.max(
+    0,
+    Math.min(500, parseInt(demonsRaw || "0", 10) || 0)
+  );
+
+  const validTiers: ProgressionHighestTier[] = [
+    "none",
+    "easy",
+    "medium",
+    "hard",
+    "insane",
+    "extreme",
+  ];
+  const validPlatforms = ["pc", "mobile", "both"] as const;
+  const validSkills: ProgressionSkillFocus[] = [
+    "any",
+    "wave",
+    "ship",
+    "timing",
+    "cube",
+    "memory",
+  ];
+
+  const tier = (tierRaw || "none") as ProgressionHighestTier;
+  const platform = (get("platform") || "pc") as ProgressionInput["platform"];
+  const skill = (get("skill") || "any") as ProgressionSkillFocus;
+
+  return {
+    completedDemons,
+    highestTier: validTiers.includes(tier) ? tier : "none",
+    platform: validPlatforms.includes(platform as (typeof validPlatforms)[number])
+      ? (platform as ProgressionInput["platform"])
+      : "pc",
+    skillFocus: validSkills.includes(skill) ? skill : "any",
+  };
+}
+
+export function buildProgressionShareQuery(input: ProgressionInput): string {
+  const params = new URLSearchParams();
+  params.set("demons", String(input.completedDemons));
+  params.set("tier", input.highestTier);
+  params.set("platform", input.platform);
+  if (input.skillFocus !== "any") params.set("skill", input.skillFocus);
+  return params.toString();
+}
+
 const TIER_ORDER: ProgressionHighestTier[] = [
   "none",
   "easy",

@@ -1,14 +1,14 @@
 "use client";
 
-import { useCallback, useMemo, useState, useSyncExternalStore } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
 import type {
   ProgressionHighestTier,
   ProgressionInput,
   ProgressionLevelRec,
-  ProgressionSkillFocus,
 } from "@/lib/types";
 import {
+  buildProgressionShareQuery,
   planProgression,
   PROGRESSION_ROADMAP,
 } from "@/lib/recommendations";
@@ -26,124 +26,49 @@ const DEFAULT_INPUT: ProgressionInput = {
   skillFocus: "any",
 };
 
-function parseInputFromSearch(search: string): ProgressionInput | null {
-  if (!search || search === "?") return null;
-  const params = new URLSearchParams(search);
-  if (!params.has("demons") && !params.has("tier")) return null;
-
-  const demons = Math.max(0, Math.min(500, parseInt(params.get("demons") || "0", 10) || 0));
-  const tier = (params.get("tier") || "none") as ProgressionHighestTier;
-  const platform = (params.get("platform") || "pc") as ProgressionInput["platform"];
-  const skill = (params.get("skill") || "any") as ProgressionSkillFocus;
-
-  const validTiers: ProgressionHighestTier[] = [
-    "none",
-    "easy",
-    "medium",
-    "hard",
-    "insane",
-    "extreme",
-  ];
-  const validPlatforms = ["pc", "mobile", "both"] as const;
-  const validSkills: ProgressionSkillFocus[] = [
-    "any",
-    "wave",
-    "ship",
-    "timing",
-    "cube",
-    "memory",
-  ];
-
-  return {
-    completedDemons: demons,
-    highestTier: validTiers.includes(tier) ? tier : "none",
-    platform: validPlatforms.includes(platform as (typeof validPlatforms)[number])
-      ? (platform as ProgressionInput["platform"])
-      : "pc",
-    skillFocus: validSkills.includes(skill) ? skill : "any",
-  };
-}
-
-function buildShareQuery(input: ProgressionInput): string {
-  const params = new URLSearchParams();
-  params.set("demons", String(input.completedDemons));
-  params.set("tier", input.highestTier);
-  params.set("platform", input.platform);
-  if (input.skillFocus !== "any") params.set("skill", input.skillFocus);
-  return params.toString();
-}
-
-/** 从 URL 读取可分享计划（SSR 安全） */
-function subscribeToUrl(onStoreChange: () => void) {
-  window.addEventListener("popstate", onStoreChange);
-  return () => window.removeEventListener("popstate", onStoreChange);
-}
-
-function getUrlInputSnapshot(): ProgressionInput | null {
-  return parseInputFromSearch(window.location.search);
-}
-
-function getUrlInputServerSnapshot(): ProgressionInput | null {
-  return null;
-}
+type Props = {
+  /** 服务端从 URL searchParams 解析，避免客户端 hydrate 时无限更新 */
+  initialInput?: ProgressionInput | null;
+};
 
 /**
  * Demon Progression Planner 客户端组件
  * 多维输入 → 阶段 / 下一步推荐 / Easy→Hard 桥接 / 技能路线 / 防跳级清单
  */
-export default function DemonProgressionClient() {
-  const urlInput = useSyncExternalStore(
-    subscribeToUrl,
-    getUrlInputSnapshot,
-    getUrlInputServerSnapshot
-  );
-
-  const [draft, setDraft] = useState<ProgressionInput | null>(null);
-  const [submitted, setSubmitted] = useState(false);
+export default function DemonProgressionClient({ initialInput = null }: Props) {
+  const [input, setInput] = useState<ProgressionInput>(initialInput ?? DEFAULT_INPUT);
+  const [submitted, setSubmitted] = useState(initialInput !== null);
   const [copied, setCopied] = useState(false);
 
-  // URL 预填优先；用户编辑后用 draft
-  const input = draft ?? urlInput ?? DEFAULT_INPUT;
-  const showResults = submitted || urlInput !== null;
-
   const plan = useMemo(
-    () => (showResults ? planProgression(input) : null),
-    [showResults, input]
+    () => (submitted ? planProgression(input) : null),
+    [submitted, input]
   );
 
-  const update = useCallback(
-    <K extends keyof ProgressionInput>(key: K, value: ProgressionInput[K]) => {
-      setDraft((prev) => ({ ...(prev ?? urlInput ?? DEFAULT_INPUT), [key]: value }));
-    },
-    [urlInput]
-  );
-
-  function syncUrl(query: string | null) {
-    if (typeof window === "undefined") return;
-    const next = query
-      ? `${window.location.pathname}?${query}`
-      : window.location.pathname;
-    window.history.replaceState(null, "", next);
-    // useSyncExternalStore 只订阅了 popstate；手动通知一次
-    window.dispatchEvent(new PopStateEvent("popstate"));
-  }
+  const update = useCallback(<K extends keyof ProgressionInput>(key: K, value: ProgressionInput[K]) => {
+    setInput((prev) => ({ ...prev, [key]: value }));
+  }, []);
 
   function handleSubmit() {
     setSubmitted(true);
-    setDraft(input);
-    syncUrl(buildShareQuery(input));
+    if (typeof window !== "undefined") {
+      const next = `${window.location.pathname}?${buildProgressionShareQuery(input)}`;
+      window.history.replaceState(null, "", next);
+    }
   }
 
   function handleReset() {
-    setDraft(DEFAULT_INPUT);
+    setInput(DEFAULT_INPUT);
     setSubmitted(false);
     setCopied(false);
-    syncUrl(null);
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
   }
 
   async function handleCopyLink() {
     if (typeof window === "undefined") return;
-    const url = `${window.location.origin}${window.location.pathname}?${buildShareQuery(input)}`;
+    const url = `${window.location.origin}${window.location.pathname}?${buildProgressionShareQuery(input)}`;
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
@@ -288,7 +213,7 @@ export default function DemonProgressionClient() {
           <button type="button" onClick={handleSubmit} className="gd-btn gd-btn-primary">
             Plan My Route
           </button>
-          {showResults && (
+          {submitted && (
             <>
               <button type="button" onClick={handleReset} className="gd-btn gd-btn-outline">
                 Reset
@@ -302,7 +227,7 @@ export default function DemonProgressionClient() {
       </div>
 
       {/* 结果 */}
-      {showResults && plan && (
+      {submitted && plan && (
         <div>
           {/* 当前阶段 */}
           <div className="gd-card mb-6 p-6">
