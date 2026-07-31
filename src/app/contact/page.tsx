@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
-import { generateSeo, breadcrumbSchema } from "@/lib/seo";
+import { generateSeo, breadcrumbSchema, contactPageSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = generateSeo({
   title: "Contact — GD Level Tools",
   description: "Contact GD Level Tools for questions, suggestions, error reports, or business inquiries.",
-  path: "/contact/",
+  path: "/contact",
 });
 
 export default function ContactPage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Contact", href: "/contact/" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -24,6 +24,14 @@ export default function ContactPage() {
             breadcrumbs.map((b) => ({ name: b.name, url: `${siteConfig.domain}${b.href}` }))
           )),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema({
+          name: "Contact GD Level Tools",
+          url: `${siteConfig.domain}/contact`,
+          description: "Contact GD Level Tools for questions, suggestions, error reports, or business inquiries.",
+        })) }}
       />
 
       <Breadcrumb items={breadcrumbs} />
@@ -50,7 +58,7 @@ export default function ContactPage() {
             <h2 className="mb-2 text-base font-bold text-[var(--color-text)]">Suggest a Level</h2>
             <p className="text-sm text-[var(--color-text-muted)]">
               Want to see a specific level on our site? Use the{" "}
-              <a href="/submit-level/" className="gd-link">Submit Level</a> page.
+              <a href="/submit-level" className="gd-link">Submit Level</a> page.
             </p>
           </div>
           <div className="gd-card p-5">

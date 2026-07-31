@@ -117,19 +117,27 @@ export default function HomePage() {
               </p>
             </ScrollReveal>
 
+            {/* 定义性首段 — AI 可直接摘取的站点定义 */}
+            <ScrollReveal animation="up" delay={320}>
+              <p className="mx-auto mt-4 max-w-2xl text-sm text-[var(--color-text-dim)]">
+                GD Level Tools is a free, fan-made website that helps Geometry Dash players find
+                levels, plan demon progression, and fix common technical issues.
+              </p>
+            </ScrollReveal>
+
             {/* CTA */}
             <ScrollReveal animation="up" delay={400}>
               <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-                <Link href="/level-finder/" className="gd-btn gd-btn-primary text-base !px-6 !py-3">
+                <Link href="/level-finder" className="gd-btn gd-btn-primary text-base !px-6 !py-3">
                   <span>Find a Level</span>
                 </Link>
-                <Link href="/first-demon-picker/" className="gd-btn gd-btn-secondary text-base !px-6 !py-3">
+                <Link href="/first-demon-picker" className="gd-btn gd-btn-secondary text-base !px-6 !py-3">
                   <span>Pick My First Demon</span>
                 </Link>
-                <Link href="/demon-list/" className="gd-btn gd-btn-outline text-base !px-6 !py-3">
+                <Link href="/demon-list" className="gd-btn gd-btn-outline text-base !px-6 !py-3">
                   <span>View Demon List</span>
                 </Link>
-                <Link href="/vault-codes/" className="gd-btn gd-btn-accent text-base !px-6 !py-3">
+                <Link href="/vault-codes" className="gd-btn gd-btn-accent text-base !px-6 !py-3">
                   <span>Check Vault Codes</span>
                 </Link>
               </div>
@@ -166,7 +174,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <ScrollReveal animation="up" delay={0}>
             <ToolCard
-              href="/level-finder/"
+              href="/level-finder"
               title="Level Finder"
               desc="Filter levels by difficulty, skill, platform, and more."
               icon="search"
@@ -175,7 +183,7 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal animation="up" delay={100}>
             <ToolCard
-              href="/first-demon-picker/"
+              href="/first-demon-picker"
               title="First Demon Picker"
               desc="Answer a few questions to find your perfect first demon."
               icon="pick"
@@ -184,7 +192,7 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal animation="up" delay={200}>
             <ToolCard
-              href="/demon-progression/"
+              href="/demon-progression"
               title="Demon Progression"
               desc="Plan your route from Easy Demon to Extreme Demon."
               icon="ladder"
@@ -193,7 +201,7 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal animation="up" delay={0}>
             <ToolCard
-              href="/vault-codes/"
+              href="/vault-codes"
               title="Vault Codes"
               desc="All secret codes for The Vault, Vault of Secrets, and more."
               icon="key"
@@ -202,7 +210,7 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal animation="up" delay={100}>
             <ToolCard
-              href="/fix/"
+              href="/fix"
               title="Fix Guides"
               desc="Solve screen dark, tearing, and loading issues."
               icon="wrench"
@@ -211,7 +219,7 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal animation="up" delay={200}>
             <ToolCard
-              href="/submit-level/"
+              href="/submit-level"
               title="Submit a Level"
               desc="Share your level with the GD community."
               icon="upload"
@@ -239,7 +247,7 @@ export default function HomePage() {
         </div>
         <ScrollReveal>
           <div className="mt-8 text-center">
-            <Link href="/first-demon-picker/" className="gd-link text-sm font-medium">
+            <Link href="/first-demon-picker" className="gd-link text-sm font-medium">
               Get a personalized recommendation →
             </Link>
           </div>
@@ -264,7 +272,7 @@ export default function HomePage() {
         </div>
         <ScrollReveal>
           <div className="mt-8 text-center">
-            <Link href="/level-finder/" className="gd-link text-sm font-medium">
+            <Link href="/level-finder" className="gd-link text-sm font-medium">
               Browse all levels →
             </Link>
           </div>
@@ -468,7 +476,7 @@ function GuideCardLink({ guide }: { guide: ReturnType<typeof getGuides>[0] }) {
   const categoryColor =
     guide.category === "fix" ? "var(--color-secondary)" : guide.category === "rewards" ? "var(--color-accent)" : "var(--color-primary)";
 
-  const href = guide.category === "fix" ? `/fix/${guide.slug}/` : guide.category === "mods" ? `/mods/${guide.slug}/` : `/guides/${guide.slug}/`;
+  const href = guide.category === "fix" ? `/fix/${guide.slug}` : guide.category === "mods" ? `/mods/${guide.slug}` : `/guides/${guide.slug}`;
 
   return (
     <Link href={href} className="gd-card group block h-full p-5">

@@ -231,12 +231,12 @@ export const guides: Guide[] = [
   },
   {
     id: "guide-master-emblem",
-    title: "How to Get the Master Emblem in Geometry Dash",
+    title: "How to Get the Master Emblem in Geometry Dash (2026)",
     slug: "master-emblem",
     category: "rewards",
     targetKeyword: "how to get the master emblem in geometry dash",
     summary:
-      "The Master Emblem costs 700 Diamonds and 1000 Mana Orbs, purchased from the shop after completing The Challenge. It unlocks the Chamber of Time.",
+      "Get the Master Emblem in 6 steps: unlock the Vault of Secrets, beat The Challenge, then buy it for 700 Diamonds and 1000 Mana Orbs to open the Chamber of Time.",
     body: [
       {
         heading: "Quick Answer",
@@ -405,12 +405,12 @@ export const guides: Guide[] = [
   // ===== Tools =====
   {
     id: "guide-fps-unlock",
-    title: "How to Unlock FPS in Geometry Dash (2.2 Built-in Guide)",
+    title: "Geometry Dash FPS Unlocker Guide: How to Unlock FPS (2026)",
     slug: "fps-unlock-guide",
     category: "mods",
     targetKeyword: "how to unlock fps in geometry dash",
     summary:
-      "Update 2.2 added a built-in FPS unlock option. Go to Settings > Graphics, turn off V-Sync, enable Unlock FPS, and set your target frame rate.",
+      "Enable the built-in 2.2 FPS unlock in 6 steps: turn off V-Sync, set up to 9999 FPS, and learn what the 240 TPS physics cap means for your gameplay.",
     body: [
       {
         heading: "Quick Answer",
@@ -473,12 +473,12 @@ export const guides: Guide[] = [
   },
   {
     id: "guide-tps-explained",
-    title: "What Is TPS in Geometry Dash? Ticks Per Second Explained",
+    title: "What Is TPS in Geometry Dash? (Ticks Per Second Explained)",
     slug: "tps-explained",
     category: "mods",
     targetKeyword: "what is tps geometry dash",
     summary:
-      "TPS (Ticks Per Second) is how many times the physics engine updates per second. In 2.2, it's capped at 240 TPS, separate from your rendering FPS.",
+      "TPS is how many times the physics engine updates per second. In 2.2 it's capped at 240 TPS — learn why it matters, how it differs from FPS, and how TPS bypass works.",
     body: [
       {
         heading: "Quick Answer",
@@ -753,12 +753,12 @@ export const guides: Guide[] = [
   // ===== Skills / General =====
   {
     id: "guide-unlock-all-icons",
-    title: "How to Unlock All Icons in Geometry Dash: Complete Guide",
+    title: "How to Unlock All Icons in Geometry Dash (2026)",
     slug: "unlock-all-icons",
     category: "general",
     targetKeyword: "how to unlock all icons in geometry dash",
     summary:
-      "Geometry Dash has 9 icon form types and hundreds of unlockable designs. Here is every unlock method, ranked by effort, with milestone thresholds for stars, demons, coins, and vault codes.",
+      "Every icon unlock method for all 9 forms: star milestones up to 15,000+, demon unlocks, secret coins, vault codes, and gauntlets — ranked by effort.",
     body: [
       {
         heading: "Quick Answer",
@@ -870,12 +870,12 @@ export const guides: Guide[] = [
 
   {
     id: "guide-get-stars-fast",
-    title: "How to Get Stars in Geometry Dash Fast: Star Grinding Guide",
+    title: "How to Get Stars Fast in Geometry Dash: 7 Proven Methods (2026)",
     slug: "get-stars-fast",
     category: "general",
     targetKeyword: "how to get stars in geometry dash fast",
     summary:
-      "Stars unlock icons, colors, and leaderboard rank. Here is how to grind stars efficiently: which difficulty to target, how to find sightreadable levels, and why most players waste time on the wrong levels.",
+      "7 proven ways to farm stars faster: pick the right difficulty with the sightread rule, use the Awarded tab, clear map packs, and beat daily levels twice.",
     body: [
       {
         heading: "Quick Answer",
@@ -1203,16 +1203,16 @@ export const guides: Guide[] = [
         content:
           "Here are the 10 best entry-level demons, ranked from easiest to slightly harder. Each one teaches specific skills that prepare you for the next tier.",
         steps: [
-          { title: "1. The Nightmare (Jax)", detail: "The classic first demon. About 30 seconds long with simple cube jumping and a basic ship corridor. The ship section around 60 percent is the hardest part. If you can beat Electrodynamix, you can beat this. The community universally agrees this is the easiest demon in the game." },
-          { title: "2. The Lightning Road (Timeless)", detail: "Another short classic with consistent difficulty throughout. No crazy spikes, no unfair tricks. Many players beat this right after The Nightmare. The level syncs well with its music, so learn the beat and let it guide your taps." },
-          { title: "3. Platinum Adventure (Serponge)", detail: "Slightly harder than the top two but worth it because the decoration is gorgeous. Serponge is a respected community creator. The level rewards rhythm and flow. Do not overthink individual obstacles, find the natural pace and ride it." },
-          { title: "4. Demon Mixed (Oggy)", detail: "Throws multiple game modes at you without being overwhelming. Great practice for mode transitions, which becomes crucial at higher difficulties. Figure out which mode gives you the most trouble and drill those sections." },
-          { title: "5. Speed Racer (ZenthicAlpha)", detail: "Fast, fun, and energetic. Teaches quick reactions and proves that demons can be exciting rather than just punishing. The constant pace keeps you engaged. Tip: relax your grip. Tension makes fast sections way harder than they need to be." },
-          { title: "6. Insomnia (Glittershroom)", detail: "Atmospheric with consistent difficulty and no frustrating spikes. The music sync is so good that audio cues practically tell you when to tap. Great for players who perform better with strong rhythm cues." },
-          { title: "7. Crescendo (MasK463)", detail: "Designed around its soundtrack. The gameplay follows the beat intuitively, teaching rhythm-based playing that becomes critical at higher levels. Listen to the song a few times before playing." },
-          { title: "8. Death Moon (Caustic)", detail: "A rite of passage that has been challenging the community for years. Longer than the others on this list, which means you need consistency, not just bursts of skill. Slightly harder but the satisfaction of beating it is proportionally bigger." },
-          { title: "9. Problematic (Dhafin)", detail: "Short and focused. Packs its challenge into a brief runtime, making it perfect for quick sessions or warmups. You reach the end frequently during practice, which keeps motivation high." },
-          { title: "10. Blue Hell (Lazye)", detail: "Clean visual design with highly readable gameplay. No unfair tricks, no hidden obstacles, no misleading decoration. What you see is what you get. If you have been frustrated by levels that feel cheap, Blue Hell plays fair from start to finish." },
+          { title: "The Nightmare (Jax)", detail: "The classic first demon. About 30 seconds long with simple cube jumping and a basic ship corridor. The ship section around 60 percent is the hardest part. If you can beat Electrodynamix, you can beat this. The community universally agrees this is the easiest demon in the game." },
+          { title: "The Lightning Road (Timeless)", detail: "Another short classic with consistent difficulty throughout. No crazy spikes, no unfair tricks. Many players beat this right after The Nightmare. The level syncs well with its music, so learn the beat and let it guide your taps." },
+          { title: "Platinum Adventure (Serponge)", detail: "Slightly harder than the top two but worth it because the decoration is gorgeous. Serponge is a respected community creator. The level rewards rhythm and flow. Do not overthink individual obstacles, find the natural pace and ride it." },
+          { title: "Demon Mixed (Oggy)", detail: "Throws multiple game modes at you without being overwhelming. Great practice for mode transitions, which becomes crucial at higher difficulties. Figure out which mode gives you the most trouble and drill those sections." },
+          { title: "Speed Racer (ZenthicAlpha)", detail: "Fast, fun, and energetic. Teaches quick reactions and proves that demons can be exciting rather than just punishing. The constant pace keeps you engaged. Tip: relax your grip. Tension makes fast sections way harder than they need to be." },
+          { title: "Insomnia (Glittershroom)", detail: "Atmospheric with consistent difficulty and no frustrating spikes. The music sync is so good that audio cues practically tell you when to tap. Great for players who perform better with strong rhythm cues." },
+          { title: "Crescendo (MasK463)", detail: "Designed around its soundtrack. The gameplay follows the beat intuitively, teaching rhythm-based playing that becomes critical at higher levels. Listen to the song a few times before playing." },
+          { title: "Death Moon (Caustic)", detail: "A rite of passage that has been challenging the community for years. Longer than the others on this list, which means you need consistency, not just bursts of skill. Slightly harder but the satisfaction of beating it is proportionally bigger." },
+          { title: "Problematic (Dhafin)", detail: "Short and focused. Packs its challenge into a brief runtime, making it perfect for quick sessions or warmups. You reach the end frequently during practice, which keeps motivation high." },
+          { title: "Blue Hell (Lazye)", detail: "Clean visual design with highly readable gameplay. No unfair tricks, no hidden obstacles, no misleading decoration. What you see is what you get. If you have been frustrated by levels that feel cheap, Blue Hell plays fair from start to finish." },
         ],
       },
       {

@@ -9,13 +9,13 @@ export const metadata: Metadata = generateSeo({
   title: "Submit a Level — Share Your Geometry Dash Level",
   description:
     "Submit your Geometry Dash level to GD Level Tools. Include the level name, ID, difficulty, and skill tags. Approved levels may appear on our site after manual review.",
-  path: "/submit-level/",
+  path: "/submit-level",
 });
 
 export default function SubmitLevelPage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Submit Level", href: "/submit-level/" },
+    { name: "Submit Level", href: "/submit-level" },
   ];
 
   return (

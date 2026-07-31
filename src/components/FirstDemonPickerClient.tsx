@@ -224,7 +224,7 @@ export default function FirstDemonPickerClient() {
                     {/* 标题 + 作者 — 底部叠加 */}
                     <div className="absolute inset-x-0 bottom-0 p-5">
                       <Link
-                        href={`/levels/${rec.level.slug}/`}
+                        href={`/levels/${rec.level.slug}`}
                         className="text-xl font-bold text-white drop-shadow-md hover:text-[var(--color-primary)] transition-colors"
                       >
                         {rec.level.name}

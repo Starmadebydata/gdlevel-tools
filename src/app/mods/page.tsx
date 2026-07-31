@@ -3,14 +3,14 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import { getGuidesByCategory } from "@/lib/data/guides";
-import { generateSeo, breadcrumbSchema } from "@/lib/seo";
+import { generateSeo, breadcrumbSchema, itemListSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = generateSeo({
   title: "Mods & Tools — Geode, FPS Unlock, TPS, and More",
   description:
     "Guides for Geometry Dash mods and tools: how to install Geode, unlock FPS, understand TPS, and use community tools safely.",
-  path: "/mods/",
+  path: "/mods",
 });
 
 export default function ModsListPage() {
@@ -18,8 +18,14 @@ export default function ModsListPage() {
 
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Mods", href: "/mods/" },
+    { name: "Mods", href: "/mods" },
   ];
+
+  const schemaItems = guides.map((guide) => ({
+    name: guide.title,
+    url: `${siteConfig.domain}/mods/${guide.slug}`,
+    description: guide.summary,
+  }));
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
@@ -30,6 +36,10 @@ export default function ModsListPage() {
             breadcrumbs.map((b) => ({ name: b.name, url: `${siteConfig.domain}${b.href}` }))
           )),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema(schemaItems)) }}
       />
 
       <Breadcrumb items={breadcrumbs} />
@@ -61,7 +71,7 @@ export default function ModsListPage() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {guides.map((guide) => (
-          <Link key={guide.id} href={`/mods/${guide.slug}/`} className="gd-card group block p-5">
+          <Link key={guide.id} href={`/mods/${guide.slug}`} className="gd-card group block p-5">
             <span className="gd-badge mb-3" style={{ backgroundColor: "color-mix(in srgb, var(--color-primary) 13%, transparent)", color: "var(--color-primary)" }}>
               Mod
             </span>

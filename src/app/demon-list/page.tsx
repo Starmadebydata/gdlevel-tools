@@ -12,7 +12,7 @@ export const metadata: Metadata = generateSeo({
   title: "Demon List — Best Geometry Dash Demons by Difficulty Tier",
   description:
     "Browse Geometry Dash demons by difficulty tier: Easy Demon, Medium Demon, Hard Demon, Insane Demon, and Extreme Demon. Find your next demon challenge with reviews and tips.",
-  path: "/demon-list/",
+  path: "/demon-list",
 });
 
 const tiers: { key: DemonDifficulty; label: string; desc: string }[] = [
@@ -28,12 +28,12 @@ export default function DemonListPage() {
 
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Demon List", href: "/demon-list/" },
+    { name: "Demon List", href: "/demon-list" },
   ];
 
   const schemaItems = levels.map((l) => ({
     name: l.name,
-    url: `${siteConfig.domain}/levels/${l.slug}/`,
+    url: `${siteConfig.domain}/levels/${l.slug}`,
     description: `${demonDifficultyLabel(l.demonDifficulty!)} by ${l.creatorName}`,
   }));
 
@@ -108,7 +108,7 @@ export default function DemonListPage() {
                 {tierLevels.map((level) => (
                   <Link
                     key={level.id}
-                    href={`/levels/${level.slug}/`}
+                    href={`/levels/${level.slug}`}
                     className="gd-card gd-card-glow group block overflow-hidden p-0"
                     style={{ ["--card-glow" as string]: `${color}33` }}
                   >

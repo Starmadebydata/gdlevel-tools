@@ -6,13 +6,13 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = generateSeo({
   title: "Terms of Service — GD Level Tools",
   description: "Terms of service for GD Level Tools. Read the rules and conditions for using our website.",
-  path: "/terms/",
+  path: "/terms",
 });
 
 export default function TermsPage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Terms of Service", href: "/terms/" },
+    { name: "Terms of Service", href: "/terms" },
   ];
 
   return (

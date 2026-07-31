@@ -45,7 +45,7 @@ export default function Header() {
 
         {/* Submit Button + Theme Toggle + Mobile Toggle */}
         <div className="flex items-center gap-2">
-          <Link href="/submit-level/" className="gd-btn gd-btn-primary hidden sm:inline-flex !py-2 !px-4 text-xs">
+          <Link href="/submit-level" className="gd-btn gd-btn-primary hidden sm:inline-flex !py-2 !px-4 text-xs">
             Submit Level
           </Link>
           <ThemeToggle />
@@ -82,7 +82,7 @@ export default function Header() {
               ))}
             </div>
             <Link
-              href="/submit-level/"
+              href="/submit-level"
               onClick={() => setMobileOpen(false)}
               className="gd-btn gd-btn-primary mt-3 w-full"
             >

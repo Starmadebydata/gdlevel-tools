@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
-import { generateSeo, breadcrumbSchema } from "@/lib/seo";
+import { generateSeo, breadcrumbSchema, aboutPageSchema } from "@/lib/seo";
 import { siteConfig, fanSiteDisclaimer } from "@/lib/site-config";
 
 export const metadata: Metadata = generateSeo({
   title: "About — GD Level Tools",
   description:
     "GD Level Tools is an independent fan made Geometry Dash tools site. Learn about our mission, how we work, and our relationship with the Geometry Dash community.",
-  path: "/about/",
+  path: "/about",
 });
 
 export default function AboutPage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about/" },
+    { name: "About", href: "/about" },
   ];
 
   return (
@@ -25,6 +25,15 @@ export default function AboutPage() {
             breadcrumbs.map((b) => ({ name: b.name, url: `${siteConfig.domain}${b.href}` }))
           )),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema({
+          name: "About GD Level Tools",
+          url: `${siteConfig.domain}/about`,
+          description:
+            "GD Level Tools is an independent fan made Geometry Dash tools site. Learn about our mission, how we work, and our relationship with the Geometry Dash community.",
+        })) }}
       />
 
       <Breadcrumb items={breadcrumbs} />
@@ -66,6 +75,45 @@ export default function AboutPage() {
         </section>
 
         <section className="gd-card p-5">
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">Who Runs This Site</h2>
+          <p className="mb-3 leading-relaxed text-[var(--color-text-muted)]">
+            GD Level Tools is built and maintained by{" "}
+            <span className="font-bold text-[var(--color-text)]">{siteConfig.author.name}</span>,
+            a Geometry Dash player and developer. The site started from a simple frustration: finding a level
+            that actually matches your skill — or picking the right next demon — meant digging through scattered
+            forum posts, videos, and spreadsheets. These tools put that process in one place, from your first
+            Easy Demon to a full Extreme progression route.
+          </p>
+          <p className="mb-3 leading-relaxed text-[var(--color-text-muted)]">
+            Every guide and fix article on this site is written from hands-on play and community research,
+            and updated when the game changes.
+          </p>
+          <ul className="space-y-2 text-[var(--color-text-muted)]">
+            <li className="flex gap-2">
+              <span className="text-[var(--color-primary)]">•</span>
+              <span>
+                Questions, corrections, or ideas? Reach out via the{" "}
+                <a href="/contact" className="gd-link">contact page</a>.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-[var(--color-primary)]">•</span>
+              <span>
+                The site is open source — see the code on{" "}
+                <a
+                  href="https://github.com/Starmadebydata/gdlevel-tools"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gd-link"
+                >
+                  GitHub
+                </a>.
+              </span>
+            </li>
+          </ul>
+        </section>
+
+        <section className="gd-card p-5">
           <h2 className="mb-2 text-base font-bold text-[var(--color-text)]">Disclaimer</h2>
           <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{fanSiteDisclaimer}</p>
         </section>
@@ -74,7 +122,7 @@ export default function AboutPage() {
           <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">Contact</h2>
           <p className="leading-relaxed text-[var(--color-text-muted)]">
             Have a question, suggestion, or found an error? Visit our{" "}
-            <a href="/contact/" className="gd-link">contact page</a>.
+            <a href="/contact" className="gd-link">contact page</a>.
           </p>
         </section>
       </div>

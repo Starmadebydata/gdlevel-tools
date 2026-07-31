@@ -92,22 +92,22 @@ async function main() {
   lines.push("## Tools");
   lines.push("");
   lines.push(
-    `- [Level Finder](${DOMAIN}/level-finder/): Filter levels by difficulty, demon tier, skill, length, and platform. The main discovery tool.`
+    `- [Level Finder](${DOMAIN}/level-finder): Filter levels by difficulty, demon tier, skill, length, and platform. The main discovery tool.`
   );
   lines.push(
-    `- [Demon List](${DOMAIN}/demon-list/): All demons grouped by tier (Easy → Extreme), with Pointercrate reference.`
+    `- [Demon List](${DOMAIN}/demon-list): All demons grouped by tier (Easy → Extreme), with Pointercrate reference.`
   );
   lines.push(
-    `- [First Demon Picker](${DOMAIN}/first-demon-picker/): Interactive questionnaire that recommends a personalized first demon based on your skills and platform.`
+    `- [First Demon Picker](${DOMAIN}/first-demon-picker): Interactive questionnaire that recommends a personalized first demon based on your skills and platform.`
   );
   lines.push(
-    `- [Demon Progression Planner](${DOMAIN}/demon-progression/): Enter your current demon count and get a stage-based roadmap of which demons to play next.`
+    `- [Demon Progression Planner](${DOMAIN}/demon-progression): Enter your current demon count and get a stage-based roadmap of which demons to play next.`
   );
   lines.push(
-    `- [Vault Codes](${DOMAIN}/vault-codes/): Searchable list of in-game secret codes for The Vault, Vault of Secrets, Chamber of Time, and Wraith Vault.`
+    `- [Vault Codes](${DOMAIN}/vault-codes): Searchable list of in-game secret codes for The Vault, Vault of Secrets, Chamber of Time, and Wraith Vault.`
   );
   lines.push(
-    `- [Submit a Level](${DOMAIN}/submit-level/): Community level submission form.`
+    `- [Submit a Level](${DOMAIN}/submit-level): Community level submission form.`
   );
   lines.push("");
 
@@ -115,7 +115,7 @@ async function main() {
   lines.push("## Vault Codes");
   lines.push("");
   lines.push(
-    `A full list of the ${vaultCodes.length} active in-game secret codes from [the Vault Codes page](${DOMAIN}/vault-codes/). Codes are entered inside the game to unlock icons, colors, orbs, keys, and other rewards. These are not cheats — they are official RobTop secrets hidden in the game.`
+    `A full list of the ${vaultCodes.length} active in-game secret codes from [the Vault Codes page](${DOMAIN}/vault-codes). Codes are entered inside the game to unlock icons, colors, orbs, keys, and other rewards. These are not cheats — they are official RobTop secrets hidden in the game.`
   );
   lines.push("");
   for (const vault of vaults) {
@@ -158,7 +158,7 @@ async function main() {
     const review = (l.review || "").replace(/\s+/g, " ").trim();
     const shortReview = review.length > 120 ? review.slice(0, 117) + "..." : review;
     lines.push(
-      `- [${l.name}](${DOMAIN}/levels/${l.slug}/): ${diff} by ${l.creatorName}. ${shortReview}`
+      `- [${l.name}](${DOMAIN}/levels/${l.slug}): ${diff} by ${l.creatorName}. ${shortReview}`
     );
   }
   lines.push("");
@@ -180,7 +180,7 @@ async function main() {
     for (const g of inCat) {
       const excerpt = (g.summary || "").replace(/\s+/g, " ").trim();
       const shortExcerpt = excerpt.length > 140 ? excerpt.slice(0, 137) + "..." : excerpt;
-      lines.push(`- [${g.title}](${DOMAIN}${guidePath(cat)}/${g.slug}/): ${shortExcerpt}`);
+      lines.push(`- [${g.title}](${DOMAIN}${guidePath(cat)}/${g.slug}): ${shortExcerpt}`);
     }
     lines.push("");
   }
@@ -188,11 +188,11 @@ async function main() {
   // === Legal / About ===
   lines.push("## About and Legal");
   lines.push("");
-  lines.push(`- [About](${DOMAIN}/about/): What GD Level Tools is and who it's for.`);
-  lines.push(`- [Contact](${DOMAIN}/contact/): How to reach the site maintainers.`);
-  lines.push(`- [Privacy Policy](${DOMAIN}/privacy/): Privacy practices and ad cookie disclosure.`);
-  lines.push(`- [Terms of Service](${DOMAIN}/terms/): Terms of use.`);
-  lines.push(`- [DMCA](${DOMAIN}/dmca/): DMCA takedown procedure.`);
+  lines.push(`- [About](${DOMAIN}/about): What GD Level Tools is and who it's for.`);
+  lines.push(`- [Contact](${DOMAIN}/contact): How to reach the site maintainers.`);
+  lines.push(`- [Privacy Policy](${DOMAIN}/privacy): Privacy practices and ad cookie disclosure.`);
+  lines.push(`- [Terms of Service](${DOMAIN}/terms): Terms of use.`);
+  lines.push(`- [DMCA](${DOMAIN}/dmca): DMCA takedown procedure.`);
   lines.push("");
 
   const content = lines.join("\n");

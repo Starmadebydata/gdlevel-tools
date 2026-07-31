@@ -104,11 +104,11 @@ export default function DemonProgressionResults({ plan }: { plan: ProgressionPla
         {plan.recommendations.length === 0 ? (
           <p className="text-sm text-[var(--color-text-muted)]">
             No matching demons in our database for this filter. Try{" "}
-            <Link href="/demon-list/" className="text-[var(--color-primary)] underline">
+            <Link href="/demon-list" className="text-[var(--color-primary)] underline">
               Demon List
             </Link>{" "}
             or{" "}
-            <Link href="/level-finder/" className="text-[var(--color-primary)] underline">
+            <Link href="/level-finder" className="text-[var(--color-primary)] underline">
               Level Finder
             </Link>
             .
@@ -203,16 +203,16 @@ export default function DemonProgressionResults({ plan }: { plan: ProgressionPla
       </div>
 
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/level-finder/" className="gd-btn gd-btn-outline">
+        <Link href="/level-finder" className="gd-btn gd-btn-outline">
           Browse All Levels
         </Link>
-        <Link href="/demon-list/" className="gd-btn gd-btn-outline">
+        <Link href="/demon-list" className="gd-btn gd-btn-outline">
           Demon List
         </Link>
-        <Link href="/first-demon-picker/" className="gd-btn gd-btn-outline">
+        <Link href="/first-demon-picker" className="gd-btn gd-btn-outline">
           First Demon Picker
         </Link>
-        <Link href="/guides/best-easy-demons/" className="gd-btn gd-btn-outline">
+        <Link href="/guides/best-easy-demons" className="gd-btn gd-btn-outline">
           Best Easy Demons Guide
         </Link>
       </div>
@@ -244,7 +244,7 @@ function ProgressionRecCard({
     >
       <div className="flex flex-col sm:flex-row">
         <Link
-          href={`/levels/${level.slug}/`}
+          href={`/levels/${level.slug}`}
           className="relative aspect-video w-full shrink-0 overflow-hidden bg-[var(--color-bg-soft)] sm:aspect-auto sm:h-auto sm:w-36"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -255,7 +255,7 @@ function ProgressionRecCard({
           <div className="flex flex-wrap items-start justify-between gap-2">
             <div className="min-w-0">
               <Link
-                href={`/levels/${level.slug}/`}
+                href={`/levels/${level.slug}`}
                 className="font-bold text-[var(--color-text)] hover:text-[var(--color-primary)]"
               >
                 {level.name}
@@ -304,7 +304,7 @@ function ProgressionRecCard({
           )}
 
           <Link
-            href={`/levels/${level.slug}/`}
+            href={`/levels/${level.slug}`}
             className="mt-auto text-xs font-semibold text-[var(--color-primary)] hover:underline"
           >
             Open level page →

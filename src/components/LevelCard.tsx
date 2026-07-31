@@ -31,7 +31,7 @@ export default function LevelCard({ level }: { level: Level }) {
 
   return (
     <Link
-      href={`/levels/${level.slug}/`}
+      href={`/levels/${level.slug}`}
       className="gd-card gd-card-glow group block h-full overflow-hidden p-0"
       style={{ ["--card-glow" as string]: `${demonColor}33` }}
     >

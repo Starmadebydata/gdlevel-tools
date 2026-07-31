@@ -17,13 +17,13 @@ type Props = {
  */
 export default function DemonProgressionForm({ input, hasPlan }: Props) {
   const sharePath = hasPlan
-    ? `/demon-progression/?plan=1&${buildProgressionShareQuery(input)}`
+    ? `/demon-progression?plan=1&${buildProgressionShareQuery(input)}`
     : null;
 
   return (
     <form
       method="get"
-      action="/demon-progression/"
+      action="/demon-progression"
       className="gd-card mb-8 p-6"
       id="progression-form"
     >
@@ -58,7 +58,7 @@ export default function DemonProgressionForm({ input, hasPlan }: Props) {
             />
             <div className="flex flex-wrap gap-2">
               {COUNT_PRESETS.map((n) => {
-                const href = `/demon-progression/?plan=1&demons=${n}&tier=${input.highestTier}&platform=${input.platform}&skill=${input.skillFocus}`;
+                const href = `/demon-progression?plan=1&demons=${n}&tier=${input.highestTier}&platform=${input.platform}&skill=${input.skillFocus}`;
                 return (
                   <Link
                     key={n}
@@ -181,7 +181,7 @@ export default function DemonProgressionForm({ input, hasPlan }: Props) {
         </button>
         {hasPlan && (
           <>
-            <Link href="/demon-progression/" className="gd-btn gd-btn-outline">
+            <Link href="/demon-progression" className="gd-btn gd-btn-outline">
               Reset
             </Link>
             {sharePath && <CopyShareLinkButton path={sharePath} />}

@@ -6,13 +6,13 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = generateSeo({
   title: "DMCA — GD Level Tools",
   description: "DMCA policy for GD Level Tools. Learn how to report copyright infringement.",
-  path: "/dmca/",
+  path: "/dmca",
 });
 
 export default function DmcaPage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "DMCA", href: "/dmca/" },
+    { name: "DMCA", href: "/dmca" },
   ];
 
   return (

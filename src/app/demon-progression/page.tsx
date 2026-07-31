@@ -16,7 +16,7 @@ export const metadata: Metadata = generateSeo({
   title: "Demon Progression Planner — Easy to Extreme Route",
   description:
     "Plan your Geometry Dash demon progression. Enter how many demons you beat, your hardest tier, platform, and skill focus. Get bridge levels for the Easy → Hard jump, a no-skip checklist, and a clear next-step route.",
-  path: "/demon-progression/",
+  path: "/demon-progression",
 });
 
 /** 部署后 HTML 必须立刻拿到新版本，避免旧 HTML 引用已删除的 /_next 哈希 */
@@ -75,7 +75,7 @@ export default async function DemonProgressionPage({ searchParams }: PageProps) 
 
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Demon Progression", href: "/demon-progression/" },
+    { name: "Demon Progression", href: "/demon-progression" },
   ];
 
   return (
@@ -105,6 +105,25 @@ export default async function DemonProgressionPage({ searchParams }: PageProps) 
         accent="gold"
       />
 
+      {/* 静态可引用内容 — 工具主体是交互组件，给爬虫与 AI 一段事实性说明 */}
+      <div className="gd-card mb-6 p-6">
+        <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">Quick Answer</h2>
+        <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">
+          The Demon Progression Planner takes four inputs — how many demons you have beaten, your
+          hardest cleared tier, your platform, and your skill focus — and outputs your next
+          recommended demons, bridge levels that smooth the jump into the next tier, and a no-skip
+          checklist for your current stage.
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
+          Example: at 10 Easy Demon clears, the planner typically suggests bridge Medium Demons such
+          as{" "}
+          <Link href="/levels/b" className="text-[var(--color-primary)] underline">B</Link>,{" "}
+          <Link href="/levels/problematic" className="text-[var(--color-primary)] underline">Problematic</Link>, and{" "}
+          <Link href="/levels/gold-temple" className="text-[var(--color-primary)] underline">Gold Temple</Link>{" "}
+          before harder picks.
+        </p>
+      </div>
+
       <DemonProgressionForm input={input} hasPlan={!!plan} />
 
       {plan && (
@@ -129,15 +148,15 @@ export default async function DemonProgressionPage({ searchParams }: PageProps) 
             </p>
             <p>
               For your first demon only, try the{" "}
-              <Link href="/first-demon-picker/" className="text-[var(--color-primary)] underline">
+              <Link href="/first-demon-picker" className="text-[var(--color-primary)] underline">
                 First Demon Picker
               </Link>
               . To browse by tag or difficulty, use{" "}
-              <Link href="/level-finder/" className="text-[var(--color-primary)] underline">
+              <Link href="/level-finder" className="text-[var(--color-primary)] underline">
                 Level Finder
               </Link>{" "}
               or the{" "}
-              <Link href="/demon-list/" className="text-[var(--color-primary)] underline">
+              <Link href="/demon-list" className="text-[var(--color-primary)] underline">
                 Demon List
               </Link>
               .

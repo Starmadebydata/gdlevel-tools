@@ -6,13 +6,13 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = generateSeo({
   title: "Privacy Policy — GD Level Tools",
   description: "Privacy policy for GD Level Tools. Learn how we handle data, cookies, and third-party advertising.",
-  path: "/privacy/",
+  path: "/privacy",
 });
 
 export default function PrivacyPage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Privacy Policy", href: "/privacy/" },
+    { name: "Privacy Policy", href: "/privacy" },
   ];
 
   return (

@@ -9,7 +9,7 @@ export const metadata: Metadata = generateSeo({
   title: "Vault Codes — All Geometry Dash Secret Codes (2026)",
   description:
     "Complete list of Geometry Dash vault codes for The Vault, Vault of Secrets, Chamber of Time, and Wraith Vault. Unlock icons, colors, diamonds, and keys with these in-game secret codes.",
-  path: "/vault-codes/",
+  path: "/vault-codes",
 });
 
 const faqs = [
@@ -43,7 +43,7 @@ const faqs = [
 export default function VaultCodesPage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Vault Codes", href: "/vault-codes/" },
+    { name: "Vault Codes", href: "/vault-codes" },
   ];
 
   return (

@@ -19,8 +19,8 @@ export default function NotFound() {
 
       <div className="flex flex-wrap justify-center gap-3">
         <Link href="/" className="gd-btn gd-btn-primary">Back to Home</Link>
-        <Link href="/level-finder/" className="gd-btn gd-btn-outline">Find a Level</Link>
-        <Link href="/demon-list/" className="gd-btn gd-btn-outline">View Demon List</Link>
+        <Link href="/level-finder" className="gd-btn gd-btn-outline">Find a Level</Link>
+        <Link href="/demon-list" className="gd-btn gd-btn-outline">View Demon List</Link>
       </div>
     </div>
   );

@@ -56,7 +56,7 @@ export default function SubmitLevelClient() {
           <button onClick={() => setSubmitted(false)} className="gd-btn gd-btn-outline">
             Submit Another Level
           </button>
-          <Link href="/level-finder/" className="gd-btn gd-btn-primary">
+          <Link href="/level-finder" className="gd-btn gd-btn-primary">
             Browse Levels
           </Link>
         </div>

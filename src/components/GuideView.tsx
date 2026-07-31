@@ -2,7 +2,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import type { Guide } from "@/lib/types";
 import { siteConfig } from "@/lib/site-config";
-import { breadcrumbSchema, faqSchema, articleSchema } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, articleSchema, howToSchema } from "@/lib/seo";
 
 /**
  * 指南详情视图组件
@@ -16,13 +16,19 @@ export default function GuideView({
   basePath: string; // "/guides" or "/fix" or "/mods"
 }) {
   const baseLabel = basePath === "/fix" ? "Fixes" : basePath === "/mods" ? "Mods" : "Guides";
-  const url = `${siteConfig.domain}${basePath}/${guide.slug}/`;
+  const url = `${siteConfig.domain}${basePath}/${guide.slug}`;
 
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: baseLabel, href: `${basePath}/` },
-    { name: guide.title, href: `${basePath}/${guide.slug}/` },
+    { name: baseLabel, href: basePath },
+    { name: guide.title, href: `${basePath}/${guide.slug}` },
   ];
+
+  // fix 指南且正文含步骤段落时，汇总所有步骤输出 HowTo schema
+  const howToSteps =
+    basePath === "/fix"
+      ? guide.body.flatMap((section) => section.steps ?? [])
+      : [];
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
@@ -50,6 +56,16 @@ export default function GuideView({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(guide.faq)) }}
         />
       )}
+      {howToSteps.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema({
+            name: guide.title,
+            url,
+            steps: howToSteps,
+          })) }}
+        />
+      )}
 
       <Breadcrumb items={breadcrumbs} />
 
@@ -59,7 +75,14 @@ export default function GuideView({
         <span className="gd-glow-text">{guide.title}</span>
       </h1>
       <p className="mb-6 text-base text-[var(--color-text-muted)]">{guide.summary}</p>
-      <p className="mb-8 text-xs text-[var(--color-text-dim)]">Updated: {guide.updatedAt}</p>
+      {/* 署名行：作者（链到 About 页）+ 更新日期，名字取自 siteConfig.author */}
+      <p className="mb-8 text-xs text-[var(--color-text-dim)]">
+        By{" "}
+        <Link href="/about" className="gd-link">
+          {siteConfig.author.name}
+        </Link>{" "}
+        · Updated {guide.updatedAt}
+      </p>
 
       {/* 正文 */}
       <div className="space-y-8">
@@ -110,7 +133,7 @@ export default function GuideView({
             {guide.relatedGuideSlugs.map((slug) => (
               <Link
                 key={slug}
-                href={`/guides/${slug}/`}
+                href={`/guides/${slug}`}
                 className="gd-btn gd-btn-outline !py-2 !text-xs"
               >
                 {slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}

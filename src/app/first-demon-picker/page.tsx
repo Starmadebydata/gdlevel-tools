@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import FirstDemonPickerClient from "@/components/FirstDemonPickerClient";
@@ -9,7 +10,7 @@ export const metadata: Metadata = generateSeo({
   title: "First Demon Picker — Which Geometry Dash Demon Should You Beat First?",
   description:
     "Answer a few questions about your playstyle and get personalized recommendations for your first Geometry Dash demon. Find the perfect easy demon for your skills and platform.",
-  path: "/first-demon-picker/",
+  path: "/first-demon-picker",
 });
 
 const faqs = [
@@ -38,7 +39,7 @@ const faqs = [
 export default function FirstDemonPickerPage() {
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "First Demon Picker", href: "/first-demon-picker/" },
+    { name: "First Demon Picker", href: "/first-demon-picker" },
   ];
 
   return (
@@ -63,6 +64,21 @@ export default function FirstDemonPickerPage() {
         subtitle="Answer a few questions and we'll recommend the best demons for your skill level and playstyle."
         accent="purple"
       />
+
+      {/* 静态可引用内容 — 工具主体是交互组件，给爬虫与 AI 一段事实性说明 */}
+      <div className="gd-card mb-6 p-6">
+        <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">Quick Answer</h2>
+        <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">
+          The First Demon Picker asks about your platform, your strongest and weakest skills, and
+          your length and memory preferences, then recommends personalized Easy Demons for your
+          first clear. Recommendations come from a hand-picked pool of beginner-friendly easy
+          demons — see the full ranking in our{" "}
+          <Link href="/guides/best-easy-demons" className="text-[var(--color-primary)] underline">
+            Best Easy Demons guide
+          </Link>
+          .
+        </p>
+      </div>
 
       <FirstDemonPickerClient />
 

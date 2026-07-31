@@ -3,14 +3,14 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import { getGuides } from "@/lib/data/guides";
-import { generateSeo, breadcrumbSchema } from "@/lib/seo";
+import { generateSeo, breadcrumbSchema, itemListSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = generateSeo({
   title: "Guides — Geometry Dash Rewards, Mods, and Skills",
   description:
     "Browse all Geometry Dash guides: how to get diamonds, gold keys, demon keys, user coins, the Master Emblem, how to install Geode, and more.",
-  path: "/guides/",
+  path: "/guides",
 });
 
 const categoryLabels: Record<string, string> = {
@@ -39,8 +39,15 @@ export default function GuidesPage() {
 
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Guides", href: "/guides/" },
+    { name: "Guides", href: "/guides" },
   ];
+
+  // ItemList：与页面卡片 href 规则保持一致
+  const schemaItems = guides.map((guide) => ({
+    name: guide.title,
+    url: `${siteConfig.domain}${guide.category === "fix" ? `/fix/${guide.slug}` : guide.category === "mods" ? `/mods/${guide.slug}` : `/guides/${guide.slug}`}`,
+    description: guide.summary,
+  }));
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
@@ -51,6 +58,10 @@ export default function GuidesPage() {
             breadcrumbs.map((b) => ({ name: b.name, url: `${siteConfig.domain}${b.href}` }))
           )),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema(schemaItems)) }}
       />
 
       <Breadcrumb items={breadcrumbs} />
@@ -75,7 +86,7 @@ export default function GuidesPage() {
               </div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {catGuides.map((guide) => {
-                  const href = guide.category === "fix" ? `/fix/${guide.slug}/` : guide.category === "mods" ? `/mods/${guide.slug}/` : `/guides/${guide.slug}/`;
+                  const href = guide.category === "fix" ? `/fix/${guide.slug}` : guide.category === "mods" ? `/mods/${guide.slug}` : `/guides/${guide.slug}`;
                   return (
                     <Link key={guide.id} href={href} className="gd-card group block p-5">
                       <span className="gd-badge mb-3" style={{ backgroundColor: `${color}22`, color }}>

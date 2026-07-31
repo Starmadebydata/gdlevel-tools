@@ -86,7 +86,7 @@ export default function CookieConsent() {
             We use cookies to understand how you use our site and improve your
             experience. See our{" "}
             <Link
-              href="/privacy/"
+              href="/privacy"
               className="font-medium text-[var(--color-primary)] underline hover:text-[var(--color-primary-hover)]"
             >
               Privacy Policy

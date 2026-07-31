@@ -22,7 +22,7 @@ export async function generateMetadata({
   return generateSeo({
     title: guide.title,
     description: guide.summary,
-    path: `/mods/${guide.slug}/`,
+    path: `/mods/${guide.slug}`,
   });
 }
 

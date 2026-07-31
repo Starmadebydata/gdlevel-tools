@@ -3,14 +3,14 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import SectionHeading from "@/components/SectionHeading";
 import { getFixGuides } from "@/lib/data/guides";
-import { generateSeo, breadcrumbSchema } from "@/lib/seo";
+import { generateSeo, breadcrumbSchema, itemListSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = generateSeo({
   title: "Fix Guides — Solve Geometry Dash Screen, FPS, and Loading Issues",
   description:
     "Fix screen dark, screen tearing, can't play online levels, V-Sync issues, and other common Geometry Dash problems with step by step guides.",
-  path: "/fix/",
+  path: "/fix",
 });
 
 export default function FixListPage() {
@@ -18,8 +18,14 @@ export default function FixListPage() {
 
   const breadcrumbs = [
     { name: "Home", href: "/" },
-    { name: "Fixes", href: "/fix/" },
+    { name: "Fixes", href: "/fix" },
   ];
+
+  const schemaItems = guides.map((guide) => ({
+    name: guide.title,
+    url: `${siteConfig.domain}/fix/${guide.slug}`,
+    description: guide.summary,
+  }));
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
@@ -30,6 +36,10 @@ export default function FixListPage() {
             breadcrumbs.map((b) => ({ name: b.name, url: `${siteConfig.domain}${b.href}` }))
           )),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema(schemaItems)) }}
       />
 
       <Breadcrumb items={breadcrumbs} />
@@ -42,7 +52,7 @@ export default function FixListPage() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {guides.map((guide) => (
-          <Link key={guide.id} href={`/fix/${guide.slug}/`} className="gd-card group block p-5">
+          <Link key={guide.id} href={`/fix/${guide.slug}`} className="gd-card group block p-5">
             <div className="mb-3 flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--color-secondary)]/30 bg-[var(--color-secondary)]/10">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
