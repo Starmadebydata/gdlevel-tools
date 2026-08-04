@@ -1,5 +1,7 @@
 # GD Level Tools
 
+![GD Level Tools banner](public/images/gd-level-tools-banner.png)
+
 A fan-made Geometry Dash tools website built with Next.js, TypeScript, and Tailwind CSS. Helps players find levels, choose demons, unlock rewards, fix issues, and plan progression.
 
 > **Disclaimer:** This is an independent fan site, not affiliated with RobTop Games. All content is created by fans, for fans.
