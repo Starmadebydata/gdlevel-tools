@@ -5,6 +5,44 @@ import { siteConfig } from "@/lib/site-config";
 import { breadcrumbSchema, faqSchema, articleSchema, howToSchema } from "@/lib/seo";
 
 /**
+ * 权威外链映射：攻略正文中提到的外部权威来源域名 → 链接。
+ * 纯文本提及会被渲染成真实超链接（E-E-A-T 可交叉验证信号）。
+ */
+const EXTERNAL_SOURCES: Record<string, string> = {
+  "pointercrate.com": "https://pointercrate.com/demonlist/",
+  "geode-sdk.org": "https://geode-sdk.org",
+  "aredl.net": "https://aredl.net",
+};
+
+const EXTERNAL_SOURCES_PATTERN = new RegExp(
+  `\\b(${Object.keys(EXTERNAL_SOURCES)
+    .map((d) => d.replace(/\./g, "\\."))
+    .join("|")})\\b`,
+  "g"
+);
+
+/** 把正文中的权威来源域名渲染为外链 */
+function linkifySources(text: string): React.ReactNode {
+  const parts = text.split(EXTERNAL_SOURCES_PATTERN);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) =>
+    EXTERNAL_SOURCES[part] ? (
+      <a
+        key={i}
+        href={EXTERNAL_SOURCES[part]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="gd-link"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
+/**
  * 指南详情视图组件
  * 在 /guides/[slug] 和 /fix/[slug] 和 /mods/[slug] 下复用
  */
@@ -89,7 +127,7 @@ export default function GuideView({
         {guide.body.map((section, i) => (
           <section key={i}>
             <h2 className="mb-3 text-xl font-bold text-[var(--color-text)]">{section.heading}</h2>
-            <p className="mb-4 leading-relaxed text-[var(--color-text-muted)]">{section.content}</p>
+            <p className="mb-4 leading-relaxed text-[var(--color-text-muted)]">{linkifySources(section.content)}</p>
             {section.steps && (
               <ol className="space-y-3">
                 {section.steps.map((step, j) => (
@@ -99,7 +137,7 @@ export default function GuideView({
                     </div>
                     <div>
                       <p className="font-bold text-[var(--color-text)]">{step.title}</p>
-                      <p className="text-sm text-[var(--color-text-muted)]">{step.detail}</p>
+                      <p className="text-sm text-[var(--color-text-muted)]">{linkifySources(step.detail)}</p>
                     </div>
                   </li>
                 ))}
@@ -118,7 +156,7 @@ export default function GuideView({
             {guide.faq.map((item) => (
               <div key={item.question} className="gd-card p-4">
                 <h3 className="mb-2 text-sm font-bold text-[var(--color-text)]">{item.question}</h3>
-                <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{item.answer}</p>
+                <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{linkifySources(item.answer)}</p>
               </div>
             ))}
           </div>

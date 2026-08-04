@@ -157,6 +157,22 @@ export default async function LevelDetailPage({
           creator: { "@type": "Person", name: level.creatorName },
         }) }}
       />
+      {/* 展示视频 — VideoObject，供 Google 视频富结果与 AI 引擎引用 */}
+      {level.youtubeId && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            name: `${level.name} by ${level.creatorName} — Geometry Dash Gameplay`,
+            description: level.review.slice(0, 200),
+            thumbnailUrl: `https://i.ytimg.com/vi/${level.youtubeId}/hqdefault.jpg`,
+            uploadDate: level.updatedAt,
+            embedUrl: `https://www.youtube.com/embed/${level.youtubeId}`,
+            contentUrl: `https://www.youtube.com/watch?v=${level.youtubeId}`,
+          }) }}
+        />
+      )}
 
       <Breadcrumb items={breadcrumbs} />
 
