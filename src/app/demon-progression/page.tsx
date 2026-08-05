@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import DemonProgressionForm from "@/components/DemonProgressionForm";
 import DemonProgressionResults from "@/components/DemonProgressionResults";
@@ -97,13 +98,16 @@ export default async function DemonProgressionPage({ searchParams }: PageProps) 
         }}
       />
 
-      <Breadcrumb items={breadcrumbs} />
+      <PageHeroBanner offset={6}>
+        <Breadcrumb items={breadcrumbs} />
 
       <SectionHeading
         title="Demon Progression Planner"
         subtitle="Build a real route — not another demon list. We combine your clear count, hardest tier, platform, and skill focus to recommend next levels, Easy→Hard bridges, and a no-skip checklist."
         accent="gold"
+        as="h1"
       />
+      </PageHeroBanner>
 
       {/* 静态可引用内容 — 工具主体是交互组件，给爬虫与 AI 一段事实性说明 */}
       <div className="gd-card mb-6 p-6">

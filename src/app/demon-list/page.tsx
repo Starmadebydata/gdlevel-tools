@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import { getPublishedLevels } from "@/lib/data/levels";
 import { generateSeo, breadcrumbSchema, itemListSchema } from "@/lib/seo";
@@ -52,13 +53,16 @@ export default function DemonListPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema(schemaItems)) }}
       />
 
-      <Breadcrumb items={breadcrumbs} />
+      <PageHeroBanner offset={3}>
+        <Breadcrumb items={breadcrumbs} />
 
       <SectionHeading
         title="Demon List"
         subtitle="Browse demons by difficulty tier. Each level includes reviews, tips, and recommended next steps."
         accent="purple"
+        as="h1"
       />
+      </PageHeroBanner>
 
       {/* Pointercrate 提示 */}
       <div className="gd-card mb-8 flex items-start gap-4 p-5">

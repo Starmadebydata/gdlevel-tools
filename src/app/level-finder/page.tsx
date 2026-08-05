@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import LevelFinderClient from "@/components/LevelFinderClient";
 import { getPublishedLevels } from "@/lib/data/levels";
@@ -44,13 +45,16 @@ export default function LevelFinderPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema(schemaItems)) }}
       />
 
-      <Breadcrumb items={breadcrumbs} />
+      <PageHeroBanner offset={0}>
+        <Breadcrumb items={breadcrumbs} />
 
       <SectionHeading
         title="Level Finder"
         subtitle="Search and filter Geometry Dash levels by difficulty, skill, platform, and more."
         accent="cyan"
+        as="h1"
       />
+      </PageHeroBanner>
 
       {/* 静态可引用内容 — 工具主体是交互组件，给爬虫与 AI 一段事实性说明 */}
       <div className="gd-card mb-6 p-6">

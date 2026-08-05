@@ -6,10 +6,13 @@ export default function SectionHeading({
   title,
   subtitle,
   accent = "cyan",
+  as = "h2",
 }: {
   title: string;
   subtitle?: string;
   accent?: "cyan" | "purple" | "gold";
+  /** 工具页主标题传 "h1"（这些页面没有其他 h1）；首页等 section 标题保持默认 h2 */
+  as?: "h1" | "h2";
 }) {
   const barColor =
     accent === "purple"
@@ -17,6 +20,8 @@ export default function SectionHeading({
       : accent === "gold"
       ? "var(--color-accent)"
       : "var(--color-primary)";
+
+  const Tag = as;
 
   return (
     <div className="mb-8">
@@ -32,12 +37,12 @@ export default function SectionHeading({
         />
       </div>
       {/* 硬质投影 + 主题色微光（内联样式避免与 glow class 冲突） */}
-      <h2
+      <Tag
         className="gd-section-title"
         style={{ textShadow: `3px 3px 0 var(--gd-hard-shadow), 0 0 24px color-mix(in srgb, ${barColor} 27%, transparent)` }}
       >
         {title}
-      </h2>
+      </Tag>
       {subtitle && <p className="gd-section-subtitle">{subtitle}</p>}
     </div>
   );

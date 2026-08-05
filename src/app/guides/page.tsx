@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import { getGuides } from "@/lib/data/guides";
 import { generateSeo, breadcrumbSchema, itemListSchema } from "@/lib/seo";
@@ -64,13 +65,16 @@ export default function GuidesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema(schemaItems)) }}
       />
 
-      <Breadcrumb items={breadcrumbs} />
+      <PageHeroBanner offset={5}>
+        <Breadcrumb items={breadcrumbs} />
 
       <SectionHeading
         title="Guides"
         subtitle="Learn how to get rewards, install mods, improve your skills, and more."
         accent="cyan"
+        as="h1"
       />
+      </PageHeroBanner>
 
       <div className="space-y-10">
         {categories.map((cat) => {

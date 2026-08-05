@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import { getGuidesByCategory } from "@/lib/data/guides";
 import { generateSeo, breadcrumbSchema, itemListSchema } from "@/lib/seo";
@@ -42,13 +43,16 @@ export default function ModsListPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema(schemaItems)) }}
       />
 
-      <Breadcrumb items={breadcrumbs} />
+      <PageHeroBanner offset={8}>
+        <Breadcrumb items={breadcrumbs} />
 
       <SectionHeading
         title="Mods & Tools"
         subtitle="Guides for Geode, FPS unlock, TPS, and other community tools."
         accent="cyan"
+        as="h1"
       />
+      </PageHeroBanner>
 
       {/* 风险提示 */}
       <div className="gd-card mb-6 border-[var(--color-accent)]/30 p-4">

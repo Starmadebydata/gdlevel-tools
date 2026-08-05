@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import SubmitLevelClient from "@/components/SubmitLevelClient";
 import { generateSeo, breadcrumbSchema } from "@/lib/seo";
@@ -29,13 +30,16 @@ export default function SubmitLevelPage() {
         }}
       />
 
-      <Breadcrumb items={breadcrumbs} />
+      <PageHeroBanner offset={11}>
+        <Breadcrumb items={breadcrumbs} />
 
       <SectionHeading
         title="Submit a Level"
         subtitle="Share your Geometry Dash level with the community. Approved submissions may appear on GD Level Tools."
         accent="gold"
+        as="h1"
       />
+      </PageHeroBanner>
 
       <SubmitLevelClient />
     </div>

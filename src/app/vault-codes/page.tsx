@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import VaultCodesClient from "@/components/VaultCodesClient";
 import { generateSeo, breadcrumbSchema, faqSchema } from "@/lib/seo";
@@ -61,13 +62,16 @@ export default function VaultCodesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
       />
 
-      <Breadcrumb items={breadcrumbs} />
+      <PageHeroBanner offset={12}>
+        <Breadcrumb items={breadcrumbs} />
 
       <SectionHeading
         title="Vault Codes"
         subtitle="All secret codes for The Vault, Vault of Secrets, Chamber of Time, and Wraith Vault. Updated June 2026."
         accent="gold"
+        as="h1"
       />
+      </PageHeroBanner>
 
       <VaultCodesClient />
 

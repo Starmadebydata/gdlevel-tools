@@ -176,8 +176,14 @@ export default async function LevelDetailPage({
 
       <Breadcrumb items={breadcrumbs} />
 
-      {/* 标题区 */}
-      <div className="mb-2 h-1 w-12 rounded-full" style={{ background: demonColor }} />
+      {/* 标题区 — GD 菱形徽章 + 展示字体 */}
+      <div className="mb-3 flex items-center gap-3">
+        <div
+          className="h-3.5 w-3.5 rotate-45 border-2"
+          style={{ borderColor: demonColor, boxShadow: `0 0 10px color-mix(in srgb, ${demonColor} 40%, transparent)` }}
+        />
+        <div className="h-px w-16" style={{ background: `linear-gradient(90deg, ${demonColor}, transparent)` }} />
+      </div>
       <div className="mb-6 flex flex-wrap items-center gap-3">
         <span
           className="gd-badge"
@@ -191,20 +197,35 @@ export default async function LevelDetailPage({
         <span className="text-xs text-[var(--color-text-dim)] font-mono">Level ID: {level.levelId}</span>
       </div>
 
-      <h1 className="mb-2 text-3xl font-black leading-tight text-[var(--color-text)] sm:text-4xl">
-        <span className="gd-glow-text">{level.name}</span>
+      <h1 className="gd-display gd-title-shadow mb-2 text-3xl leading-tight text-[var(--color-text)] sm:text-4xl">
+        {level.name}
       </h1>
       <p className="mb-6 text-base text-[var(--color-text-muted)]">
         by <span className="font-medium text-[var(--color-text)]">{level.creatorName}</span>
       </p>
 
-      {/* 关卡缩略图 / 视频播放器 — 点击播放 YouTube 展示视频 */}
-      <LevelVideoPlayer
-        slug={level.slug}
-        name={level.name}
-        creatorName={level.creatorName}
-        youtubeId={level.youtubeId}
-      />
+      {/* 关卡截图/视频 — 加宽展示区 + 难度色霓虹光晕 + 对角方块装饰 */}
+      <div
+        className="relative sm:-mx-6 lg:-mx-16"
+        style={{ filter: `drop-shadow(0 0 30px color-mix(in srgb, ${demonColor} 35%, transparent))` }}
+      >
+        <div
+          className="absolute -left-2 -top-2 z-10 hidden h-5 w-5 rotate-45 border-2 sm:block"
+          style={{ borderColor: demonColor }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -bottom-2 -right-2 z-10 hidden h-5 w-5 rotate-45 border-2 sm:block"
+          style={{ borderColor: demonColor }}
+          aria-hidden="true"
+        />
+        <LevelVideoPlayer
+          slug={level.slug}
+          name={level.name}
+          creatorName={level.creatorName}
+          youtubeId={level.youtubeId}
+        />
+      </div>
 
       {/* 评分卡片 */}
       <div className="gd-card mb-6 p-5">

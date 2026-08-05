@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import FirstDemonPickerClient from "@/components/FirstDemonPickerClient";
 import { generateSeo, breadcrumbSchema, faqSchema } from "@/lib/seo";
@@ -57,13 +58,16 @@ export default function FirstDemonPickerPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
       />
 
-      <Breadcrumb items={breadcrumbs} />
+      <PageHeroBanner offset={9}>
+        <Breadcrumb items={breadcrumbs} />
 
       <SectionHeading
         title="First Demon Picker"
         subtitle="Answer a few questions and we'll recommend the best demons for your skill level and playstyle."
         accent="purple"
+        as="h1"
       />
+      </PageHeroBanner>
 
       {/* 静态可引用内容 — 工具主体是交互组件，给爬虫与 AI 一段事实性说明 */}
       <div className="gd-card mb-6 p-6">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import { getFixGuides } from "@/lib/data/guides";
 import { generateSeo, breadcrumbSchema, itemListSchema } from "@/lib/seo";
@@ -42,13 +43,16 @@ export default function FixListPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema(schemaItems)) }}
       />
 
-      <Breadcrumb items={breadcrumbs} />
+      <PageHeroBanner offset={2}>
+        <Breadcrumb items={breadcrumbs} />
 
       <SectionHeading
         title="Fix Guides"
         subtitle="Step by step solutions for common Geometry Dash issues."
         accent="purple"
+        as="h1"
       />
+      </PageHeroBanner>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {guides.map((guide) => (
