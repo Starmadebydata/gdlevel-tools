@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter } from "next/font/google";
+import { Inter, Russo_One } from "next/font/google";
 import "./globals.css";
 import { generateSeo, websiteSchema, organizationSchema } from "@/lib/seo";
 import Header from "@/components/layout/Header";
@@ -14,6 +14,13 @@ const GA_MEASUREMENT_ID = "G-BWGVR8JE0K";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+// GD 风格展示字体 — 用于标题/按钮（Pusab 的开源近似）
+const russoOne = Russo_One({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-russo-one",
 });
 
 export const metadata: Metadata = generateSeo({});
@@ -56,7 +63,7 @@ export default function RootLayout({
   `;
 
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`} data-theme="dark">
+    <html lang="en" className={`${inter.variable} ${russoOne.variable} h-full antialiased`} data-theme="dark" suppressHydrationWarning>
       <head>
         {/* 防闪烁：在 CSS 加载前就设置好主题 */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

@@ -51,11 +51,15 @@
   /* 字体 */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  /* 展示字体：GD 游戏内字体（Pusab）的开源近似，用于标题/按钮 */
+  --font-display: var(--font-russo-one), "Inter", system-ui, sans-serif;
 
   /* 主题相关的阴影/光晕强度 */
   --gd-shadow-strong: rgba(0, 0, 0, 0.4);
   --gd-grid-opacity: 0.04;
   --gd-glow-strength: 1;
+  /* GD 风格硬质投影 — 标题/按钮的实心偏移阴影 */
+  --gd-hard-shadow: rgba(2, 6, 18, 0.9);
 }
 
 /* ============================================
@@ -93,6 +97,7 @@
   --gd-shadow-strong: rgba(0, 0, 0, 0.12);
   --gd-grid-opacity: 0.06;
   --gd-glow-strength: 0.5;
+  --gd-hard-shadow: rgba(26, 35, 50, 0.35);
 }
 
 /* ============================================
@@ -129,6 +134,7 @@
     --gd-shadow-strong: rgba(0, 0, 0, 0.12);
     --gd-grid-opacity: 0.06;
     --gd-glow-strength: 0.5;
+    --gd-hard-shadow: rgba(26, 35, 50, 0.35);
   }
 }
 
@@ -233,10 +239,11 @@ body {
 .gd-card:hover {
   border-color: var(--color-primary-dim);
   background: linear-gradient(135deg, var(--color-bg-card-hover), var(--color-bg-card));
-  transform: translateY(-4px) scale(1.01);
+  transform: translateY(-4px);
   box-shadow:
-    0 12px 40px var(--gd-shadow-strong),
-    0 0 25px color-mix(in srgb, var(--color-primary) 15%, transparent),
+    0 5px 0 color-mix(in srgb, var(--color-primary) 30%, transparent),
+    0 10px 28px var(--gd-shadow-strong),
+    0 0 20px color-mix(in srgb, var(--color-primary) 15%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
@@ -299,65 +306,98 @@ body {
     0 0 30px var(--card-glow, color-mix(in srgb, var(--color-primary) 20%, transparent));
 }
 
-/* 霓虹按钮 */
+/* 街机按钮 — 切角 + 硬质投影 + 按压反馈（GD 游戏内按钮风格）
+   注意：切角用 clip-path，会裁掉 box-shadow，所以硬投影必须用 filter: drop-shadow */
 .gd-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.625rem 1.25rem;
-  border-radius: 10px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: 0.875rem;
-  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  clip-path: polygon(
+    8px 0, 100% 0, 100% calc(100% - 8px),
+    calc(100% - 8px) 100%, 0 100%, 0 8px
+  );
+  transition: transform 0.15s ease, filter 0.15s ease;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: none;
   text-decoration: none;
 }
 
+.gd-btn:active {
+  transform: translateY(3px);
+}
+
 .gd-btn-primary {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dim));
+  background: linear-gradient(180deg, var(--color-primary), var(--color-primary-dim));
   color: var(--color-bg);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  filter: drop-shadow(0 4px 0 color-mix(in srgb, var(--color-primary) 40%, #000));
 }
 
 .gd-btn-primary:hover {
-  box-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 50%, transparent);
   transform: translateY(-1px);
+  filter: drop-shadow(0 5px 0 color-mix(in srgb, var(--color-primary) 40%, #000))
+    drop-shadow(0 0 14px color-mix(in srgb, var(--color-primary) 45%, transparent));
+}
+
+.gd-btn-primary:active {
+  filter: drop-shadow(0 1px 0 color-mix(in srgb, var(--color-primary) 40%, #000));
 }
 
 .gd-btn-secondary {
-  background: linear-gradient(135deg, var(--color-secondary), var(--color-secondary-dim));
+  background: linear-gradient(180deg, var(--color-secondary), var(--color-secondary-dim));
   color: #fff;
-  box-shadow: 0 0 20px color-mix(in srgb, var(--color-secondary) 30%, transparent);
+  filter: drop-shadow(0 4px 0 color-mix(in srgb, var(--color-secondary) 35%, #000));
 }
 
 .gd-btn-secondary:hover {
-  box-shadow: 0 0 30px color-mix(in srgb, var(--color-secondary) 50%, transparent);
   transform: translateY(-1px);
+  filter: drop-shadow(0 5px 0 color-mix(in srgb, var(--color-secondary) 35%, #000))
+    drop-shadow(0 0 14px color-mix(in srgb, var(--color-secondary) 45%, transparent));
+}
+
+.gd-btn-secondary:active {
+  filter: drop-shadow(0 1px 0 color-mix(in srgb, var(--color-secondary) 35%, #000));
 }
 
 .gd-btn-outline {
-  background: transparent;
-  border-color: var(--color-border);
+  background: color-mix(in srgb, var(--color-bg-card) 60%, transparent);
   color: var(--color-text);
+  box-shadow: inset 0 0 0 2px var(--color-border);
+  filter: drop-shadow(0 4px 0 var(--gd-hard-shadow));
 }
 
 .gd-btn-outline:hover {
-  border-color: var(--color-primary);
+  transform: translateY(-1px);
   color: var(--color-primary);
-  box-shadow: 0 0 15px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  box-shadow: inset 0 0 0 2px var(--color-primary);
+  filter: drop-shadow(0 5px 0 var(--gd-hard-shadow))
+    drop-shadow(0 0 12px color-mix(in srgb, var(--color-primary) 25%, transparent));
+}
+
+.gd-btn-outline:active {
+  filter: drop-shadow(0 1px 0 var(--gd-hard-shadow));
 }
 
 .gd-btn-accent {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dim));
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-dim));
   color: var(--color-bg);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 30%, transparent);
+  filter: drop-shadow(0 4px 0 color-mix(in srgb, var(--color-accent) 35%, #000));
 }
 
 .gd-btn-accent:hover {
-  box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 50%, transparent);
   transform: translateY(-1px);
+  filter: drop-shadow(0 5px 0 color-mix(in srgb, var(--color-accent) 35%, #000))
+    drop-shadow(0 0 14px color-mix(in srgb, var(--color-accent) 45%, transparent));
+}
+
+.gd-btn-accent:active {
+  filter: drop-shadow(0 1px 0 color-mix(in srgb, var(--color-accent) 35%, #000));
 }
 
 /* 难度徽章 */
@@ -706,9 +746,11 @@ select.gd-input {
 
 /* Section 标题 */
 .gd-section-title {
+  font-family: var(--font-display);
   font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   margin-bottom: 0.5rem;
 }
 
@@ -727,4 +769,96 @@ select.gd-input {
 
 .gd-link:hover {
   text-shadow: 0 0 10px var(--color-primary-glow);
+}
+
+/* ===== GD 街机风格 — 标题与装饰 ===== */
+
+/* 展示字体标题 — GD 游戏内字体风格（大写 + 宽字距） */
+.gd-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* 硬质偏移投影 — 只用于纯色文字（渐变透明文字不能用，阴影会穿帮） */
+.gd-title-shadow {
+  text-shadow: 4px 4px 0 var(--gd-hard-shadow);
+}
+
+/* CRT 扫描线纹理 — 颜色跟随文字色，深浅主题自动适配 */
+.gd-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    color-mix(in srgb, var(--color-text) 4%, transparent) 0 1px,
+    transparent 1px 4px
+  );
+  opacity: var(--gd-glow-strength);
+}
+
+/* 跑酷方块 — 沿 Hero 地面从左侧跑进、右侧跑出 */
+@keyframes gd-runner-x {
+  from { transform: translateX(-15vw); }
+  to { transform: translateX(115vw); }
+}
+
+.gd-runner {
+  animation: gd-runner-x 16s linear infinite;
+  will-change: transform;
+}
+
+/* 方块跳跃 — 大部分时间在地面，两个跳点各转 90°（GD 方块的标志性动作） */
+@keyframes gd-cube-jump {
+  0%, 22% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(-52px) rotate(90deg); }
+  38%, 58% { transform: translateY(0) rotate(90deg); }
+  66% { transform: translateY(-52px) rotate(180deg); }
+  74%, 100% { transform: translateY(0) rotate(180deg); }
+}
+
+.gd-runner-cube {
+  animation: gd-cube-jump 4s linear infinite;
+  will-change: transform;
+}
+
+/* 跳跃环 — 发光圆环缓慢脉动 */
+@keyframes gd-orb-pulse {
+  0%, 100% {
+    box-shadow: 0 0 12px color-mix(in srgb, var(--color-accent) 60%, transparent),
+      inset 0 0 8px color-mix(in srgb, var(--color-accent) 40%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 26px color-mix(in srgb, var(--color-accent) 90%, transparent),
+      inset 0 0 14px color-mix(in srgb, var(--color-accent) 60%, transparent);
+  }
+}
+
+.gd-orb {
+  border-radius: 9999px;
+  border: 3px solid var(--color-accent);
+  animation: gd-orb-pulse 2.4s ease-in-out infinite;
+}
+
+/* 无障碍：用户系统开启"减弱动态效果"时，停掉所有循环动画 */
+@media (prefers-reduced-motion: reduce) {
+  .gd-particle,
+  .gd-rotate-slow,
+  .gd-rotate-medium,
+  .gd-rotate-reverse-slow,
+  .gd-float,
+  .gd-pulse,
+  .gd-bg-animated,
+  .gd-grid-perspective,
+  .gd-scan-line,
+  .gd-scan-vertical,
+  .gd-glow-text-animated,
+  .gd-gradient-text-animated,
+  .gd-runner,
+  .gd-runner-cube,
+  .gd-orb {
+    animation: none !important;
+  }
 }

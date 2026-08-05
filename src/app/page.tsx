@@ -61,15 +61,36 @@ export default function HomePage() {
         {/* 透视网格地平线 */}
         <div className="gd-grid-perspective" />
 
-        {/* GD 玩家方块 — 右侧浮动装饰 */}
-        <div className="absolute right-[8%] top-[20%] hidden lg:block gd-float pointer-events-none">
-          <Image
-            src="/images/gd-cube.svg"
-            alt=""
-            width={160}
-            height={160}
-            className="opacity-70"
-          />
+        {/* CRT 扫描线纹理 */}
+        <div className="gd-scanlines" aria-hidden="true" />
+
+        {/* 锯齿 — GD 经典障碍物，左右各一个缓慢旋转 */}
+        <SawBlade
+          className="absolute left-[4%] top-[16%] hidden h-24 w-24 lg:block gd-rotate-medium pointer-events-none opacity-40"
+        />
+        <SawBlade
+          className="absolute right-[6%] top-[55%] hidden h-16 w-16 lg:block gd-rotate-reverse-slow pointer-events-none opacity-30"
+        />
+
+        {/* 跳跃环 — 发光圆环 */}
+        <div
+          className="gd-orb absolute right-[14%] top-[22%] hidden h-7 w-7 lg:block pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="gd-orb absolute left-[12%] top-[62%] hidden h-5 w-5 lg:block pointer-events-none"
+          style={{ animationDelay: "1.2s" }}
+          aria-hidden="true"
+        />
+
+        {/* GD 玩家方块 — 沿地面跑酷（跑动 + 跳跃旋转） */}
+        <div
+          className="gd-runner absolute bottom-6 left-0 hidden sm:block pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="gd-runner-cube">
+            <Image src="/images/gd-cube.svg" alt="" width={42} height={42} />
+          </div>
         </div>
 
         {/* 大型旋转几何装饰 */}
@@ -98,14 +119,14 @@ export default function HomePage() {
               </div>
             </ScrollReveal>
 
-            {/* H1 — 更大、更有冲击力 */}
+            {/* H1 — GD 展示字体 + 硬质投影（文案不变） */}
             <ScrollReveal animation="up" delay={100}>
-              <h1 className="mx-auto max-w-5xl text-5xl font-black leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
-                <span className="gd-gradient-text-animated">Geometry Dash</span>
+              <h1 className="gd-display mx-auto max-w-5xl text-4xl leading-[1.1] sm:text-6xl md:text-7xl">
+                <span className="gd-title-shadow text-[var(--color-primary)]">Geometry Dash</span>
                 <br />
-                <span className="text-[var(--color-text)]">Level Finder</span>{" "}
+                <span className="gd-title-shadow text-[var(--color-text)]">Level Finder</span>{" "}
                 <span className="text-[var(--color-text-muted)]">&</span>{" "}
-                <span className="gd-gradient-text-gold">Demon Tools</span>
+                <span className="gd-title-shadow text-[var(--color-accent)]">Demon Tools</span>
               </h1>
             </ScrollReveal>
 
@@ -158,8 +179,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* 底部渐变过渡 */}
-        <div className="h-px bg-gradient-to-r from-transparent via-[var(--color-primary)]/40 to-transparent" />
+        {/* GD 地面条 — 方块地面 + 刺排（替代原来的渐变细线） */}
+        <GroundStrip />
       </section>
 
       {/* ===== 工具入口卡片 — 游戏化设计 ===== */}
@@ -332,7 +353,7 @@ function StatBlock({ value, label, color }: { value: number; label: string; colo
     <div className="text-center">
       <div
         className="gd-count-up text-3xl font-black sm:text-4xl"
-        style={{ color, textShadow: `0 0 20px ${color}66` }}
+        style={{ color, textShadow: `0 0 20px color-mix(in srgb, ${color} 40%, transparent)` }}
       >
         {value}
       </div>
@@ -383,7 +404,7 @@ function ToolCard({
         <div className="absolute inset-0 flex items-center justify-center">
           <div
             className="flex h-12 w-12 items-center justify-center rounded-xl border backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-6"
-            style={{ borderColor: `${colorVar}66`, background: `${colorVar}22`, boxShadow: `0 0 25px ${colorVar}33` }}
+            style={{ borderColor: `color-mix(in srgb, ${colorVar} 40%, transparent)`, background: `color-mix(in srgb, ${colorVar} 13%, transparent)`, boxShadow: `0 0 25px color-mix(in srgb, ${colorVar} 20%, transparent)` }}
           >
             <ToolIcon name={icon} color={colorVar} />
           </div>
@@ -472,15 +493,14 @@ function UploadIcon({ color }: { color: string }) {
 }
 
 /** 指南卡片链接 */
-function GuideCardLink({ guide }: { guide: ReturnType<typeof getGuides>[0] }) {
-  const categoryColor =
+function GuideCardLink({ guide }: { guide: ReturnType<typeof getGuides>[0] }) {  const categoryColor =
     guide.category === "fix" ? "var(--color-secondary)" : guide.category === "rewards" ? "var(--color-accent)" : "var(--color-primary)";
 
   const href = guide.category === "fix" ? `/fix/${guide.slug}` : guide.category === "mods" ? `/mods/${guide.slug}` : `/guides/${guide.slug}`;
 
   return (
     <Link href={href} className="gd-card group block h-full p-5">
-      <span className="gd-badge mb-3" style={{ backgroundColor: `${categoryColor}22`, color: categoryColor }}>
+      <span className="gd-badge mb-3" style={{ backgroundColor: `color-mix(in srgb, ${categoryColor} 13%, transparent)`, color: categoryColor }}>
         {guide.category}
       </span>
       <h3 className="mb-2 text-base font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors">
@@ -488,5 +508,58 @@ function GuideCardLink({ guide }: { guide: ReturnType<typeof getGuides>[0] }) {
       </h3>
       <p className="text-sm text-[var(--color-text-muted)] line-clamp-2">{guide.summary}</p>
     </Link>
+  );
+}
+
+/** GD 地面条 — Hero 底部的方块地面 + 刺排（pattern 平铺，纯装饰） */
+function GroundStrip() {
+  return (
+    <svg
+      className="absolute bottom-0 left-0 h-12 w-full pointer-events-none"
+      aria-hidden="true"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <pattern id="gd-ground-tile" width="192" height="48" patternUnits="userSpaceOnUse">
+          {/* 地面发光顶边 */}
+          <rect x="0" y="22" width="192" height="2" fill="var(--color-primary)" opacity="0.9" />
+          {/* 地面方块 */}
+          {Array.from({ length: 8 }, (_, i) => (
+            <rect
+              key={i}
+              x={i * 24}
+              y="24"
+              width="24"
+              height="24"
+              fill="var(--color-bg-soft)"
+              stroke="var(--color-border)"
+              strokeWidth="1"
+            />
+          ))}
+          {/* 刺排 — 只在每段右半部分，给跑酷方块留跑道 */}
+          <path d="M120 24 L128 6 L136 24 Z" fill="var(--color-primary)" opacity="0.3" stroke="var(--color-primary)" strokeWidth="1.5" />
+          <path d="M136 24 L144 10 L152 24 Z" fill="var(--color-primary)" opacity="0.3" stroke="var(--color-primary)" strokeWidth="1.5" />
+          <path d="M168 24 L176 8 L184 24 Z" fill="var(--color-accent)" opacity="0.3" stroke="var(--color-accent)" strokeWidth="1.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#gd-ground-tile)" />
+    </svg>
+  );
+}
+
+/** GD 锯齿 — 旋转的经典障碍物（纯装饰） */
+function SawBlade({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} aria-hidden="true">
+      <polygon
+        points="81.3,43.3 98,50 81.3,56.7 80.4,59.9 91.6,74 73.8,71.4 71.4,73.8 74,91.6 59.9,80.4 56.7,81.3 50,98 43.3,81.3 40.1,80.4 26,91.6 28.6,73.8 26.2,71.4 8.4,74 19.6,59.9 18.7,56.7 2,50 18.7,43.3 19.6,40.1 8.4,26 26.2,28.6 28.6,26.2 26,8.4 40.1,19.6 43.3,18.7 50,2 56.7,18.7 59.9,19.6 74,8.4 71.4,26.2 73.8,28.6 91.6,26 80.4,40.1"
+        fill="var(--color-bg-card)"
+        stroke="var(--color-secondary)"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+      />
+      <circle cx="50" cy="50" r="14" fill="var(--color-bg-soft)" stroke="var(--color-secondary)" strokeWidth="2" />
+      <circle cx="50" cy="50" r="5" fill="var(--color-secondary)" opacity="0.6" />
+    </svg>
   );
 }
