@@ -825,8 +825,7 @@ select.gd-input {
 }
 
 /* 跳跃环 — 发光圆环缓慢脉动 */
-@keyframes gd-orb-pulse {
-  0%, 100% {
+@keyframes gd-orb-pulse {  0%, 100% {
     box-shadow: 0 0 12px color-mix(in srgb, var(--color-accent) 60%, transparent),
       inset 0 0 8px color-mix(in srgb, var(--color-accent) 40%, transparent);
   }
@@ -842,8 +841,64 @@ select.gd-input {
   animation: gd-orb-pulse 2.4s ease-in-out infinite;
 }
 
+/* 真实游戏截图墙 — Hero 背景：三排截图缓慢横向滚动，反向交替 */
+.gd-wall {
+  position: absolute;
+  inset: -12% -25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 28px;
+  transform: rotate(-4deg);
+  opacity: calc(0.8 * var(--gd-glow-strength));
+}
+
+@keyframes gd-wall-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.gd-wall-row {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  animation: gd-wall-scroll 70s linear infinite;
+  will-change: transform;
+}
+
+.gd-wall-row-reverse {
+  animation-direction: reverse;
+  animation-duration: 85s;
+}
+
+.gd-wall-row-slow {
+  animation-duration: 100s;
+}
+
+.gd-wall-shot {
+  width: 300px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+/* 截图墙上的遮罩 — 中心压暗保证文字可读，上下边缘融入背景 */
+.gd-wall-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 75% 65% at 50% 42%, color-mix(in srgb, var(--color-bg) 82%, transparent) 30%, color-mix(in srgb, var(--color-bg) 42%, transparent)),
+    linear-gradient(180deg, var(--color-bg) 0%, transparent 18%, transparent 78%, var(--color-bg) 100%);
+}
+
 /* 无障碍：用户系统开启"减弱动态效果"时，停掉所有循环动画 */
 @media (prefers-reduced-motion: reduce) {
+  .gd-wall-row {
+    animation: none !important;
+  }
   .gd-particle,
   .gd-rotate-slow,
   .gd-rotate-medium,

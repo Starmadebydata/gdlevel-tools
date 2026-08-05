@@ -46,14 +46,11 @@ export default function HomePage() {
         {/* 动态渐变背景 */}
         <div className="absolute inset-0 gd-bg-animated" />
 
-        {/* SVG 几何背景图层 — GD 风格方块/三角/菱形 */}
-        <Image
-          src="/images/hero-geo-bg.svg"
-          alt=""
-          fill
-          priority
-          className="object-cover opacity-60 pointer-events-none"
-        />
+        {/* 真实游戏截图墙 — 三排 GD 关卡截图缓慢滚动 */}
+        <ScreenshotWall />
+
+        {/* 遮罩 — 压暗截图中心区域，保证标题文字可读 */}
+        <div className="gd-wall-overlay" aria-hidden="true" />
 
         {/* 浮动几何粒子背景 */}
         <GeoBackground count={18} />
@@ -549,6 +546,7 @@ function GroundStrip() {
 
 /** GD 锯齿 — 旋转的经典障碍物（纯装饰） */
 function SawBlade({ className = "" }: { className?: string }) {
+
   return (
     <svg viewBox="0 0 100 100" className={className} aria-hidden="true">
       <polygon
@@ -561,5 +559,40 @@ function SawBlade({ className = "" }: { className?: string }) {
       <circle cx="50" cy="50" r="14" fill="var(--color-bg-soft)" stroke="var(--color-secondary)" strokeWidth="2" />
       <circle cx="50" cy="50" r="5" fill="var(--color-secondary)" opacity="0.6" />
     </svg>
+  );
+}
+
+/** 真实游戏截图墙 — Hero 背景：三排关卡截图缓慢滚动（纯装饰）
+ *  每排图片序列渲染两份，translateX(-50%) 实现无缝循环；
+ *  素材是 public/images/wall/ 下的 560px 缩略图（由 levels 原图缩小，控制加载体积） */
+function ScreenshotWall() {
+  const shots = [
+    "the-nightmare", "bloodbath", "cataclysm", "clubstep", "clutterfunk", "electrodynamix",
+    "polargeist", "death-moon", "demon-park", "nine-circles", "jawbreaker", "forsaken-city",
+    "crescendo", "impulse", "speed-racer", "windy-landscape",
+  ];
+  const rows = [
+    { images: shots.slice(0, 6), cls: "" },
+    { images: shots.slice(6, 12), cls: "gd-wall-row-reverse" },
+    { images: [...shots.slice(12, 16), ...shots.slice(0, 2)], cls: "gd-wall-row-slow" },
+  ];
+
+  return (
+    <div className="gd-wall" aria-hidden="true">
+      {rows.map((row, r) => (
+        <div key={r} className={`gd-wall-row ${row.cls}`}>
+          {[...row.images, ...row.images].map((slug, i) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={`${slug}-${i}`}
+              src={`/images/wall/${slug}.jpg`}
+              alt=""
+              className="gd-wall-shot"
+              decoding="async"
+            />
+          ))}
+        </div>
+      ))}
+    </div>
   );
 }
