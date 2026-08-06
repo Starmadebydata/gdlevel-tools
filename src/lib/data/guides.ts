@@ -231,12 +231,12 @@ export const guides: Guide[] = [
   },
   {
     id: "guide-master-emblem",
-    title: "How to Get the Master Emblem in Geometry Dash (2026)",
+    title: "Master Emblem GD: How to Get It (6 Steps, 2026)",
     slug: "master-emblem",
     category: "rewards",
     targetKeyword: "how to get the master emblem in geometry dash",
     summary:
-      "Get the Master Emblem in 6 steps: unlock the Vault of Secrets, beat The Challenge, then buy it for 700 Diamonds and 1000 Mana Orbs to open the Chamber of Time.",
+      "The Master Emblem costs 700 Diamonds and 1,000 Mana Orbs — but the shop stays hidden until you beat The Challenge. Full 6-step path, including the vault code you need.",
     body: [
       {
         heading: "Quick Answer",
@@ -405,12 +405,12 @@ export const guides: Guide[] = [
   // ===== Tools =====
   {
     id: "guide-fps-unlock",
-    title: "Geometry Dash FPS Unlocker Guide: How to Unlock FPS (2026)",
+    title: "Geometry Dash FPS Unlock: Up to 9999 FPS, No Download (2026)",
     slug: "fps-unlock-guide",
     category: "mods",
     targetKeyword: "how to unlock fps in geometry dash",
     summary:
-      "Enable the built-in 2.2 FPS unlock in 6 steps: turn off V-Sync, set up to 9999 FPS, and learn what the 240 TPS physics cap means for your gameplay.",
+      "GD 2.2 has a built-in FPS unlock — no third-party download needed. Turn off V-Sync, set up to 9999 FPS in 6 steps, and learn what the 240 TPS physics cap means.",
     body: [
       {
         heading: "Quick Answer",
@@ -473,12 +473,12 @@ export const guides: Guide[] = [
   },
   {
     id: "guide-tps-explained",
-    title: "What Is TPS in Geometry Dash? (Ticks Per Second Explained)",
+    title: "What Is TPS in Geometry Dash? The 240 Cap Explained (2026)",
     slug: "tps-explained",
     category: "mods",
     targetKeyword: "what is tps geometry dash",
     summary:
-      "TPS is how many times the physics engine updates per second. In 2.2 it's capped at 240 TPS — learn why it matters, how it differs from FPS, and how TPS bypass works.",
+      "TPS = how often GD's physics engine updates per second, capped at 240 in 2.2. Why the cap changes how the game feels, TPS vs FPS, and what TPS bypass actually does.",
     body: [
       {
         heading: "Quick Answer",
@@ -753,12 +753,12 @@ export const guides: Guide[] = [
   // ===== Skills / General =====
   {
     id: "guide-unlock-all-icons",
-    title: "How to Unlock All Icons in Geometry Dash (2026)",
+    title: "Geometry Dash Icons: How to Unlock Every Icon (2026)",
     slug: "unlock-all-icons",
     category: "general",
     targetKeyword: "how to unlock all icons in geometry dash",
     summary:
-      "Every icon unlock method for all 9 forms: star milestones up to 15,000+, demon unlocks, secret coins, vault codes, and gauntlets — ranked by effort.",
+      "All 9 forms covered: star milestones up to 15,000+, demon completions, secret coins, vault codes, and gauntlets — ordered so you grab the easiest icons first.",
     body: [
       {
         heading: "Quick Answer",
@@ -870,12 +870,12 @@ export const guides: Guide[] = [
 
   {
     id: "guide-get-stars-fast",
-    title: "How to Get Stars Fast in Geometry Dash: 7 Proven Methods (2026)",
+    title: "Get Stars Fast in Geometry Dash: 7 Methods, Ranked (2026)",
     slug: "get-stars-fast",
     category: "general",
     targetKeyword: "how to get stars in geometry dash fast",
     summary:
-      "7 proven ways to farm stars faster: pick the right difficulty with the sightread rule, use the Awarded tab, clear map packs, and beat daily levels twice.",
+      "Ranked by stars per hour: the sightread rule for picking levels, the overlooked Awarded tab, map pack bonuses, and the daily level double-dip.",
     body: [
       {
         heading: "Quick Answer",
