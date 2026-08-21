@@ -8,7 +8,7 @@ import {
   getLevelBySlug,
   getLevelById,
 } from "@/lib/data/levels";
-import { generateSeo, breadcrumbSchema, faqSchema, articleSchema } from "@/lib/seo";
+import { generateSeo, breadcrumbSchema, faqSchema, articleSchema, videoObjectSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import {
   demonDifficultyColor,
@@ -161,16 +161,12 @@ export default async function LevelDetailPage({
       {level.youtubeId && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "VideoObject",
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectSchema({
             name: `${level.name} by ${level.creatorName} — Geometry Dash Gameplay`,
             description: level.review.slice(0, 200),
-            thumbnailUrl: `https://i.ytimg.com/vi/${level.youtubeId}/hqdefault.jpg`,
+            youtubeId: level.youtubeId,
             uploadDate: level.updatedAt,
-            embedUrl: `https://www.youtube.com/embed/${level.youtubeId}`,
-            contentUrl: `https://www.youtube.com/watch?v=${level.youtubeId}`,
-          }) }}
+          })) }}
         />
       )}
 

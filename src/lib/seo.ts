@@ -188,6 +188,40 @@ export function contactPageSchema(opts: { name: string; url: string; description
   };
 }
 
+/**
+ * 把 YYYY-MM-DD（或无时区的日期时间）转成 ISO 8601 DateTime。
+ * Google VideoObject 的 uploadDate 必须带时区，否则 GSC 报「缺少时区」/「日期时间值无效」。
+ */
+export function toIso8601DateTime(date: string): string {
+  const trimmed = date.trim();
+  if (/[zZ]$|[+-]\d{2}:\d{2}$/.test(trimmed)) {
+    return trimmed.includes(" ") ? trimmed.replace(" ", "T") : trimmed;
+  }
+  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
+    return `${trimmed}T00:00:00Z`;
+  }
+  return `${trimmed.replace(" ", "T")}Z`;
+}
+
+/** JSON-LD VideoObject schema — 关卡展示视频 */
+export function videoObjectSchema(opts: {
+  name: string;
+  description: string;
+  youtubeId: string;
+  uploadDate: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: opts.name,
+    description: opts.description,
+    thumbnailUrl: `https://i.ytimg.com/vi/${opts.youtubeId}/hqdefault.jpg`,
+    uploadDate: toIso8601DateTime(opts.uploadDate),
+    embedUrl: `https://www.youtube.com/embed/${opts.youtubeId}`,
+    contentUrl: `https://www.youtube.com/watch?v=${opts.youtubeId}`,
+  };
+}
+
 /** JSON-LD ItemList schema */
 export function itemListSchema(
   items: { name: string; url: string; description?: string }[]
