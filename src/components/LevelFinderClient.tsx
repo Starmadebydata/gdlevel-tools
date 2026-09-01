@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import LevelCard from "@/components/LevelCard";
+import { trackEvent } from "@/lib/analytics";
 import type { Level, Difficulty, DemonDifficulty, LevelLength } from "@/lib/types";
 
 /**
@@ -64,6 +65,28 @@ export default function LevelFinderClient({ levels }: { levels: Level[] }) {
 
     return result;
   }, [levels, search, difficulty, demonDiff, length, skill, mobileOnly, firstDemonOnly, sortBy]);
+
+  useEffect(() => {
+    const parts: string[] = [];
+    const trimmed = search.trim();
+    if (trimmed) parts.push(trimmed);
+    if (difficulty !== "all") parts.push(`difficulty:${difficulty}`);
+    if (demonDiff !== "all") parts.push(`demon:${demonDiff}`);
+    if (length !== "all") parts.push(`length:${length}`);
+    if (skill !== "all") parts.push(`skill:${skill}`);
+    if (mobileOnly) parts.push("mobile");
+    if (firstDemonOnly) parts.push("first-demon");
+    if (parts.length === 0) return;
+
+    const id = window.setTimeout(() => {
+      trackEvent("search", {
+        search_term: parts.join(" "),
+        result_count: filtered.length,
+      });
+    }, 600);
+
+    return () => window.clearTimeout(id);
+  }, [search, difficulty, demonDiff, length, skill, mobileOnly, firstDemonOnly, filtered.length]);
 
   const skillOptions = [
     "wave", "ship", "cube", "timing", "memory", "ufo", "ball", "robot", "spider",

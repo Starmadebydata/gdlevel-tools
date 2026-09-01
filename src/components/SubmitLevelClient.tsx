@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Submit Level 客户端表单
@@ -34,6 +35,11 @@ export default function SubmitLevelClient() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    trackEvent("submit_level", {
+      difficulty: form.difficulty,
+      demon_difficulty: form.difficulty === "demon" ? form.demonDifficulty : "none",
+      length: form.length,
+    });
     // 在实际部署中，这里会发送到 API
     // 目前仅展示成功状态
     setSubmitted(true);

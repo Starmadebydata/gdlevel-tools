@@ -62,11 +62,13 @@ export default function GuideView({
     { name: guide.title, href: `${basePath}/${guide.slug}` },
   ];
 
-  // fix 指南且正文含步骤段落时，汇总所有步骤输出 HowTo schema
+  // /fix 页输出全部步骤；其它指南只把「Step …」段落做成 HowTo（避免把关卡名单当成步骤）
   const howToSteps =
     basePath === "/fix"
       ? guide.body.flatMap((section) => section.steps ?? [])
-      : [];
+      : guide.body
+          .filter((section) => /step/i.test(section.heading))
+          .flatMap((section) => section.steps ?? []);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">

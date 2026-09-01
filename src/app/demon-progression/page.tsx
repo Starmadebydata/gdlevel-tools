@@ -5,6 +5,7 @@ import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import DemonProgressionForm from "@/components/DemonProgressionForm";
 import DemonProgressionResults from "@/components/DemonProgressionResults";
+import TrackEvent from "@/components/TrackEvent";
 import {
   parseProgressionSearchParams,
   planProgression,
@@ -132,6 +133,16 @@ export default async function DemonProgressionPage({ searchParams }: PageProps) 
 
       {plan && (
         <div className="mt-2">
+          <TrackEvent
+            name="planner_complete"
+            params={{
+              demons: input.completedDemons,
+              highest_tier: input.highestTier,
+              platform: input.platform,
+              skill_focus: input.skillFocus,
+              stage: plan.stage,
+            }}
+          />
           <DemonProgressionResults plan={plan} />
         </div>
       )}

@@ -231,17 +231,17 @@ export const guides: Guide[] = [
   },
   {
     id: "guide-master-emblem",
-    title: "Master Emblem GD: How to Get It (6 Steps, 2026)",
+    title: "How to Get the Master Emblem in Geometry Dash",
     slug: "master-emblem",
     category: "rewards",
     targetKeyword: "how to get the master emblem in geometry dash",
     summary:
-      "The Master Emblem costs 700 Diamonds and 1,000 Mana Orbs — but the shop stays hidden until you beat The Challenge. Full 6-step path, including the vault code you need.",
+      "Get the Master Emblem in 6 steps: unlock the Vault of Secrets, enter The Challenge, beat it, then buy it for 700 Diamonds and 1,000 Mana Orbs.",
     body: [
       {
         heading: "Quick Answer",
         content:
-          "The Master Emblem is purchased from the shop for 700 Diamonds and 1000 Mana Orbs. It becomes available after you complete 'The Challenge' — a secret level unlocked by entering the code 'The Challenge' in the Vault of Secrets.",
+          "To get the Master Emblem in Geometry Dash, beat The Challenge, then buy it from the shop for 700 Diamonds and 1,000 Mana Orbs. The Challenge is a secret level unlocked by typing the code 'The Challenge' in the Vault of Secrets. The emblem will not appear in the shop until that level is beaten.",
       },
       {
         heading: "Step by Step",
@@ -281,7 +281,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedGuideSlugs: ["diamonds", "user-coins"],
-    updatedAt: "2026-06-30",
+    updatedAt: "2026-09-01",
   },
 
   // ===== Mods =====
@@ -473,17 +473,17 @@ export const guides: Guide[] = [
   },
   {
     id: "guide-tps-explained",
-    title: "What Is TPS in Geometry Dash? The 240 Cap Explained (2026)",
+    title: "What Is TPS in Geometry Dash? TPS vs FPS",
     slug: "tps-explained",
     category: "mods",
-    targetKeyword: "what is tps geometry dash",
+    targetKeyword: "what is tps in geometry dash",
     summary:
-      "TPS = how often GD's physics engine updates per second, capped at 240 in 2.2. Why the cap changes how the game feels, TPS vs FPS, and what TPS bypass actually does.",
+      "TPS means ticks per second: GD 2.2 physics updates, capped at 240. FPS is what you see. Here's TPS vs FPS, why the cap matters, and what bypass does.",
     body: [
       {
         heading: "Quick Answer",
         content:
-          "TPS stands for Ticks Per Second. It measures how many times the game's physics engine updates per second. In Geometry Dash 2.2, the physics engine runs at a fixed 240 TPS, separate from your rendering FPS. Before 2.2, TPS was always equal to your FPS.",
+          "TPS vs FPS in Geometry Dash: TPS (ticks per second) is how often the physics engine updates; FPS (frames per second) is how many frames you see. In 2.2 they are separate — physics is capped at 240 TPS even if you render at 360 FPS. Before 2.2, TPS always matched your FPS.",
       },
       {
         heading: "FPS vs TPS",
@@ -507,7 +507,7 @@ export const guides: Guide[] = [
         answer: "TPS stands for Ticks Per Second — the number of times the physics engine updates per second. In 2.2, it's capped at 240 TPS.",
       },
       {
-        question: "What is the difference between FPS and TPS?",
+        question: "What is TPS vs FPS in Geometry Dash?",
         answer: "FPS is how many frames your screen shows. TPS is how many times the physics engine calculates updates. In 2.2, they are separate — you can have 360 FPS with 240 TPS.",
       },
       {
@@ -516,7 +516,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedGuideSlugs: ["fps-unlock-guide", "geode"],
-    updatedAt: "2026-06-30",
+    updatedAt: "2026-09-01",
   },
 
   // ===== Fix Guides =====
@@ -1264,17 +1264,17 @@ export const guides: Guide[] = [
 
   {
     id: "guide-get-moons",
-    title: "How to Get Moons in Geometry Dash: The 2.2 Collectible Guide",
+    title: "How to Get Moons in Geometry Dash",
     slug: "get-moons",
     category: "rewards",
     targetKeyword: "how to get moons in geometry dash",
     summary:
-      "Moons are the new collectible from Update 2.2, earned by completing platformer levels. Here is every way to get them, what they unlock, and why they matter for your profile.",
+      "Beat rated platformer levels in normal mode to earn moons. Official Tower levels give 25; user levels give 1–10 by difficulty. Here's every way to get them.",
     body: [
       {
         heading: "Quick Answer",
         content:
-          "Moons were introduced in Update 2.2 and are the platformer mode equivalent of Stars. You earn them by completing rated platformer levels in normal mode. A total of 25 moons can be earned from official Tower levels (The Tower, The Sewers, The Cellar, The Secret Hollow), with each level rewarding 5 to 7 moons. Beyond official content, user platformer levels reward moons based on difficulty, same as stars: Auto gives 1, Easy gives 2, Normal gives 3, up to Demon giving 10. Moons contribute towards unlocking icons and achievements, and progressing through Paths.",
+          "You get moons in Geometry Dash by completing rated platformer levels in normal mode — not classic levels. Official Tower levels (The Tower, The Sewers, The Cellar, The Secret Hollow) give 25 moons total. User platformer levels give 1 moon for Auto up to 10 for Demon. Moons unlock icons, achievements, and Paths progress.",
       },
       {
         heading: "What Are Moons?",
@@ -1344,22 +1344,22 @@ export const guides: Guide[] = [
       },
     ],
     relatedGuideSlugs: ["gd-2-2-update", "unlock-all-icons", "diamonds", "get-stars-fast", "user-coins"],
-    updatedAt: "2026-07-03",
+    updatedAt: "2026-09-01",
   },
 
   {
     id: "guide-hardest-levels",
-    title: "Hardest Geometry Dash Levels: Extreme Demon List 2026",
+    title: "What Is the Hardest Geometry Dash Level in 2026?",
     slug: "hardest-levels-2026",
     category: "demon",
-    targetKeyword: "hardest geometry dash levels 2026",
+    targetKeyword: "what is the hardest level in geometry dash 2026",
     summary:
-      "The hardest levels in Geometry Dash as of 2026, ranked by the official Demonlist. From Acheron to Bloodbath, here is what makes each Extreme Demon brutal and who verified them.",
+      "The hardest GD levels are Extreme Demons on the Pointercrate Demonlist. In 2026, Acheron, Silent Clubstep, and Prismatic Haze have topped it — see the list and how to get there.",
     body: [
       {
         heading: "Quick Answer",
         content:
-          "The hardest Geometry Dash levels are tracked by the official Demonlist at pointercrate.com, which ranks the 75 hardest demons based on verified completions, player feedback, and list moderator judgment. As of June 2026, the top levels include Acheron, Silent Clubstep, and the newest additions to the Extreme Demon tier. These levels require thousands of attempts, months of practice, and near-perfect execution. Less than 1 percent of Geometry Dash players will ever beat a single Extreme Demon.",
+          "The hardest Geometry Dash level in 2026 is whichever Extreme Demon currently sits at #1 on the Pointercrate Demonlist at pointercrate.com. Acheron, Silent Clubstep, and Prismatic Haze have held the top recently. The list ranks the 75 hardest demons from verified completions and player feedback, and it moves as new levels are verified. Less than 1 percent of players will ever beat a single Extreme Demon.",
       },
       {
         heading: "How the Demonlist Works",
@@ -1403,8 +1403,8 @@ export const guides: Guide[] = [
     ],
     faq: [
       {
-        question: "What is the hardest level in Geometry Dash?",
-        answer: "The hardest level changes as new levels are verified. As of 2026, levels like Acheron, Silent Clubstep, and Prismatic Haze are at or near the top of the official Demonlist at pointercrate.com. The list is updated regularly based on new completions and community consensus.",
+        question: "What is the hardest level in Geometry Dash 2026?",
+        answer: "It changes as new Extreme Demons are verified. Check pointercrate.com for the live #1. In 2026, Acheron, Silent Clubstep, and Prismatic Haze have sat at or near the top of the official Demonlist.",
       },
       {
         question: "How many Extreme Demons are there?",
@@ -1424,7 +1424,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedGuideSlugs: ["best-easy-demons", "practice-mode-guide", "gd-2-2-update", "tps-explained", "fps-unlock-guide"],
-    updatedAt: "2026-07-03",
+    updatedAt: "2026-09-01",
   },
 
   {
