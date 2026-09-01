@@ -60,6 +60,18 @@ export default function RootLayout({
       security_storage: 'granted',
       wait_for_update: 500
     });
+    try {
+      var c = localStorage.getItem('gd-cookie-consent');
+      if (c === 'accepted' || c === 'declined') {
+        var g = c === 'accepted' ? 'granted' : 'denied';
+        gtag('consent', 'update', {
+          analytics_storage: g,
+          ad_storage: g,
+          ad_user_data: g,
+          ad_personalization: g
+        });
+      }
+    } catch (e) {}
   `;
 
   return (
@@ -95,7 +107,8 @@ export default function RootLayout({
         <Script id="gtag-init" strategy="afterInteractive">
           {`
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
+            var debug = /(?:^|[?&])debug_mode=(?:1|true)(?:&|$)/i.test(location.search);
+            gtag('config', '${GA_MEASUREMENT_ID}', debug ? { debug_mode: true } : {});
           `}
         </Script>
 

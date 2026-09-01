@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore, useCallback } from "react";
+import { useSyncExternalStore, useCallback, useEffect } from "react";
 import Link from "next/link";
 
 /**
@@ -69,6 +69,13 @@ export default function CookieConsent() {
     updateGtagConsent("declined");
     window.dispatchEvent(new Event("gd-consent-change"));
   }, []);
+
+  // 横幅关掉之后，每次进页仍要把已保存的同意状态同步给 gtag
+  useEffect(() => {
+    if (consent === "accepted" || consent === "declined") {
+      updateGtagConsent(consent);
+    }
+  }, [consent]);
 
   // 只有 pending 状态（用户还没选过）才显示横幅
   if (consent !== "pending") return null;
