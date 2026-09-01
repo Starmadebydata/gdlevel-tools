@@ -108,7 +108,12 @@ export default function RootLayout({
           {`
             gtag('js', new Date());
             var debug = /(?:^|[?&])debug_mode=(?:1|true)(?:&|$)/i.test(location.search);
-            gtag('config', '${GA_MEASUREMENT_ID}', debug ? { debug_mode: true } : {});
+            if (debug) {
+              gtag('set', { debug_mode: 1 });
+              gtag('config', '${GA_MEASUREMENT_ID}', { debug_mode: 1 });
+            } else {
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            }
           `}
         </Script>
 

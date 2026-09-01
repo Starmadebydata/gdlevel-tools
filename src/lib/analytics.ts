@@ -5,19 +5,14 @@
 
 export type AnalyticsParams = Record<string, string | number | boolean | undefined>;
 
-function isDebugMode(): boolean {
-  return /(?:^|[?&])debug_mode=(?:1|true)(?:&|$)/i.test(window.location.search);
-}
-
 export function trackEvent(name: string, params?: AnalyticsParams): void {
   if (typeof window === "undefined") return;
 
-  const payload: AnalyticsParams = { ...(params ?? {}) };
-  if (isDebugMode()) payload.debug_mode = true;
-
-  const cleaned = Object.fromEntries(
-    Object.entries(payload).filter(([, value]) => value !== undefined)
-  );
+  const cleaned = params
+    ? Object.fromEntries(
+        Object.entries(params).filter(([, value]) => value !== undefined)
+      )
+    : {};
 
   if (typeof window.gtag === "function") {
     window.gtag("event", name, cleaned);
