@@ -94,16 +94,33 @@ export default function DemonTrackerPage() {
               helps you spot gaps in your progression before jumping tiers too early.
             </p>
             <p>
-              Once you log your clears here, click{" "}
+              <strong className="text-[var(--color-text)]">Track attempts to measure real growth:</strong>{" "}
+              Logging your attempt count alongside every clear reveals how quickly your practice
+              efficiency improves. Many players spend 1,200+ attempts on their first Easy Demon, yet
+              drop below 300 attempts by their tenth clear once they adopt backwards Start Position
+              practice. Watching that number fall is one of the best motivators in the game.
+            </p>
+            <p>
+              <strong className="text-[var(--color-text)]">No account lock-in, instant planner sync:</strong>{" "}
+              Because this GD Demon Tracker stores everything in your browser&apos;s local storage,
+              you never need to hand over your Geometry Dash credentials or link a Discord account.
+              Use <strong className="text-[var(--color-text)]">Copy JSON Backup</strong> anytime to
+              archive your list, and click{" "}
               <strong className="text-[var(--color-text)]">Build Next-Step Plan</strong> to feed
-              your exact demon count and hardest tier into our{" "}
+              your exact demon count and hardest tier directly into our{" "}
               <Link href="/demon-progression" className="gd-link">
                 Demon Progression Planner
               </Link>
-              , or explore specific tier checklists like our{" "}
+              .
+            </p>
+            <p>
+              Looking for new demons to check off? Explore our{" "}
               <Link href="/demon-list/easy" className="gd-link">Easy Demon List</Link>,{" "}
-              <Link href="/demon-list/medium" className="gd-link">Medium Demon List</Link>, and{" "}
-              <Link href="/demon-list/insane" className="gd-link">Insane Demon List</Link>.
+              <Link href="/demon-list/medium" className="gd-link">Medium Demon List</Link>,{" "}
+              <Link href="/demon-list/hard" className="gd-link">Hard Demon List</Link>,{" "}
+              <Link href="/demon-list/insane" className="gd-link">Insane Demon List</Link>, or test
+              your sight-reading with{" "}
+              <Link href="/demon-roulette" className="gd-link">GD Demon Roulette</Link>.
             </p>
           </div>
         </div>

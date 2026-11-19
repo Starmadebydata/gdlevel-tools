@@ -29,19 +29,19 @@ export const DEMON_TIERS: DemonTierConfig[] = [
   {
     slug: "easy",
     navLabel: "Easy Demons",
-    h1: "Easy Demon List (Geometry Dash)",
-    seoTitle: "Easy Demon List — Best GD Easy Demons",
+    h1: "Easy Demon List GD (Best Starter Demons)",
+    seoTitle: "Easy Demon List GD — Best Easy Demons",
     seoDescription:
-      "Browse the best Geometry Dash Easy Demon list ranked by beginner score, mobile fit, and visual clarity. Includes Level IDs, tips, and starter routes.",
+      "Browse the best Easy Demon list GD players use to pick starter demons. Compare beginner scores, mobile fit, visual clarity, and Level IDs.",
     subtitle:
-      "Curated Geometry Dash Easy Demons sorted from most beginner-friendly to upper-tier bridge levels.",
+      "Curated Geometry Dash Easy Demon list GD beginners rely on—sorted from easiest starter picks to upper-tier bridge levels.",
     accentColor: "#69f0ae",
     quickAnswer:
-      "The easiest rated Easy Demons in Geometry Dash are The Nightmare, The Lightning Road, Platinum Adventure, and Shiver. Most new players clear 8–12 Easy Demons before jumping into Medium Demons like B or Mechanical Showdown.",
-    guideHeading: "How to Choose Your Next Easy Demon",
+      "On our Easy Demon list GD players start with The Nightmare, The Lightning Road, Platinum Adventure, and Shiver. Most beginners clear 8–12 Easy Demons before jumping into Medium Demons like B or Mechanical Showdown.",
+    guideHeading: "How to Use This Easy Demon List GD Progression Guide",
     guideParagraphs: [
-      "Easy Demons cover a surprisingly wide difficulty spectrum. Entry picks like The Nightmare and The Lightning Road feel closer to 7-star Harder levels, while upper Easy Demons like Clubstep, Death Moon, and Sidestep test genuine ship control, 3x speed transitions, and XL endurance.",
-      "For smooth progression, start with 2–3 low-frustration starter demons to build confidence in Practice Mode, then mix in modern 2.1/2.2 sync levels (Shiver, Phjork) and classic mechanical benchmarks (Speed Racer, Clubstep, Death Moon). Once you have 10 Easy Demons cleared, move to our Medium Demon List or run the Demon Progression Planner.",
+      "An Easy Demon list GD beginners can actually trust needs to separate entry-level demons from upper-tier skill checks. Entry picks like The Nightmare and The Lightning Road feel closer to 7-star Harder levels, while upper Easy Demons like Clubstep, Death Moon, and Sidestep test genuine ship control, 3x speed transitions, and XL endurance.",
+      "For smooth progression through this Easy Demon list GD roadmap, start with 2–3 low-frustration starter demons to build confidence in Practice Mode, then mix in modern 2.1/2.2 sync levels (Shiver, Phjork) and classic mechanical benchmarks (Speed Racer, Clubstep, Death Moon). Once you have 10 Easy Demons cleared, move to our Medium Demon List or run the Demon Progression Planner.",
     ],
     benchmarks: [
       { label: "Recommended Before Starting", value: "All RobTop Harder/Insane levels or ~500 stars" },

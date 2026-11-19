@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Breadcrumb from "@/components/Breadcrumb";
 import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
-import LevelCard from "@/components/LevelCard";
+import TierLevelGrid from "@/components/TierLevelGrid";
 import { getPublishedLevels } from "@/lib/data/levels";
 import { DEMON_TIERS, getDemonTierBySlug } from "@/lib/data/demon-tiers";
 import { generateSeo, breadcrumbSchema, itemListSchema, faqSchema } from "@/lib/seo";
@@ -145,11 +145,7 @@ export default async function DemonTierPage({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {levels.map((level) => (
-          <LevelCard key={level.id} level={level} />
-        ))}
-      </div>
+      <TierLevelGrid levels={levels} tierLabel={config.navLabel} />
 
       {/* 深度指南 + 工具引流 + FAQ */}
       <section className="mt-12 space-y-6">

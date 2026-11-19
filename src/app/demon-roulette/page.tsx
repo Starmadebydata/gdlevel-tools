@@ -89,32 +89,84 @@ export default function DemonRoulettePage() {
       <section className="mt-12 space-y-6">
         <div className="gd-card p-6">
           <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">
-            Tips for Surviving Longer Demon Roulette Runs
+            How to Play Geometry Dash Demon Roulette (Official Rules)
           </h2>
           <div className="space-y-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
             <p>
               Originally popularized by top Geometry Dash players using the Pointercrate Extreme
               Demon list, <strong className="text-[var(--color-text)]">Demon Roulette</strong> is
-              even more fun when scaled to your actual skill bracket. Choosing the{" "}
-              <strong className="text-[var(--color-text)]">Easy Demon Roulette</strong> or{" "}
-              <strong className="text-[var(--color-text)]">Medium Demon</strong> pool turns it into
-              a fast-paced sight-reading workout that sharpens your reaction speed across dozens of
-              creators.
+              one of the most addictive replayable challenges in Geometry Dash. Instead of grinding
+              a single demon for weeks, a Demon Roulette forces you to sight-read and adapt to a
+              fresh random demon every few minutes as the required percentage climbs from 1% all the
+              way to 100%.
+            </p>
+            <ol className="list-decimal space-y-2 pl-5">
+              <li>
+                <strong className="text-[var(--color-text)]">Select your difficulty pool:</strong>{" "}
+                Pick Easy Demons for a fast casual challenge, Medium or Hard Demons for an
+                intermediate sight-reading test, Mobile Friendly for 60Hz touch devices, or All
+                Demons / Extreme Demons for the classic marathon.
+              </li>
+              <li>
+                <strong className="text-[var(--color-text)]">Copy the Level ID and beat the target %:</strong>{" "}
+                Round #1 always starts at 1%. Open Geometry Dash, search the numeric Level ID shown
+                on the roulette card, and play in Normal Mode until you reach at least the required
+                percentage.
+              </li>
+              <li>
+                <strong className="text-[var(--color-text)]">Log your exact percentage:</strong>{" "}
+                Enter the exact percentage you achieved (not just the minimum target). If you needed
+                1% and reached 9%, your next random demon immediately requires at least 10%.
+              </li>
+              <li>
+                <strong className="text-[var(--color-text)]">Climb to 100% or tap out:</strong>{" "}
+                Keep spinning until a level stops you—or until you beat a demon at 100% to complete
+                the entire Demon Roulette run! Use Copy Run Summary to share your final score with
+                friends or Discord servers.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div className="gd-card p-6">
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">
+            Demon Roulette Strategy: Choosing Pools &amp; Controlling Overshoots
+          </h2>
+          <div className="space-y-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
+            <p>
+              <strong className="text-[var(--color-text)]">Control your overshoots for high scores:</strong>{" "}
+              There are two ways players score a Demon Roulette run: <em>Maximum Levels Cleared</em>{" "}
+              and <em>Fastest 100% Clear</em>. If you want the highest possible level count, watch
+              the progress bar closely and deliberately crash right after passing your target
+              percentage (for example, dying at 12%–14% when the target is 12%). Overshooting to 55%
+              on an easy opener can suddenly trap you with a 56% requirement on a brutal memory demon!
             </p>
             <p>
-              <strong className="text-[var(--color-text)]">Control your overshoots:</strong> If your
-              target is 12% and you are aiming for the highest possible level count, deliberately crash
-              at 12%–15% rather than accidentally coasting to 55%. On the other hand, if you want a
-              quick speedrun to 100%, push every comfortable level as far as you can!
+              <strong className="text-[var(--color-text)]">Use Practice Mode on 40%+ spins:</strong>{" "}
+              Once your Demon Roulette target passes 40%, never jump straight into Normal Mode blind.
+              Do one quick Practice Mode pass up to your target percentage so you know where fake
+              orbs, mirror portals, and speed transitions sit. Spending 90 seconds in Practice Mode
+              saves 20 minutes of frustrating early deaths.
+            </p>
+            <p>
+              <strong className="text-[var(--color-text)]">Match the pool to your skill ceiling:</strong>{" "}
+              A good rule of thumb is to run Demon Roulette one tier below your hardest clear. If
+              your hardest demon is a Medium Demon, run an{" "}
+              <strong className="text-[var(--color-text)]">Easy Demon Roulette</strong>. If you have
+              beaten Insane Demons like Windy Landscape, a Hard Demon or All Demons pool delivers
+              the ideal balance of tension and beatable late-game percentages.
             </p>
             <p>
               Want to study a tier before spinning? Browse our{" "}
               <Link href="/demon-list/easy" className="gd-link">Easy Demon List</Link>,{" "}
               <Link href="/demon-list/medium" className="gd-link">Medium Demon List</Link>,{" "}
-              <Link href="/demon-list/hard" className="gd-link">Hard Demon List</Link>, or{" "}
-              <Link href="/demon-list/mobile" className="gd-link">Mobile Demon List</Link>, and log
-              your full clears in the{" "}
-              <Link href="/demon-tracker" className="gd-link">GD Demon Tracker</Link>.
+              <Link href="/demon-list/hard" className="gd-link">Hard Demon List</Link>,{" "}
+              <Link href="/demon-list/insane" className="gd-link">Insane Demon List</Link>, or{" "}
+              <Link href="/demon-list/mobile" className="gd-link">Mobile Demon List</Link>. You can
+              also log full completions in the{" "}
+              <Link href="/demon-tracker" className="gd-link">GD Demon Tracker</Link> or plan your
+              next skill jump with the{" "}
+              <Link href="/demon-progression" className="gd-link">Demon Progression Planner</Link>.
             </p>
           </div>
         </div>
