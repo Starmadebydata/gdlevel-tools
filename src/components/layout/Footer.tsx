@@ -9,11 +9,11 @@ export default function Footer() {
   return (
     <footer className="mt-20 border-t border-[var(--color-border)] bg-[var(--color-bg-soft)]">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="mb-3 flex items-center gap-2">
-              <div className="relative flex h-8 w-8 items-center justify-center">
+              <div className="relative flex h-8 w-8 items-center justify-center" aria-hidden="true">
                 <div className="absolute inset-0 rotate-45 rounded-md border-2 border-[var(--color-primary)]" />
                 <span className="relative text-xs font-black text-[var(--color-primary)]">GD</span>
               </div>

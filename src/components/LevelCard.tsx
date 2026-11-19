@@ -8,7 +8,6 @@ import {
   difficultyLabel,
   lengthLabel,
   scoreColor,
-  scoreLabel,
   skillTagLabel,
 } from "@/lib/ui";
 
@@ -41,6 +40,8 @@ export default function LevelCard({ level }: { level: Level }) {
         <img
           src={thumbSrc}
           alt={`${level.name} by ${level.creatorName} — gameplay thumbnail`}
+          width={640}
+          height={360}
           loading="lazy"
           onError={(e) => {
             const img = e.currentTarget;
@@ -123,7 +124,7 @@ function ScoreBar({
       <div className="mb-1 flex items-center justify-between">
         <span className="text-xs text-[var(--color-text-dim)]">{label}</span>
         <span className="text-xs font-mono font-semibold" style={{ color }}>
-          {scoreLabel(displayScore)}
+          {displayScore}/5
         </span>
       </div>
       <div className="gd-score-bar">

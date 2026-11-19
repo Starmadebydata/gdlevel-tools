@@ -52,8 +52,18 @@ export const footerLinks = {
     { label: "Level Finder", href: "/level-finder" },
     { label: "First Demon Picker", href: "/first-demon-picker" },
     { label: "Demon Progression", href: "/demon-progression" },
+    { label: "Demon Roulette", href: "/demon-roulette" },
+    { label: "Demon Tracker", href: "/demon-tracker" },
     { label: "Demon List", href: "/demon-list" },
     { label: "Vault Codes", href: "/vault-codes" },
+  ],
+  "Demon Tiers": [
+    { label: "Easy Demon List", href: "/demon-list/easy" },
+    { label: "Medium Demon List", href: "/demon-list/medium" },
+    { label: "Hard Demon List", href: "/demon-list/hard" },
+    { label: "Insane Demon List", href: "/demon-list/insane" },
+    { label: "Mobile Demon List", href: "/demon-list/mobile" },
+    { label: "Free Demons", href: "/demon-list/free-demons" },
   ],
   Guides: [
     { label: "Diamonds", href: "/guides/diamonds" },

@@ -10,6 +10,8 @@ type SeoOptions = {
   description?: string;
   path?: string;
   noIndex?: boolean;
+  /** 不编入索引但允许爬虫沿内链抓取（用于薄内容长尾页收敛） */
+  noIndexFollow?: boolean;
 };
 
 /** 生成页面 metadata */
@@ -18,6 +20,7 @@ export function generateSeo({
   description,
   path,
   noIndex,
+  noIndexFollow,
 }: SeoOptions): Metadata {
   const fullTitle = title
     ? `${title} | ${siteConfig.name}`
@@ -27,6 +30,12 @@ export function generateSeo({
   // 全站权威 URL 为非尾斜杠形式（与线上 308 重定向的 200 终点一致，根路径除外）
   const cleanPath = path ? path.replace(/\/+$/, "") : "";
   const url = `${siteConfig.domain}${cleanPath}`;
+
+  const robots = noIndex
+    ? { index: false, follow: false }
+    : noIndexFollow
+      ? { index: false, follow: true }
+      : undefined;
 
   return {
     title: fullTitle,
@@ -47,7 +56,7 @@ export function generateSeo({
       title: fullTitle,
       description: desc,
     },
-    ...(noIndex ? { robots: { index: false, follow: false } } : {}),
+    ...(robots ? { robots } : {}),
   };
 }
 

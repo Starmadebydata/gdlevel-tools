@@ -35,6 +35,8 @@ export default function PageHeroBanner({
               key={`${slug}-${i}`}
               src={`/images/wall/${slug}.jpg`}
               alt=""
+              width={560}
+              height={315}
               className="gd-wall-shot"
               decoding="async"
               loading="lazy"

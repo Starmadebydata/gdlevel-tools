@@ -7,9 +7,9 @@ import { generateSeo, breadcrumbSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = generateSeo({
-  title: "Submit a Level — Share Your Geometry Dash Level",
+  title: "Submit a Geometry Dash Level",
   description:
-    "Submit your Geometry Dash level to GD Level Tools. Include the level name, ID, difficulty, and skill tags. Approved levels may appear on our site after manual review.",
+    "Submit your Geometry Dash level to GD Level Tools. Include the level name, ID, difficulty, and skill tags for manual editorial review.",
   path: "/submit-level",
 });
 
@@ -42,6 +42,23 @@ export default function SubmitLevelPage() {
       </PageHeroBanner>
 
       <SubmitLevelClient />
+
+      {/* 编辑审核标准说明 — 满足 AdSense UGC 审核透明度要求 */}
+      <section className="gd-card mt-8 p-6">
+        <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">
+          Editorial Review Process &amp; Guidelines
+        </h2>
+        <p className="mb-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
+          Submissions are not published automatically. Every submitted level enters a manual review
+          queue and is verified in-game within 3–5 business days before appearing in Level Finder or
+          our Demon Lists.
+        </p>
+        <ul className="space-y-2 text-sm text-[var(--color-text-muted)]">
+          <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> Must include a valid, playable Geometry Dash numeric Level ID.</li>
+          <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> Rated levels and well-known community progression picks are prioritized.</li>
+          <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> Spam, duplicate submissions, promotional links, or offensive content are rejected automatically.</li>
+        </ul>
+      </section>
     </div>
   );
 }

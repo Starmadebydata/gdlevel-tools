@@ -4,15 +4,16 @@ import Breadcrumb from "@/components/Breadcrumb";
 import PageHeroBanner from "@/components/PageHeroBanner";
 import SectionHeading from "@/components/SectionHeading";
 import { getPublishedLevels } from "@/lib/data/levels";
+import { DEMON_TIERS } from "@/lib/data/demon-tiers";
 import { generateSeo, breadcrumbSchema, itemListSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import { demonDifficultyColor, demonDifficultyLabel, lengthLabel, skillTagLabel } from "@/lib/ui";
 import type { DemonDifficulty } from "@/lib/types";
 
 export const metadata: Metadata = generateSeo({
-  title: "Demon List — Best Geometry Dash Demons by Difficulty Tier",
+  title: "GD Demon List — Best Demons by Tier",
   description:
-    "Browse Geometry Dash demons by difficulty tier: Easy Demon, Medium Demon, Hard Demon, Insane Demon, and Extreme Demon. Find your next demon challenge with reviews and tips.",
+    "Browse the Geometry Dash Demon List by tier: Easy, Medium, Hard, Insane, and Extreme Demons. Compare reviews, Level IDs, and mobile scores.",
   path: "/demon-list",
 });
 
@@ -63,6 +64,22 @@ export default function DemonListPage() {
         as="h1"
       />
       </PageHeroBanner>
+
+      {/* 独立细分榜单入口（强内链导流到 Easy/Medium/Hard/Insane/Mobile/Free 独立页） */}
+      <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        {DEMON_TIERS.map((t) => (
+          <Link
+            key={t.slug}
+            href={`/demon-list/${t.slug}`}
+            className="gd-card group flex flex-col justify-between p-4 transition-colors hover:border-[var(--color-primary)]"
+          >
+            <span className="text-sm font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)]">
+              {t.navLabel}
+            </span>
+            <span className="mt-1 text-xs text-[var(--color-text-dim)]">View dedicated list →</span>
+          </Link>
+        ))}
+      </div>
 
       {/* Pointercrate 提示 */}
       <div className="gd-card mb-8 flex items-start gap-4 p-5">
@@ -122,6 +139,8 @@ export default function DemonListPage() {
                       <img
                         src={`/images/levels/${level.slug}.jpg`}
                         alt={`${level.name} by ${level.creatorName} — gameplay thumbnail`}
+                        width={640}
+                        height={360}
                         loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />

@@ -18,6 +18,9 @@ export default function LevelFinderClient({ levels }: { levels: Level[] }) {
   const [mobileOnly, setMobileOnly] = useState(false);
   const [firstDemonOnly, setFirstDemonOnly] = useState(false);
   const [sortBy, setSortBy] = useState<"beginner" | "mobile" | "name">("beginner");
+  // 首屏 SSR 仅渲染 12 张卡片，避免 89 张卡片重复文本稀释 On-Page 关键词聚焦度
+  const PAGE_SIZE = 12;
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const filtered = useMemo(() => {
     let result = levels.filter((l) => l.status === "published");
@@ -221,11 +224,24 @@ export default function LevelFinderClient({ levels }: { levels: Level[] }) {
 
       {/* 结果列表 */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((level) => (
-            <LevelCard key={level.id} level={level} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {filtered.slice(0, visibleCount).map((level) => (
+              <LevelCard key={level.id} level={level} />
+            ))}
+          </div>
+          {visibleCount < filtered.length && (
+            <div className="mt-8 text-center">
+              <button
+                type="button"
+                onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+                className="gd-btn gd-btn-outline"
+              >
+                Show More Levels ({Math.min(visibleCount, filtered.length)} of {filtered.length})
+              </button>
+            </div>
+          )}
+        </>
       ) : (
         <div className="gd-card p-12 text-center">
           <p className="text-[var(--color-text-muted)]">No levels match your filters. Try adjusting them.</p>

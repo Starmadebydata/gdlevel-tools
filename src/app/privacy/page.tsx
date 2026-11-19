@@ -30,25 +30,29 @@ export default function PrivacyPage() {
 
       <div className="mb-2 h-1 w-12 rounded-full bg-[var(--color-primary)]" />
       <h1 className="mb-6 text-3xl font-black text-[var(--color-text)] gd-glow-text">Privacy Policy</h1>
-      <p className="mb-8 text-sm text-[var(--color-text-dim)]">Last updated: June 2026</p>
+      <p className="mb-8 text-sm text-[var(--color-text-dim)]">Last updated: November 2026</p>
 
       <div className="space-y-6 text-[var(--color-text-muted)]">
         <section>
-          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">1. Introduction</h2>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">1. Introduction &amp; General Audience Scope</h2>
           <p className="leading-relaxed">
-            GD Level Tools (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is a fan made website that provides tools and guides for
-            Geometry Dash players. This Privacy Policy explains how we collect, use, and protect your
-            information when you visit our website.
+            GD Level Tools (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is an independent fan-made website operating at
+            geometrydashlevel.com that provides level discovery tools, progression planners, trackers, and
+            guides for Geometry Dash players. This site is designed for a general audience and is not
+            directed to children under the age of 13 (or the equivalent minimum age of digital consent in
+            your jurisdiction). This Privacy Policy explains what information we collect, how we use it,
+            how cookies and third-party advertising operate, and what rights you have over your data.
           </p>
         </section>
 
         <section>
-          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">2. Information We Collect</h2>
-          <p className="mb-3 leading-relaxed">We collect the following types of information:</p>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">2. Information We Collect &amp; Retention</h2>
+          <p className="mb-3 leading-relaxed">We keep data collection minimal and transparent:</p>
           <ul className="space-y-2">
-            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> <span><strong className="text-[var(--color-text)]">Level submissions:</strong> When you submit a level, we collect the level name, ID, creator name, difficulty, and any optional contact information you provide.</span></li>
-            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> <span><strong className="text-[var(--color-text)]">Usage data:</strong> We may collect anonymized analytics data about how visitors use our site, such as page views and browser type.</span></li>
-            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> <span><strong className="text-[var(--color-text)]">Cookies:</strong> We may use cookies to improve user experience and serve relevant advertising.</span></li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> <span><strong className="text-[var(--color-text)]">Level submissions:</strong> When you use the Submit a Level form, we collect the level name, numeric Level ID, creator name, difficulty tier, skill tags, and any optional notes or contact email you choose to include. Submissions are reviewed manually; optional contact emails are retained only long enough to follow up on a submission (typically up to 90 days) and are never published publicly or sold.</span></li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> <span><strong className="text-[var(--color-text)]">Local browser storage:</strong> Interactive tools such as our Demon Tracker, Demon Roulette history, theme preference, and cookie consent choice save data locally in your browser&apos;s <code className="font-mono text-xs">localStorage</code>. This data never leaves your device unless you export it yourself.</span></li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> <span><strong className="text-[var(--color-text)]">Usage analytics:</strong> We use Google Analytics 4 with Google Consent Mode v2 to understand aggregate traffic, popular tools, and page performance (such as page views, tool interactions, country, and device type).</span></li>
+            <li className="flex gap-2"><span className="text-[var(--color-primary)]">•</span> <span><strong className="text-[var(--color-text)]">Cookies &amp; advertising identifiers:</strong> Used only according to your cookie consent selection as detailed below.</span></li>
           </ul>
         </section>
 
@@ -106,16 +110,30 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">7. Children&apos;s Privacy</h2>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">7. Children&apos;s Privacy (COPPA)</h2>
           <p className="leading-relaxed">
-            Our website is designed for a general audience. We do not knowingly collect personal information
-            from children under 13. If you believe we have collected information from a child under 13,
-            please contact us.
+            GD Level Tools is a general-audience gaming reference and utility site and is not directed to
+            children under 13. We do not knowingly collect personally identifiable information from children
+            under 13, we do not offer user accounts or public comment profiles, and we configure advertising
+            controls to respect non-personalized ad preferences where required. If you are a parent or
+            guardian and believe a child under 13 submitted personal information through our contact or
+            submission forms, please email us and we will delete it promptly.
           </p>
         </section>
 
         <section>
-          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">8. Changes to This Policy</h2>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">8. EEA, UK &amp; California Privacy Rights</h2>
+          <p className="leading-relaxed">
+            Visitors from the European Economic Area (EEA), the United Kingdom, Switzerland, and California
+            have the right to request access to, correction of, or deletion of any personal information we
+            hold (such as an email sent via our contact form), as well as the right to withdraw consent to
+            analytics or advertising cookies at any time. To exercise these rights, contact us at the email
+            below.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">9. Changes to This Policy</h2>
           <p className="leading-relaxed">
             We may update this Privacy Policy from time to time. Any changes will be posted on this page
             with an updated revision date.
@@ -123,7 +141,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">9. Contact Us</h2>
+          <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">10. Contact Us</h2>
           <p className="leading-relaxed">
             If you have questions about this Privacy Policy, please contact us at{" "}
             <span className="font-mono text-[var(--color-primary)]">contact@geometrydashlevel.com</span>.

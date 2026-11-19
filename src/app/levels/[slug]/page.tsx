@@ -8,6 +8,7 @@ import {
   getLevelBySlug,
   getLevelById,
 } from "@/lib/data/levels";
+import { getLevelDeepDive, isIndexedLevel } from "@/lib/data/level-guides";
 import { generateSeo, breadcrumbSchema, faqSchema, articleSchema, videoObjectSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 import {
@@ -33,11 +34,19 @@ export async function generateMetadata({
   const level = getLevelBySlug(slug);
   if (!level) return generateSeo({ title: "Level Not Found", noIndex: true });
 
-  const title = `${level.name} by ${level.creatorName} — ${level.demonDifficulty ? demonDifficultyLabel(level.demonDifficulty) : difficultyLabel(level.difficulty)}`;
+  const diffLabel = level.demonDifficulty
+    ? demonDifficultyLabel(level.demonDifficulty)
+    : difficultyLabel(level.difficulty);
+  // 控制 Title ≤ 43 字符（加上 " | GD Level Tools" 后 ≤ 60 字符，避免 SERP 截断）
+  const rawTitle = `${level.name} (${diffLabel}) — ID ${level.levelId}`;
+  const title = rawTitle.length <= 43 ? rawTitle : `${level.name} — ${diffLabel}`;
+  const indexed = isIndexedLevel(level.slug);
+
   return generateSeo({
     title,
-    description: level.review.slice(0, 160),
+    description: level.review.slice(0, 155),
     path: `/levels/${level.slug}`,
+    noIndexFollow: !indexed,
   });
 }
 
@@ -50,6 +59,9 @@ export default async function LevelDetailPage({
   const level = getLevelBySlug(slug);
 
   if (!level) notFound();
+
+  const deepDive = getLevelDeepDive(level);
+  const displayUpdatedAt = deepDive?.auditedAt ?? level.updatedAt;
 
   const demonColor = level.demonDifficulty
     ? demonDifficultyColor(level.demonDifficulty)
@@ -139,7 +151,7 @@ export default async function LevelDetailPage({
           title: level.name,
           description: level.review,
           url: `${siteConfig.domain}/levels/${level.slug}`,
-          updatedAt: level.updatedAt,
+          updatedAt: displayUpdatedAt,
         }))}}
       />
       <script
@@ -225,12 +237,12 @@ export default async function LevelDetailPage({
 
       {/* 评分卡片 */}
       <div className="gd-card mb-6 p-5">
-        <h2 className="mb-4 text-sm font-bold text-[var(--color-text)]">Scores</h2>
+        <h2 className="mb-4 text-sm font-bold text-[var(--color-text)]">Scores &amp; Rating Breakdown</h2>
         <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4">
-          <ScoreItem label="Mobile" score={level.mobileScore} />
-          <ScoreItem label="Beginner" score={level.beginnerScore} />
-          <ScoreItem label="Visual" score={level.visualClarityScore} />
-          <ScoreItem label="Frustration" score={6 - level.frustrationScore} invert label2="Forgiving" />
+          <ScoreItem label="Mobile" score={level.mobileScore} note={deepDive?.scoreRationales.mobile} />
+          <ScoreItem label="Beginner" score={level.beginnerScore} note={deepDive?.scoreRationales.beginner} />
+          <ScoreItem label="Visual" score={level.visualClarityScore} note={deepDive?.scoreRationales.visual} />
+          <ScoreItem label="Frustration" score={6 - level.frustrationScore} invert label2="Forgiving" note={deepDive?.scoreRationales.forgiving} />
         </div>
       </div>
 
@@ -242,7 +254,8 @@ export default async function LevelDetailPage({
           <FactItem label="Creator" value={level.creatorName} />
           <FactItem label="Difficulty" value={difficultyText} />
           <FactItem label="Length" value={lengthLabel(level.length)} />
-          <FactItem label="Last updated" value={level.updatedAt} mono />
+          {deepDive && <FactItem label="Typical Attempts" value={deepDive.attemptEstimate} />}
+          <FactItem label="Last audited" value={displayUpdatedAt} mono />
         </dl>
       </div>
 
@@ -251,6 +264,45 @@ export default async function LevelDetailPage({
         <h2 className="mb-3 text-lg font-bold text-[var(--color-text)]">Review</h2>
         <p className="leading-relaxed text-[var(--color-text-muted)]">{level.review}</p>
       </div>
+
+      {/* 深度通关攻略（仅 28 个精选收录关卡展示，提升至 850-1050 词深度） */}
+      {deepDive && (
+        <div className="mb-6 space-y-6">
+          <div className="gd-card p-6">
+            <h2 className="mb-4 text-lg font-bold text-[var(--color-text)]">
+              Section-by-Section Walkthrough ({level.name})
+            </h2>
+            <div className="space-y-4">
+              {deepDive.sectionWalkthrough.map((sec) => (
+                <div key={sec.range} className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-4">
+                  <div className="mb-1.5 flex flex-wrap items-center gap-2">
+                    <span className="rounded bg-[var(--color-primary)]/15 px-2 py-0.5 font-mono text-xs font-bold text-[var(--color-primary)]">
+                      {sec.range}
+                    </span>
+                    <h3 className="text-sm font-bold text-[var(--color-text)]">{sec.gamemode}</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{sec.notes}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="gd-card p-5">
+              <h2 className="mb-2 text-sm font-bold text-[var(--color-primary)]">Practice Mode Strategy</h2>
+              <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{deepDive.practicePlan}</p>
+            </div>
+            <div className="gd-card p-5">
+              <h2 className="mb-2 text-sm font-bold text-[var(--color-secondary)]">PC vs. Mobile Notes</h2>
+              <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{deepDive.deviceNotes}</p>
+            </div>
+            <div className="gd-card p-5">
+              <h2 className="mb-2 text-sm font-bold text-[var(--color-accent)]">Peer Comparison</h2>
+              <p className="text-sm leading-relaxed text-[var(--color-text-muted)]">{deepDive.peerComparison}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 技能标签 */}
       <div className="gd-card mb-6 p-5">
@@ -359,18 +411,32 @@ function FactItem({ label, value, mono }: { label: string; value: string; mono?:
   );
 }
 
-function ScoreItem({ label, score, label2 }: { label: string; score: number; invert?: boolean; label2?: string }) {
+function ScoreItem({
+  label,
+  score,
+  label2,
+  note,
+}: {
+  label: string;
+  score: number;
+  invert?: boolean;
+  label2?: string;
+  note?: string;
+}) {
   const color = scoreColor(score);
   const pct = Math.min((score / 5) * 100, 100);
   return (
     <div>
       <div className="mb-1.5 flex items-center justify-between">
         <span className="text-xs text-[var(--color-text-dim)]">{label2 || label}</span>
-        <span className="text-xs font-mono font-semibold" style={{ color }}>{scoreLabel(score)}</span>
+        <span className="text-xs font-mono font-semibold" style={{ color }}>
+          {score}/5 · {scoreLabel(score)}
+        </span>
       </div>
       <div className="gd-score-bar">
         <div className="gd-score-fill" style={{ width: `${pct}%`, background: color }} />
       </div>
+      {note && <p className="mt-2 text-xs leading-relaxed text-[var(--color-text-muted)]">{note}</p>}
     </div>
   );
 }

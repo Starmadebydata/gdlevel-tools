@@ -248,7 +248,7 @@ function ProgressionRecCard({
           className="relative aspect-video w-full shrink-0 overflow-hidden bg-[var(--color-bg-soft)] sm:aspect-auto sm:h-auto sm:w-36"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={thumbSrc} alt="" className="h-full w-full object-cover" />
+          <img src={thumbSrc} alt={`${level.name} by ${level.creatorName} thumbnail`} width={320} height={180} className="h-full w-full object-cover" />
         </Link>
 
         <div className="flex min-w-0 flex-1 flex-col gap-2 p-4">

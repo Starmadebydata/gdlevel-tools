@@ -17,7 +17,7 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setMobileOpen(false)}>
-          <div className="relative flex h-9 w-9 items-center justify-center">
+          <div className="relative flex h-9 w-9 items-center justify-center" aria-hidden="true">
             {/* 几何方块 Logo */}
             <div className="absolute inset-0 rotate-45 rounded-md border-2 border-[var(--color-primary)] transition-transform group-hover:rotate-[135deg] duration-500" />
             <div className="absolute inset-1.5 rotate-45 rounded-sm bg-[var(--color-primary)]/20" />

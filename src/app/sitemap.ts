@@ -1,29 +1,32 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { getPublishedLevels } from "@/lib/data/levels";
+import { isIndexedLevel, getLevelDeepDive } from "@/lib/data/level-guides";
+import { DEMON_TIERS } from "@/lib/data/demon-tiers";
 import { getGuides } from "@/lib/data/guides";
 
 /**
  * 动态 sitemap
- * 包含所有静态页面 + 关卡详情 + 指南详情
+ * 包含所有核心工具页、独立分难度榜单页、28 个深度评测关卡页 + 指南详情页
  *
  * URL 统一为非尾斜杠形式（与线上 308 重定向的 200 终点一致，首页根路径除外）。
+ * 其余 61 个薄模板关卡页设为 noindex, follow 且不进 sitemap，以保护整站 Google 质量分与 AdSense 审核。
  */
 
-// lastmod 手动维护：页面内容实际修改时更新对应日期。
-// 不要用 new Date() —— 每次构建/请求都变，搜索引擎会视为无效或操纵信号。
-const CONTENT_UPDATED_AT = "2026-07-21"; // 首页及工具/指南列表页最近内容更新日期
-const LEGAL_UPDATED_AT = "2026-06-30"; // 法律与信息页（about/contact/privacy/terms/dmca）最近内容更新日期
-const SUBMIT_UPDATED_AT = "2026-06-30"; // 提交页最近内容更新日期
+const CONTENT_UPDATED_AT = "2026-11-19";
+const LEGAL_UPDATED_AT = "2026-11-19";
+const SUBMIT_UPDATED_AT = "2026-11-19";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // 静态页面
+  // 核心静态页面与工具页
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${siteConfig.domain}/`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "daily", priority: 1.0 },
     { url: `${siteConfig.domain}/level-finder`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "daily", priority: 0.9 },
     { url: `${siteConfig.domain}/demon-list`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteConfig.domain}/demon-progression`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteConfig.domain}/demon-roulette`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${siteConfig.domain}/demon-tracker`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.domain}/first-demon-picker`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${siteConfig.domain}/demon-progression`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.domain}/vault-codes`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "weekly", priority: 0.9 },
     { url: `${siteConfig.domain}/guides`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "weekly", priority: 0.8 },
     { url: `${siteConfig.domain}/fix`, lastModified: CONTENT_UPDATED_AT, changeFrequency: "weekly", priority: 0.8 },
@@ -36,13 +39,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteConfig.domain}/dmca`, lastModified: LEGAL_UPDATED_AT, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  // 关卡详情页（lastmod 用数据里的真实 updatedAt）
-  const levelPages: MetadataRoute.Sitemap = getPublishedLevels().map((level) => ({
-    url: `${siteConfig.domain}/levels/${level.slug}`,
-    lastModified: new Date(level.updatedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
+  // 独立 Demon Tier 榜单页（P1 高意图蓝海词）
+  const tierPages: MetadataRoute.Sitemap = DEMON_TIERS.map((t) => ({
+    url: `${siteConfig.domain}/demon-list/${t.slug}`,
+    lastModified: CONTENT_UPDATED_AT,
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
   }));
+
+  // 仅收录 28 个已深度扩写评测的高价值关卡页
+  const levelPages: MetadataRoute.Sitemap = getPublishedLevels()
+    .filter((level) => isIndexedLevel(level.slug))
+    .map((level) => {
+      const deep = getLevelDeepDive(level);
+      return {
+        url: `${siteConfig.domain}/levels/${level.slug}`,
+        lastModified: new Date(deep?.auditedAt ?? level.updatedAt),
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      };
+    });
 
   // 指南详情页（lastmod 用数据里的真实 updatedAt）
   const guidePages: MetadataRoute.Sitemap = getGuides().map((guide) => {
@@ -55,5 +71,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticPages, ...levelPages, ...guidePages];
+  return [...staticPages, ...tierPages, ...levelPages, ...guidePages];
 }

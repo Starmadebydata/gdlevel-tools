@@ -199,6 +199,8 @@ export default function FirstDemonPickerClient() {
                     <img
                       src={`/images/levels/${rec.level.slug}.jpg`}
                       alt={`${rec.level.name} by ${rec.level.creatorName} — gameplay thumbnail`}
+                      width={640}
+                      height={360}
                       loading="lazy"
                       className="h-full w-full object-cover"
                     />

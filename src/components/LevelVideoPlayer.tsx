@@ -76,6 +76,8 @@ export default function LevelVideoPlayer({
         <img
           src={thumbSrc}
           alt={alt}
+          width={1280}
+          height={720}
           onError={handleThumbError}
           className={`h-full w-full object-cover ${youtubeId ? "transition-transform duration-500 group-hover:scale-105" : ""}`}
         />
