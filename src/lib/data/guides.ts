@@ -67,7 +67,7 @@ export const guides: Guide[] = [
         answer: "No. Geometry Dash has no microtransactions. All diamonds must be earned through gameplay.",
       },
     ],
-    relatedGuideSlugs: ["gold-keys", "demon-keys", "user-coins", "master-emblem"],
+    relatedGuideSlugs: ["music-unlocker", "gold-keys", "demon-keys", "user-coins", "master-emblem"],
     updatedAt: "2026-06-30",
   },
   {
@@ -1067,7 +1067,7 @@ export const guides: Guide[] = [
         answer: "30 to 45 minutes of focused practice, then a 10 to 15 minute break. Playing for 3 hours straight produces diminishing returns. Your brain consolidates muscle memory during rest, so breaks and sleep are when improvement actually happens.",
       },
     ],
-    relatedGuideSlugs: ["unlock-all-icons", "get-stars-fast", "tps-explained", "fps-unlock-guide", "diamonds"],
+    relatedGuideSlugs: ["music-unlocker", "unlock-all-icons", "get-stars-fast", "tps-explained", "fps-unlock-guide", "diamonds"],
     updatedAt: "2026-07-03",
   },
 
@@ -1520,6 +1520,125 @@ export const guides: Guide[] = [
     ],
     relatedGuideSlugs: ["gd-2-2-update", "unlock-all-icons", "get-stars-fast", "practice-mode-guide", "tps-explained"],
     updatedAt: "2026-07-03",
+  },
+  {
+    id: "guide-music-unlocker",
+    title: "How to Get Music Unlocker & Practice Music Sync in Geometry Dash",
+    slug: "music-unlocker",
+    category: "rewards",
+    targetKeyword: "how to get music unlocker in geometry dash",
+    summary:
+      "Unlock Practice Music Sync in Geometry Dash by opening the Diamond Shop in the Treasure Room (1,000 diamonds) and buying the Music Unlocker for 2,000 Diamond Shards.",
+    body: [
+      {
+        heading: "Quick Answer",
+        content:
+          "To get the Music Unlocker in Geometry Dash (Update 2.2+), collect 5 Demon Keys to enter the Treasure Room, reach 1,000 total Diamonds to unlock the Diamond Shop, and buy the Music Unlocker for 2,000 Diamond Shards (originally 5,000 at 2.2 launch, reduced to 2,000 in 2.201+). Once purchased, open any level's pause menu, tap the settings gear icon, and turn on Practice Music Sync to hear the real level song in Practice Mode.",
+      },
+      {
+        heading: "Step-by-Step: How to Unlock and Buy the Music Unlocker",
+        content:
+          "Follow these five steps to unlock the Diamond Shop and enable real level music in Practice Mode:",
+        steps: [
+          {
+            title: "1. Enter the Treasure Room (5 Demon Keys)",
+            detail:
+              "Open the online levels menu (the hammer and wrench icon), tap the blue Treasure Room door on the bottom right, and unlock it once you have earned 5 Demon Keys.",
+          },
+          {
+            title: "2. Reach 1,000 Total Diamonds",
+            detail:
+              "You need at least 1,000 lifetime Diamonds on your profile to open the Diamond Shop. You do not spend these Diamonds to unlock the door — it is a milestone check.",
+          },
+          {
+            title: "3. Open the Diamond Shop",
+            detail:
+              "Inside the Treasure Room, swipe right until you see the hanging ropes and pull the Diamond Shop rope (the fourth rope). The shopkeeper will let you in once you have 1,000 Diamonds.",
+          },
+          {
+            title: "4. Buy the Music Unlocker for 2,000 Diamond Shards",
+            detail:
+              "Find the Music Unlocker item in the Diamond Shop and purchase it for 2,000 Diamond Shards. Spending Diamond Shards does NOT lower the total Diamond count displayed on your profile.",
+          },
+          {
+            title: "5. Enable Practice Music Sync",
+            detail:
+              "Start any level in Practice Mode, pause the game, tap the gear icon in the top-right corner, and check the box next to Practice Music Sync. From now on, Practice Mode will play the level's actual song synced to your current checkpoint.",
+          },
+        ],
+      },
+      {
+        heading: "Diamonds vs. Diamond Shards: Will Buying It Erase My Diamonds?",
+        content:
+          "No. This is the most common source of confusion in Update 2.2. Every time you earn a Diamond, you also receive a Diamond Shard. Your profile displays your lifetime Diamonds (which never decrease and are used for milestone unlocks like the Vault of Secrets and Diamond Shop), while Diamond Shards are the spendable currency inside the Diamond Shop. Buying the Music Unlocker subtracts 2,000 Diamond Shards, leaving your lifetime Diamond count untouched.",
+      },
+      {
+        heading: "Music Unlocker vs. Music Customizer (Don't Mix Them Up)",
+        content:
+          "Geometry Dash 2.2 introduced two separate music items that players frequently confuse. The Music Unlocker (2,000 Diamond Shards in the Diamond Shop) enables Practice Music Sync so every level plays its own song during Practice Mode. The Music Customizer (sold in the Mechanic's Shop for 100,000 Mana Orbs) lets you replace the default Main Menu theme and default Practice Mode track with any downloaded song. If your goal is beating demons with real audio sync in Practice Mode, buy the Music Unlocker first.",
+      },
+      {
+        heading: "Fastest Way to Farm 2,000 Diamond Shards",
+        content:
+          "If you are short on Diamond Shards, combine these daily and milestone sources to reach 2,000 quickly:",
+        steps: [
+          {
+            title: "Daily Quests (Best Daily Routine)",
+            detail:
+              "Complete all three quests every day. They refresh quickly and give steady Diamonds and Diamond Shards with minimal effort.",
+          },
+          {
+            title: "Daily Level & Weekly Demon",
+            detail:
+              "The Daily Level gives bonus Diamonds equal to its star rating plus 2, and the Weekly Demon gives an even larger payout plus a reward chest.",
+          },
+          {
+            title: "Treasure Room 5x and 10x Chests",
+            detail:
+              "Save your Demon Keys for 5-key and 10-key chests whenever possible — they drop significantly more Diamonds and Shards per key than 1-key chests.",
+          },
+          {
+            title: "Gauntlets & Rated User Levels",
+            detail:
+              "Completing Gauntlets awards chunk bonuses of Diamonds and Shards, and every rated online level you beat grants Diamonds equal to its star rating plus 2.",
+          },
+        ],
+      },
+      {
+        heading: "Why Practice Music Sync Matters for Beating Demons",
+        content:
+          "By default, Practice Mode loops 'Stay Inside Me' regardless of which level you are playing. That breaks rhythm-based muscle memory, especially in sync-heavy Easy, Medium, and Hard Demons where clicks line up with drum hits or melody drops. With Practice Music Sync enabled, every checkpoint plays the exact bar of the real song, so your practice runs translate directly into Normal Mode consistency. Note: if a level uses complex 2.2 speed or song-offset triggers, occasionally placing a fresh checkpoint just before a transition keeps audio sync tight.",
+      },
+    ],
+    faq: [
+      {
+        question: "How much does the Music Unlocker cost in Geometry Dash?",
+        answer:
+          "The Music Unlocker costs 2,000 Diamond Shards in the Diamond Shop. When Update 2.2 first launched it cost 5,000, but RobTop permanently reduced the price to 2,000 in Update 2.201.",
+      },
+      {
+        question: "Where is the Diamond Shop in Geometry Dash?",
+        answer:
+          "The Diamond Shop is inside the Treasure Room (accessible from the bottom-right blue door on the online levels screen once you have 5 Demon Keys). Swipe right to the hanging ropes and pull the Diamond Shop rope after collecting at least 1,000 total Diamonds.",
+      },
+      {
+        question: "Does buying the Music Unlocker take away my profile Diamonds?",
+        answer:
+          "No. It spends 2,000 Diamond Shards, which is a separate spendable currency earned alongside Diamonds. Your total Diamonds on your profile and milestone unlocks stay intact.",
+      },
+      {
+        question: "How do I turn on Practice Music Sync after buying the Music Unlocker?",
+        answer:
+          "Enter any level in Practice Mode, pause the game, tap the Settings (gear) icon in the top-right corner, and toggle 'Practice Music Sync' on. It will stay enabled across all levels until you turn it off.",
+      },
+      {
+        question: "Can I get Practice Music Sync for free without 2,000 Diamond Shards?",
+        answer:
+          "In the vanilla game, you must buy the Music Unlocker in the Diamond Shop. On PC or Android with Geode installed, some mod menus include a Practice Music Hack, though unlocking it legitimately through daily quests, chests, and gauntlets works on every platform including iOS.",
+      },
+    ],
+    relatedGuideSlugs: ["diamonds", "practice-mode-guide", "demon-keys", "gd-2-2-update", "best-easy-demons"],
+    updatedAt: "2026-11-25",
   },
 ];
 
